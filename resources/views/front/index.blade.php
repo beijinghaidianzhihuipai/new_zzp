@@ -9,16 +9,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/front/shouye.css') }}">
 
         <!-- Styles -->
-    <style>
-        body{margin:0 auto;}
-        .tou{width:960px; height:200px; border:1px solid black; float:left;}
-        .shen{width:960px; height:450px; border:1px solid green; float:left;}
-        .footer{width:960px; height:200px; border:1px solid red; float:left;}
 
-
-    </style>
     </head>
     <body>
     <div class="tou"></div>
