@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
 
     public function index(){
-        echo 123;
+       return view('front.index');
     }
 
     public function indexa(){

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/index','IndexController@index' );
+Route::get('/index','Front\IndexController@index' );
 
 Route::get('/','IndexController@indexa' );
 
