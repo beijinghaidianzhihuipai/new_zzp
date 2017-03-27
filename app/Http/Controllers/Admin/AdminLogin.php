@@ -7,5 +7,7 @@ use App\Http\Controllers\Controller;
 
 class AdminLogin extends Controller
 {
-    //
+   public function index(){
+       echo 8989;die;
+   }
 }
