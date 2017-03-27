@@ -10,9 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/','Front\IndexController@indexa' );
 
 Route::get('/index','Front\IndexController@index' );
 
-Route::get('/','IndexController@indexa' );
+
 
 
