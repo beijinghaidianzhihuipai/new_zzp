@@ -13,6 +13,8 @@
 
 Route::get('/index','Front\IndexController@index' );
 
-Route::get('/','IndexController@indexa' );
+Route::get('/','Front\IndexController@index' );
+
+Route::get('/admin','Admin\AdminController@index' );
 
 
