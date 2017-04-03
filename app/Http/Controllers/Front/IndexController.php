@@ -15,5 +15,8 @@ class IndexController extends Controller
     public function indexa(){
         echo '郭威';
     }
+    public function indexb(){
+        echo'松豪';
+    }
 
 }

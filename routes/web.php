@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/indexc','Front\SonghaoController@indexc' );
+
+Route::get('/indexb','Front\IndexController@indexb' );
+
 Route::get('/indexa','Front\IndexController@indexa' );
 
 Route::get('/','Front\IndexController@index' );
