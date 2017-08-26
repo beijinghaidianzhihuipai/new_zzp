@@ -4,8 +4,13 @@ class sendMSG{
     static public function baseInfo($title,$url){
 
         $apikey = "54cae413bd079b5fc80e601f70add178"; //修改为您的apikey(https://www.yunpian.com)登录官网后获取
-        $mobile = "18600681925"; //请用自己的手机号代替
-        $mobile_array = array("18600681925","13602069161","13904343290","18610713978","13621120036");
+        $mobile_array = array(
+            "18600681925",
+          //  "13602069161",
+          //  "13904343290",
+          //  "18500329188",
+          //  "13621120036"
+        );
 
         $ch = curl_init();
         /* 设置验证方式 */
