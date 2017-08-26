@@ -1,1 +1,4 @@
 /nbproject/private/
+.env
+.env.example
+storage/logs/
