@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
-    <link href="style/3.css" rel="stylesheet" type="text/css"  />
+    <link href="{{URL::asset('/css/admin/admin.css') }}" rel="stylesheet" type="text/css"  />
 </head>
 <body>
 <div id="tou">

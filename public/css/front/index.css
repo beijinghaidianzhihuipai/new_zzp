@@ -7,17 +7,17 @@ width:1200px;
 height:800px;
 border:1px solid blue;
 }
+.white,.white a:link,.white a:hover,.white a:visited{ color:#fff;}
 
-ul,ol {
+ul,
+ol {
   list-style: none;
 }
-a:link, a:hover, .white a:visited {
-    color: #000000;
+ a:link, a:hover, .white a:visited {
+    color: #fff;
 
 }
-
 a{text-decoration:none}
-
 #tou{
 width:1200px;
 height:100px;
@@ -70,39 +70,14 @@ color: #fff;
 .bankuana{
 margin-top:20px;
 width:1200px;
-height:510px;
+height:240px;
 border:1px solid blue;}
 
-
-.zuobian{
-width:400px;
-height:500px;
-border:1px solid blue;
-float:left;
-}
-
-.zuobian ul li{
-margin-top:20px;
-line-height:20px;
-}
-
-.youbian{
-width:680px;
-height:500px;
-border:1px solid blue;
-float:right;
-margin-right:50px;
-
-}
-.white,.white a:link,.white a:hover,.white a:visited{ color:#fff;}
-
-
-
-
-
-
-
-
+.bankuanb{
+margin-top:30px;
+width:1200px;
+height:240px;
+border:1px solid blue;}
 
 
 #footer{

@@ -14,8 +14,15 @@ class IndexController extends Controller
       return view('front.index', $data);
     }
 
-    public function indexb(){
-        echo'松豪';
+    public function user(){
+      $data=array();
+        return view('user.user',$data);
     }
+
+    public function admin(){
+        $data=array();
+        return view('admin.admin',$data);
+    }
+
 
 }
