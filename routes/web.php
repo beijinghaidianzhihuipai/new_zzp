@@ -13,12 +13,8 @@
 
 Route::get('/indexc','Front\SonghaoController@aaa' );
 
-Route::get('/indexb','Front\IndexController@indexb' );
+Route::get('/','Front\IndexController@index' );
 
-Route::get('/indexa','Front\IndexController@indexa' );
 
-Route::get('/','Front\IndexController@front' );
-
-Route::get('/admin','Admin\AdminController@front' );
 
 

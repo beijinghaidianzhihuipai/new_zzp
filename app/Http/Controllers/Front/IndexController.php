@@ -7,15 +7,13 @@ class IndexController extends Controller
 {
 
     public function index(){
-echo 7878;die;
+
        // $rel = DB::table('tt')->select('*')->get(); print_r($rel);die;
        // $rel = Tt::find(1); print_r($rel);die;
-       return view('front.front');
+       $data = array('高松豪');
+      return view('front.index', $data);
     }
 
-    public function indexa(){
-        echo '郭威';
-    }
     public function indexb(){
         echo'松豪';
     }
