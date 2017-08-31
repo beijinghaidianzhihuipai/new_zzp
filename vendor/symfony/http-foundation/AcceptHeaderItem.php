@@ -147,7 +147,7 @@ class AcceptHeaderItem
     }
 
     /**
-     * Set the item index.
+     * Set the item front.
      *
      * @param int $index
      *
@@ -161,7 +161,7 @@ class AcceptHeaderItem
     }
 
     /**
-     * Returns the item index.
+     * Returns the item front.
      *
      * @return int
      */

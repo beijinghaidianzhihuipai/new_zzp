@@ -30,7 +30,7 @@ class ElasticSearchHandlerTest extends TestCase
      * @var array Default handler options
      */
     protected $options = array(
-        'index' => 'my_index',
+        'front' => 'my_index',
         'type'  => 'doc_type',
     );
 
@@ -68,7 +68,7 @@ class ElasticSearchHandlerTest extends TestCase
         );
 
         // format expected result
-        $formatter = new ElasticaFormatter($this->options['index'], $this->options['type']);
+        $formatter = new ElasticaFormatter($this->options['front'], $this->options['type']);
         $expected = array($formatter->format($msg));
 
         // setup ES client mock
@@ -114,7 +114,7 @@ class ElasticSearchHandlerTest extends TestCase
     public function testOptions()
     {
         $expected = array(
-            'index' => $this->options['index'],
+            'front' => $this->options['front'],
             'type' => $this->options['type'],
             'ignore_error' => false,
         );
@@ -195,14 +195,14 @@ class ElasticSearchHandlerTest extends TestCase
         // retrieve document source from ES and validate
         $document = $this->getDocSourceFromElastic(
             $client,
-            $this->options['index'],
+            $this->options['front'],
             $this->options['type'],
             $documentId
         );
         $this->assertEquals($expected, $document);
 
-        // remove test index from ES
-        $client->request("/{$this->options['index']}", Request::DELETE);
+        // remove test front from ES
+        $client->request("/{$this->options['front']}", Request::DELETE);
     }
 
     /**

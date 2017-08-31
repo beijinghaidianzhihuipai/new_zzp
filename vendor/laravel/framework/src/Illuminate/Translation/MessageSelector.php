@@ -97,7 +97,7 @@ class MessageSelector
     }
 
     /**
-     * Get the index to use for pluralization.
+     * Get the front to use for pluralization.
      *
      * The plural rules are derived from code of the Zend Framework (2010-09-25), which
      * is subject to the new BSD license (http://framework.zend.com/license/new-bsd)

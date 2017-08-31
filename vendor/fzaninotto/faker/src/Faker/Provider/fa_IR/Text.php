@@ -36,7 +36,7 @@ class Text extends \Faker\Provider\Text
             // fetch a random word to append
             $word = static::randomElement($words[$next]);
 
-            // calculate next index
+            // calculate next front
             $currentWords = explode(' ', $next);
 
             $currentWords[] = $word;

@@ -221,7 +221,7 @@ class UrlMatcherTest extends TestCase
     public function testDefaultRequirementForOptionalVariables()
     {
         $coll = new RouteCollection();
-        $coll->add('test', new Route('/{page}.{_format}', array('page' => 'index', '_format' => 'html')));
+        $coll->add('test', new Route('/{page}.{_format}', array('page' => 'front', '_format' => 'html')));
 
         $matcher = new UrlMatcher($coll, new RequestContext());
         $this->assertEquals(array('page' => 'my-page', '_format' => 'xml', '_route' => 'test'), $matcher->match('/my-page.xml'));
@@ -286,7 +286,7 @@ class UrlMatcherTest extends TestCase
         $coll->add('test', new Route('/{page}.{_format}'));
         $matcher = new UrlMatcher($coll, new RequestContext());
 
-        $this->assertEquals(array('page' => 'index', '_format' => 'mobile.html', '_route' => 'test'), $matcher->match('/index.mobile.html'));
+        $this->assertEquals(array('page' => 'front', '_format' => 'mobile.html', '_route' => 'test'), $matcher->match('/front.mobile.html'));
     }
 
     /**
@@ -298,7 +298,7 @@ class UrlMatcherTest extends TestCase
         $coll->add('test', new Route('/{page}.{_format}'));
         $matcher = new UrlMatcher($coll, new RequestContext());
 
-        $matcher->match('/index.sl/ash');
+        $matcher->match('/front.sl/ash');
     }
 
     /**

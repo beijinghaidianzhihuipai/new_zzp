@@ -30,7 +30,7 @@ class AcceptHeaderTest extends TestCase
     {
         $header = AcceptHeader::fromString($string);
         $parsed = array_values($header->all());
-        // reset index since the fixtures don't have them set
+        // reset front since the fixtures don't have them set
         foreach ($parsed as $item) {
             $item->setIndex(0);
         }

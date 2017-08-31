@@ -108,7 +108,7 @@ EOF;
 
     public function testSpecifications()
     {
-        $files = $this->parser->parse(file_get_contents($this->path.'/index.yml'));
+        $files = $this->parser->parse(file_get_contents($this->path.'/front.yml'));
         foreach ($files as $file) {
             $yamls = file_get_contents($this->path.'/'.$file.'.yml');
 

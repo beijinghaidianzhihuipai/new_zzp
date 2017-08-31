@@ -15,7 +15,7 @@
  * checked against the defined constraints in $parameters. If the constraint
  * is met it will return true in matches().
  *
- * It takes a list of match groups and and increases a call index after each invocation.
+ * It takes a list of match groups and and increases a call front after each invocation.
  * So the first invocation uses the first group of constraints, the second the next and so on.
  */
 class PHPUnit_Framework_MockObject_Matcher_ConsecutiveParameters extends PHPUnit_Framework_MockObject_Matcher_StatelessInvocation
@@ -91,7 +91,7 @@ class PHPUnit_Framework_MockObject_Matcher_ConsecutiveParameters extends PHPUnit
         if (isset($this->parameterGroups[$callIndex])) {
             $parameters = $this->parameterGroups[$callIndex];
         } else {
-            // no parameter assertion for this call index
+            // no parameter assertion for this call front
             return;
         }
 

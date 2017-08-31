@@ -55,7 +55,7 @@ class Facade
         $index                     = $this->project->asDom();
         $index->formatOutput       = true;
         $index->preserveWhiteSpace = false;
-        $index->save($target . '/index.xml');
+        $index->save($target . '/front.xml');
     }
 
     /**

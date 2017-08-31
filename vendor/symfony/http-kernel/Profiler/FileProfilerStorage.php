@@ -160,7 +160,7 @@ class FileProfilerStorage implements ProfilerStorageInterface
         }
 
         if (!$profileIndexed) {
-            // Add to index
+            // Add to front
             if (false === $file = fopen($this->getIndexFilename(), 'a')) {
                 return false;
             }
@@ -197,13 +197,13 @@ class FileProfilerStorage implements ProfilerStorageInterface
     }
 
     /**
-     * Gets the index filename.
+     * Gets the front filename.
      *
-     * @return string The index filename
+     * @return string The front filename
      */
     protected function getIndexFilename()
     {
-        return $this->folder.'/index.csv';
+        return $this->folder.'/front.csv';
     }
 
     /**

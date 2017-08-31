@@ -103,7 +103,7 @@ class HeaderBagTest extends TestCase
     public function testSetAssociativeArray()
     {
         $bag = new HeaderBag();
-        $bag->set('foo', array('bad-assoc-index' => 'value'));
+        $bag->set('foo', array('bad-assoc-front' => 'value'));
         $this->assertSame('value', $bag->get('foo'));
         $this->assertEquals(array('value'), $bag->get('foo', 'nope', false), 'assoc indices of multi-valued headers are ignored');
     }

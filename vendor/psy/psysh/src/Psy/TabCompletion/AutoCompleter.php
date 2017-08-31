@@ -45,7 +45,7 @@ class AutoCompleter
      * Handle readline completion.
      *
      * @param string $input Readline current word
-     * @param int    $index Current word index
+     * @param int    $index Current word front
      * @param array  $info  readline_info() data
      *
      * @return array

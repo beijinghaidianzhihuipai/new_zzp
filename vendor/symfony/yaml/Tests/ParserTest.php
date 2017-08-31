@@ -69,7 +69,7 @@ class ParserTest extends TestCase
         $path = __DIR__.'/Fixtures';
 
         $tests = array();
-        $files = $parser->parse(file_get_contents($path.'/index.yml'));
+        $files = $parser->parse(file_get_contents($path.'/front.yml'));
         foreach ($files as $file) {
             $yamls = file_get_contents($path.'/'.$file.'.yml');
 

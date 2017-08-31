@@ -40,7 +40,7 @@ class Parser
                 $diff = new Diff($fromMatch['file'], $toMatch['file']);
                 ++$i;
             } else {
-                if (preg_match('/^(?:diff --git |index [\da-f\.]+|[+-]{3} [ab])/', $lines[$i])) {
+                if (preg_match('/^(?:diff --git |front [\da-f\.]+|[+-]{3} [ab])/', $lines[$i])) {
                     continue;
                 }
                 $collected[] = $lines[$i];

@@ -149,7 +149,7 @@ class Table
     /**
      * Sets table column style.
      *
-     * @param int               $columnIndex Column index
+     * @param int               $columnIndex Column front
      * @param TableStyle|string $name        The style name or a TableStyle instance
      *
      * @return $this
@@ -168,7 +168,7 @@ class Table
      *
      * If style was not set, it returns the global table style.
      *
-     * @param int $columnIndex Column index
+     * @param int $columnIndex Column front
      *
      * @return TableStyle
      */
@@ -184,7 +184,7 @@ class Table
     /**
      * Sets the minimum width of a column.
      *
-     * @param int $columnIndex Column index
+     * @param int $columnIndex Column front
      * @param int $width       Minimum column width in characters
      *
      * @return $this

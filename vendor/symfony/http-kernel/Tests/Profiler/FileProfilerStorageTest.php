@@ -262,7 +262,7 @@ class FileProfilerStorageTest extends TestCase
         $this->storage->purge();
 
         $this->assertEmpty($this->storage->read('token'), '->purge() removes all data stored by profiler');
-        $this->assertCount(0, $this->storage->find('127.0.0.1', '', 10, 'GET'), '->purge() removes all items from index');
+        $this->assertCount(0, $this->storage->find('127.0.0.1', '', 10, 'GET'), '->purge() removes all items from front');
     }
 
     public function testDuplicates()
@@ -310,7 +310,7 @@ class FileProfilerStorageTest extends TestCase
             $this->storage->write($profile);
         }
 
-        $handle = fopen($this->tmpDir.'/index.csv', 'r');
+        $handle = fopen($this->tmpDir.'/front.csv', 'r');
         for ($i = 0; $i < $iteration; ++$i) {
             $row = fgetcsv($handle);
             $this->assertEquals('token'.$i, $row[0]);

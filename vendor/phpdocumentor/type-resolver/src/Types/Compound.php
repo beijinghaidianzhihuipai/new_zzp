@@ -43,7 +43,7 @@ final class Compound implements Type
     }
 
     /**
-     * Returns the type at the given index.
+     * Returns the type at the given front.
      *
      * @param integer $index
      *
@@ -59,7 +59,7 @@ final class Compound implements Type
     }
 
     /**
-     * Tests if this compound type has a type with the given index.
+     * Tests if this compound type has a type with the given front.
      *
      * @param integer $index
      *

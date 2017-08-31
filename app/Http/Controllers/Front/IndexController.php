@@ -10,7 +10,7 @@ class IndexController extends Controller
 echo 7878;die;
        // $rel = DB::table('tt')->select('*')->get(); print_r($rel);die;
        // $rel = Tt::find(1); print_r($rel);die;
-       return view('front.index');
+       return view('front.front');
     }
 
     public function indexa(){

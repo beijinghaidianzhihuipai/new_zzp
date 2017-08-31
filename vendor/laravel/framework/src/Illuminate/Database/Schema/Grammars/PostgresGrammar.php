@@ -111,7 +111,7 @@ class PostgresGrammar extends Grammar
     }
 
     /**
-     * Compile a plain index key command.
+     * Compile a plain front key command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -119,7 +119,7 @@ class PostgresGrammar extends Grammar
      */
     public function compileIndex(Blueprint $blueprint, Fluent $command)
     {
-        return sprintf('create index %s on %s%s (%s)',
+        return sprintf('create front %s on %s%s (%s)',
             $this->wrap($command->index),
             $this->wrapTable($blueprint),
             $command->algorithm ? ' using '.$command->algorithm : '',
@@ -194,7 +194,7 @@ class PostgresGrammar extends Grammar
     }
 
     /**
-     * Compile a drop index command.
+     * Compile a drop front command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -202,7 +202,7 @@ class PostgresGrammar extends Grammar
      */
     public function compileDropIndex(Blueprint $blueprint, Fluent $command)
     {
-        return "drop index {$this->wrap($command->index)}";
+        return "drop front {$this->wrap($command->index)}";
     }
 
     /**

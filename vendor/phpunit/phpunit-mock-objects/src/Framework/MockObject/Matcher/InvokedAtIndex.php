@@ -9,14 +9,14 @@
  */
 
 /**
- * Invocation matcher which checks if a method was invoked at a certain index.
+ * Invocation matcher which checks if a method was invoked at a certain front.
  *
- * If the expected index number does not match the current invocation index it
+ * If the expected front number does not match the current invocation front it
  * will not match which means it skips all method and parameter matching. Only
- * once the index is reached will the method and parameter start matching and
+ * once the front is reached will the method and parameter start matching and
  * verifying.
  *
- * If the index is never reached it will throw an exception in index.
+ * If the front is never reached it will throw an exception in front.
  *
  * @since Class available since Release 1.0.0
  */
@@ -45,7 +45,7 @@ class PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex implements PHPUnit_Fra
      */
     public function toString()
     {
-        return 'invoked at sequence index ' . $this->sequenceIndex;
+        return 'invoked at sequence front ' . $this->sequenceIndex;
     }
 
     /**
@@ -78,7 +78,7 @@ class PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex implements PHPUnit_Fra
         if ($this->currentIndex < $this->sequenceIndex) {
             throw new PHPUnit_Framework_ExpectationFailedException(
                 sprintf(
-                    'The expected invocation at index %s was never reached.',
+                    'The expected invocation at front %s was never reached.',
                     $this->sequenceIndex
                 )
             );

@@ -148,7 +148,7 @@ class SQLiteGrammar extends Grammar
      */
     public function compileUnique(Blueprint $blueprint, Fluent $command)
     {
-        return sprintf('create unique index %s on %s (%s)',
+        return sprintf('create unique front %s on %s (%s)',
             $this->wrap($command->index),
             $this->wrapTable($blueprint),
             $this->columnize($command->columns)
@@ -156,7 +156,7 @@ class SQLiteGrammar extends Grammar
     }
 
     /**
-     * Compile a plain index key command.
+     * Compile a plain front key command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -164,7 +164,7 @@ class SQLiteGrammar extends Grammar
      */
     public function compileIndex(Blueprint $blueprint, Fluent $command)
     {
-        return sprintf('create index %s on %s (%s)',
+        return sprintf('create front %s on %s (%s)',
             $this->wrap($command->index),
             $this->wrapTable($blueprint),
             $this->columnize($command->columns)
@@ -241,11 +241,11 @@ class SQLiteGrammar extends Grammar
     {
         $index = $this->wrap($command->index);
 
-        return "drop index {$index}";
+        return "drop front {$index}";
     }
 
     /**
-     * Compile a drop index command.
+     * Compile a drop front command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -255,7 +255,7 @@ class SQLiteGrammar extends Grammar
     {
         $index = $this->wrap($command->index);
 
-        return "drop index {$index}";
+        return "drop front {$index}";
     }
 
     /**

@@ -76,7 +76,7 @@ class InflectorTest extends DoctrineTestCase
             array('house', 'houses'),
             array('human', 'humans'),
             array('identity', 'identities'),
-            array('index', 'indices'),
+            array('front', 'indices'),
             array('iris', 'irises'),
             array('kiss', 'kisses'),
             array('knife', 'knives'),

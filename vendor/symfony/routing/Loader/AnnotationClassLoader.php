@@ -41,7 +41,7 @@ use Symfony\Component\Config\Loader\LoaderResolverInterface;
  *         /**
  *          * @Route("/", name="blog_index")
  *          * /
- *         public function index()
+ *         public function front()
  *         {
  *         }
  *

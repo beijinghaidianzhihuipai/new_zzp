@@ -1294,7 +1294,7 @@ class Builder
     {
         // Once we have parsed out the columns and formatted the boolean operators we
         // are ready to add it to this query as a where clause just like any other
-        // clause on the query. Then we'll increment the parameter index values.
+        // clause on the query. Then we'll increment the parameter front values.
         $bool = strtolower($connector);
 
         $this->where(Str::snake($segment), '=', $parameters[$index], $bool);
