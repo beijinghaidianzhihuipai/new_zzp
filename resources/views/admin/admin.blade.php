@@ -1,23 +1,48 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{ URL::asset('css/admin/admin.css') }}">
-        <title>Laravel</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>нч╠ЙлБнд╣╣</title>
+<link href="style/3.css" rel="stylesheet" type="text/css"  />
+</head>
+<body>
+<div id="tou">
+<div class="logo">logo</div>
+<div class="denglu">
+<a href="###">╣гб╪</a><a href="###">в╒╡А</a>
+</div>
+</div>
+<div id="neirong">
+<div class="xinxi white">
+<a href="###" target="_blank">йврЁ</a>|
+<a href="###" target="_blank">пбневйя╤</a>|
+<a href="###" target="_blank">╧╚╦Фвйя╤</a>|
+<a href="###" target="_blank">хМ╪Ч╫Ииэ</a>|
+<a href="###" target="_blank">се╧имф╪Ж</a>|
+<a href="###" target="_blank">╧ьсзнрцг</a>
+ 
 
 
-    </head>
-    <body>
-    <div class="tou"></div>
-    <div class="shen">
-        Е▒╪Е▒╪Е▒╪Е▒╪Ф┬√Ф┬√Ф┬√
+
+</div>
+<div class="bankuana">
+<div class="zuobian">
+<ul>
+<li><a href="##">вш╨о╪Ю©ь</a></li>
+<li><a href="##">╧иф╠╧эюМ</a></li>
+<li><a href="##">╤лпе╪Ю©ь</a></li>
+<li><a href="##">╩Ат╠╧эюМ</a></li>
+<li><a href="##">пбневйя╤</a></li>
+<li><a href="##">╧╚╦Фвйя╤</a></li>
+<li><a href="##">се╧имф╪Ж</a></li>
+</ul>
+</div>
+<div class="youbian">1</div>
 
 
+</div>
 
-    </div>
-    <div class="footer"></div>
-
-    </body>
+</div>
+<div id="footer">╣в╡©</div>
+</body>
 </html>
