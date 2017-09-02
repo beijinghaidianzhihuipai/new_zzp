@@ -62,7 +62,8 @@ class sendMSG{
     static public function tpl_send($ch,$data){
         curl_setopt ($ch, CURLOPT_URL, 'https://sms.yunpian.com/v2/sms/tpl_single_send.json');
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-        $result = curl_exec($ch);
+      //  $result = curl_exec($ch);
+        $result =1;
         $error = curl_error($ch);
         self::checkErr($result,$error);
         return $result;
@@ -73,6 +74,7 @@ class sendMSG{
             echo 'Curl error: ' . $error;die;
         }else {
             //echo '操作完成没有任何错误';
+            
             }
     }
 }
