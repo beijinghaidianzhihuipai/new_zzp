@@ -9,12 +9,9 @@ class IndexController extends Controller
 {
 
     public function index(){
-
        //echo 899;die;
         $rel =  DB::table('user')->where('id','>',0)->get(); print_r($rel);die;
-
-      
-      return view('front.index', $data);
+        return view('front.index', $data);
     }
 
     public function user(){
