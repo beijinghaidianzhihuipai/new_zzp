@@ -5,10 +5,13 @@ namespace Illuminate\Database\Schema;
 use Closure;
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Connection;
+use Illuminate\Support\Traits\Macroable;
 use Illuminate\Database\Schema\Grammars\Grammar;
 
 class Blueprint
 {
+    use Macroable;
+
     /**
      * The table the blueprint describes.
      *
@@ -132,26 +135,26 @@ class Blueprint
     }
 
     /**
-     * Add the front commands fluently specified on columns.
+     * Add the index commands fluently specified on columns.
      *
      * @return void
      */
     protected function addFluentIndexes()
     {
         foreach ($this->columns as $column) {
-            foreach (['primary', 'unique', 'front'] as $index) {
-                // If the front has been specified on the given column, but is simply equal
-                // to "true" (boolean), no name has been specified for this front so the
-                // front method can be called without a name and it will generate one.
+            foreach (['primary', 'unique', 'index'] as $index) {
+                // If the index has been specified on the given column, but is simply equal
+                // to "true" (boolean), no name has been specified for this index so the
+                // index method can be called without a name and it will generate one.
                 if ($column->{$index} === true) {
                     $this->{$index}($column->name);
 
                     continue 2;
                 }
 
-                // If the front has been specified on the given column, and it has a string
-                // value, we'll go ahead and call the front method and pass the name for
-                // the front since the developer specified the explicit name for this.
+                // If the index has been specified on the given column, and it has a string
+                // value, we'll go ahead and call the index method and pass the name for
+                // the index since the developer specified the explicit name for this.
                 elseif (isset($column->{$index})) {
                     $this->{$index}($column->name, $column->{$index});
 
@@ -261,14 +264,14 @@ class Blueprint
     }
 
     /**
-     * Indicate that the given front should be dropped.
+     * Indicate that the given index should be dropped.
      *
      * @param  string|array  $index
      * @return \Illuminate\Support\Fluent
      */
     public function dropIndex($index)
     {
-        return $this->dropIndexCommand('dropIndex', 'front', $index);
+        return $this->dropIndexCommand('dropIndex', 'index', $index);
     }
 
     /**
@@ -357,7 +360,7 @@ class Blueprint
     }
 
     /**
-     * Specify a unique front for the table.
+     * Specify a unique index for the table.
      *
      * @param  string|array  $columns
      * @param  string  $name
@@ -370,7 +373,7 @@ class Blueprint
     }
 
     /**
-     * Specify an front for the table.
+     * Specify an index for the table.
      *
      * @param  string|array  $columns
      * @param  string  $name
@@ -379,7 +382,7 @@ class Blueprint
      */
     public function index($columns, $name = null, $algorithm = null)
     {
-        return $this->indexCommand('front', $columns, $name, $algorithm);
+        return $this->indexCommand('index', $columns, $name, $algorithm);
     }
 
     /**
@@ -675,6 +678,21 @@ class Blueprint
     }
 
     /**
+     * Create a new unsigned decimal column on the table.
+     *
+     * @param  string  $column
+     * @param  int  $total
+     * @param  int  $places
+     * @return \Illuminate\Support\Fluent
+     */
+    public function unsignedDecimal($column, $total = 8, $places = 2)
+    {
+        return $this->addColumn('decimal', $column, [
+            'total' => $total, 'places' => $places, 'unsigned' => true,
+        ]);
+    }
+
+    /**
      * Create a new boolean column on the table.
      *
      * @param  string  $column
@@ -835,11 +853,12 @@ class Blueprint
     /**
      * Add a "deleted at" timestamp for the table.
      *
+     * @param  string  $column
      * @return \Illuminate\Support\Fluent
      */
-    public function softDeletes()
+    public function softDeletes($column = 'deleted_at')
     {
-        return $this->timestamp('deleted_at')->nullable();
+        return $this->timestamp($column)->nullable();
     }
 
     /**
@@ -939,7 +958,7 @@ class Blueprint
     }
 
     /**
-     * Add a new front command to the blueprint.
+     * Add a new index command to the blueprint.
      *
      * @param  string        $type
      * @param  string|array  $columns
@@ -951,18 +970,18 @@ class Blueprint
     {
         $columns = (array) $columns;
 
-        // If no name was specified for this front, we will create one using a basic
+        // If no name was specified for this index, we will create one using a basic
         // convention of the table name, followed by the columns, followed by an
-        // front type, such as primary or front, which makes the front unique.
+        // index type, such as primary or index, which makes the index unique.
         $index = $index ?: $this->createIndexName($type, $columns);
 
         return $this->addCommand(
-            $type, compact('front', 'columns', 'algorithm')
+            $type, compact('index', 'columns', 'algorithm')
         );
     }
 
     /**
-     * Create a new drop front command on the blueprint.
+     * Create a new drop index command on the blueprint.
      *
      * @param  string  $command
      * @param  string  $type
@@ -973,9 +992,9 @@ class Blueprint
     {
         $columns = [];
 
-        // If the given "front" is actually an array of columns, the developer means
-        // to drop an front merely by specifying the columns involved without the
-        // conventional name, so we will build the front name from the columns.
+        // If the given "index" is actually an array of columns, the developer means
+        // to drop an index merely by specifying the columns involved without the
+        // conventional name, so we will build the index name from the columns.
         if (is_array($index)) {
             $index = $this->createIndexName($type, $columns = $index);
         }
@@ -984,7 +1003,7 @@ class Blueprint
     }
 
     /**
-     * Create a default front name for the table.
+     * Create a default index name for the table.
      *
      * @param  string  $type
      * @param  array   $columns

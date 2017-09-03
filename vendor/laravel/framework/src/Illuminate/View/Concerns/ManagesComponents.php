@@ -117,7 +117,7 @@ trait ManagesComponents
     }
 
     /**
-     * Get the front for the current component.
+     * Get the index for the current component.
      *
      * @return int
      */

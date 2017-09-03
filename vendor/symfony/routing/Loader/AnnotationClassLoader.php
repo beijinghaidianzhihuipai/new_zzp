@@ -41,7 +41,7 @@ use Symfony\Component\Config\Loader\LoaderResolverInterface;
  *         /**
  *          * @Route("/", name="blog_index")
  *          * /
- *         public function front()
+ *         public function index()
  *         {
  *         }
  *
@@ -125,6 +125,11 @@ abstract class AnnotationClassLoader implements LoaderInterface
                     $this->addRoute($collection, $annot, $globals, $class, $method);
                 }
             }
+        }
+
+        if (0 === $collection->count() && $class->hasMethod('__invoke') && $annot = $this->reader->getClassAnnotation($class, $this->routeAnnotationClass)) {
+            $globals['path'] = '';
+            $this->addRoute($collection, $annot, $globals, $class, $class->getMethod('__invoke'));
         }
 
         return $collection;

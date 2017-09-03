@@ -98,7 +98,7 @@ class SqlServerGrammar extends Grammar
      */
     public function compileUnique(Blueprint $blueprint, Fluent $command)
     {
-        return sprintf('create unique front %s on %s (%s)',
+        return sprintf('create unique index %s on %s (%s)',
             $this->wrap($command->index),
             $this->wrapTable($blueprint),
             $this->columnize($command->columns)
@@ -106,7 +106,7 @@ class SqlServerGrammar extends Grammar
     }
 
     /**
-     * Compile a plain front key command.
+     * Compile a plain index key command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -114,7 +114,7 @@ class SqlServerGrammar extends Grammar
      */
     public function compileIndex(Blueprint $blueprint, Fluent $command)
     {
-        return sprintf('create front %s on %s (%s)',
+        return sprintf('create index %s on %s (%s)',
             $this->wrap($command->index),
             $this->wrapTable($blueprint),
             $this->columnize($command->columns)
@@ -187,11 +187,11 @@ class SqlServerGrammar extends Grammar
     {
         $index = $this->wrap($command->index);
 
-        return "drop front {$index} on {$this->wrapTable($blueprint)}";
+        return "drop index {$index} on {$this->wrapTable($blueprint)}";
     }
 
     /**
-     * Compile a drop front command.
+     * Compile a drop index command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -201,7 +201,7 @@ class SqlServerGrammar extends Grammar
     {
         $index = $this->wrap($command->index);
 
-        return "drop front {$index} on {$this->wrapTable($blueprint)}";
+        return "drop index {$index} on {$this->wrapTable($blueprint)}";
     }
 
     /**

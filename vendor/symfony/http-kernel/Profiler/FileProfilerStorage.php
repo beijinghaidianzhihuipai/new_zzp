@@ -142,11 +142,19 @@ class FileProfilerStorage implements ProfilerStorageInterface
             }
         }
 
+        $profileToken = $profile->getToken();
+        // when there are errors in sub-requests, the parent and/or children tokens
+        // may equal the profile token, resulting in infinite loops
+        $parentToken = $profile->getParentToken() !== $profileToken ? $profile->getParentToken() : null;
+        $childrenToken = array_filter(array_map(function ($p) use ($profileToken) {
+            return $profileToken !== $p->getToken() ? $p->getToken() : null;
+        }, $profile->getChildren()));
+
         // Store profile
         $data = array(
-            'token' => $profile->getToken(),
-            'parent' => $profile->getParentToken(),
-            'children' => array_map(function ($p) { return $p->getToken(); }, $profile->getChildren()),
+            'token' => $profileToken,
+            'parent' => $parentToken,
+            'children' => $childrenToken,
             'data' => $profile->getCollectors(),
             'ip' => $profile->getIp(),
             'method' => $profile->getMethod(),
@@ -160,7 +168,7 @@ class FileProfilerStorage implements ProfilerStorageInterface
         }
 
         if (!$profileIndexed) {
-            // Add to front
+            // Add to index
             if (false === $file = fopen($this->getIndexFilename(), 'a')) {
                 return false;
             }
@@ -197,13 +205,13 @@ class FileProfilerStorage implements ProfilerStorageInterface
     }
 
     /**
-     * Gets the front filename.
+     * Gets the index filename.
      *
-     * @return string The front filename
+     * @return string The index filename
      */
     protected function getIndexFilename()
     {
-        return $this->folder.'/front.csv';
+        return $this->folder.'/index.csv';
     }
 
     /**

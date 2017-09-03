@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+
 class IndexController extends Controller
 {
 
     public function index(){
 
-        $rel = DB::table('zzp_user')->select('*')->get(); print_r($rel);die;
-        $rel = Tt::find(1); print_r($rel);die;
-       $data = array('高松豪');
+       //echo 899;die;
+        $rel =  DB::table('user')->where('id','>',0)->get(); print_r($rel);die;
+
+      
       return view('front.index', $data);
     }
 

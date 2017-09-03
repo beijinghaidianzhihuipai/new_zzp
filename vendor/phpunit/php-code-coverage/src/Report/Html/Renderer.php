@@ -62,7 +62,7 @@ abstract class Renderer
      */
     public function __construct($templatePath, $generator, $date, $lowUpperBound, $highLowerBound)
     {
-        $version = new Version('4.0.7', dirname(dirname(dirname(dirname(__DIR__)))));
+        $version = new Version('4.0.8', dirname(dirname(dirname(dirname(__DIR__)))));
 
         $this->templatePath   = $templatePath;
         $this->generator      = $generator;
@@ -232,7 +232,7 @@ abstract class Renderer
         $id    = $node->getId();
         $depth = substr_count($id, '/');
 
-        if ($id != 'front' &&
+        if ($id != 'index' &&
             $node instanceof DirectoryNode) {
             $depth++;
         }

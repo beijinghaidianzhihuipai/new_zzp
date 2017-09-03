@@ -439,7 +439,7 @@ class Container
     }
 
     /**
-     * Return a specific remembered mock according to the array front it
+     * Return a specific remembered mock according to the array index it
      * was stored to in this container instance
      *
      * @return \Mockery\Mock

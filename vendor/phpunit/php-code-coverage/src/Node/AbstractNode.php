@@ -75,11 +75,11 @@ abstract class AbstractNode implements \Countable
             $parent = $this->getParent();
 
             if ($parent === null) {
-                $this->id = 'front';
+                $this->id = 'index';
             } else {
                 $parentId = $parent->getId();
 
-                if ($parentId == 'front') {
+                if ($parentId == 'index') {
                     $this->id = str_replace(':', '_', $this->name);
                 } else {
                     $this->id = $parentId . '/' . $this->name;

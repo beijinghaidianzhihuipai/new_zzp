@@ -40,7 +40,7 @@ class RouteTest extends TestCase
             array('requirements', array('locale' => 'en'), 'getRequirements'),
             array('options', array('compiler_class' => 'RouteCompiler'), 'getOptions'),
             array('name', 'blog_index', 'getName'),
-            array('defaults', array('_controller' => 'MyBlogBundle:Blog:front'), 'getDefaults'),
+            array('defaults', array('_controller' => 'MyBlogBundle:Blog:index'), 'getDefaults'),
             array('schemes', array('https'), 'getSchemes'),
             array('methods', array('GET', 'POST'), 'getMethods'),
             array('host', '{locale}.example.com', 'getHost'),

@@ -182,7 +182,7 @@ class MySqlGrammar extends Grammar
     }
 
     /**
-     * Compile a plain front key command.
+     * Compile a plain index key command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -190,11 +190,11 @@ class MySqlGrammar extends Grammar
      */
     public function compileIndex(Blueprint $blueprint, Fluent $command)
     {
-        return $this->compileKey($blueprint, $command, 'front');
+        return $this->compileKey($blueprint, $command, 'index');
     }
 
     /**
-     * Compile an front creation command.
+     * Compile an index creation command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -273,11 +273,11 @@ class MySqlGrammar extends Grammar
     {
         $index = $this->wrap($command->index);
 
-        return "alter table {$this->wrapTable($blueprint)} drop front {$index}";
+        return "alter table {$this->wrapTable($blueprint)} drop index {$index}";
     }
 
     /**
-     * Compile a drop front command.
+     * Compile a drop index command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -287,7 +287,7 @@ class MySqlGrammar extends Grammar
     {
         $index = $this->wrap($command->index);
 
-        return "alter table {$this->wrapTable($blueprint)} drop front {$index}";
+        return "alter table {$this->wrapTable($blueprint)} drop index {$index}";
     }
 
     /**
@@ -808,7 +808,7 @@ class MySqlGrammar extends Grammar
     protected function modifyComment(Blueprint $blueprint, Fluent $column)
     {
         if (! is_null($column->comment)) {
-            return " comment '".$column->comment."'";
+            return " comment '".addslashes($column->comment)."'";
         }
     }
 

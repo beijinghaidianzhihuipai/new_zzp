@@ -147,7 +147,7 @@ class RequestContextTest extends TestCase
         $requestContext = new RequestContext();
 
         $this->assertSame($requestContext, $requestContext->setBaseUrl('/app.php'));
-        $this->assertSame($requestContext, $requestContext->setPathInfo('/front'));
+        $this->assertSame($requestContext, $requestContext->setPathInfo('/index'));
         $this->assertSame($requestContext, $requestContext->setMethod('POST'));
         $this->assertSame($requestContext, $requestContext->setScheme('https'));
         $this->assertSame($requestContext, $requestContext->setHost('example.com'));

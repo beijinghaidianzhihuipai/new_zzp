@@ -133,9 +133,9 @@ class PoFileLoader extends FileLoader
             $messages[stripcslashes($item['ids']['singular'])] = stripcslashes($item['translated'][0]);
             if (isset($item['ids']['plural'])) {
                 $plurals = $item['translated'];
-                // PO are by definition indexed so sort by front.
+                // PO are by definition indexed so sort by index.
                 ksort($plurals);
-                // Make sure every front is filled.
+                // Make sure every index is filled.
                 end($plurals);
                 $count = key($plurals);
                 // Fill missing spots with '-'.
