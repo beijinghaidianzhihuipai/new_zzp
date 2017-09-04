@@ -30,9 +30,12 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\model\\Tt' => $baseDir . '/app/model/Tt.php',
+<<<<<<< HEAD
     'App\\model\\ZzpStockReport' => $baseDir . '/app/model/ZzpStockReport.php',
     'App\\model\\ZzpUser' => $baseDir . '/app/model/ZzpUser.php',
     'App\\model\\ZzpUserPhoneMsg' => $baseDir . '/app/model/ZzpUserPhoneMsg.php',
+=======
+>>>>>>> 33acaa94688f6671d584f5732892400e1d2ddfdd
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
