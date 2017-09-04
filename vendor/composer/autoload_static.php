@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0050e9c49fad65b06d4fdcc6427d623c
+class ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -294,6 +294,9 @@ class ComposerStaticInit0050e9c49fad65b06d4fdcc6427d623c
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\model\\Tt' => __DIR__ . '/../..' . '/app/model/Tt.php',
+        'App\\model\\ZzpStockReport' => __DIR__ . '/../..' . '/app/model/ZzpStockReport.php',
+        'App\\model\\ZzpUser' => __DIR__ . '/../..' . '/app/model/ZzpUser.php',
+        'App\\model\\ZzpUserPhoneMsg' => __DIR__ . '/../..' . '/app/model/ZzpUserPhoneMsg.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -3318,10 +3321,10 @@ class ComposerStaticInit0050e9c49fad65b06d4fdcc6427d623c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0050e9c49fad65b06d4fdcc6427d623c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0050e9c49fad65b06d4fdcc6427d623c::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit0050e9c49fad65b06d4fdcc6427d623c::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit0050e9c49fad65b06d4fdcc6427d623c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$classMap;
 
         }, null, ClassLoader::class);
     }

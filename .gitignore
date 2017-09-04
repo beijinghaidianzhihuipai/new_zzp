@@ -1,5 +1,5 @@
 /nbproject/private/
 .env
 .env.example
-storage/logs/
-./vendor/
+/storage/logs/
+/vendor/

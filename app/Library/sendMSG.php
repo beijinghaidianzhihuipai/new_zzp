@@ -1,16 +1,9 @@
 
 <?php
 class sendMSG{
-    static public function baseInfo($title,$url){
+    static public function baseInfo($report_id,$mobile_array,$title,$url){
 
         $apikey = "54cae413bd079b5fc80e601f70add178"; //修改为您的apikey(https://www.yunpian.com)登录官网后获取
-        $mobile_array = array(
-            "18600681925",
-          //  "13602069161",
-          //  "13904343290",
-          //  "18500329188",
-          //  "13621120036"
-        );
 
         $ch = curl_init();
         /* 设置验证方式 */
@@ -35,17 +28,33 @@ class sendMSG{
         // 发送模板短信
         // 需要对value进行编码
         foreach($mobile_array as $val){
-            $data=array('tpl_id'=>'1933080',
-                'tpl_value' => '#title#'.'='.urlencode($title),
-                'apikey' => $apikey,
-                'mobile' => $val);
+            $send_check = array(
+                'report_id' => $report_id ,
+                'user_id' => 1
+            );
 
-            $json_data = self::tpl_send($ch,$data);
-            $array = json_decode($json_data,true);
-            echo '<pre>';print_r($array);
+            $send_cehck_rel = \App\model\ZzpUserPhoneMsg::check_send_report($send_check);
+            //print_r($send_cehck_rel);die;
+            if(!$send_cehck_rel){
+                $data=array(
+                    'tpl_id'=>'1933080',
+                    'tpl_value' => '#title#'.'='.urlencode($title),
+                    'apikey' => $apikey,
+                    'mobile' => $val);
+                //print_r($data);die;
+                $json_data = self::tpl_send($ch,$data);
+                $msg_rel = json_decode($json_data,true);
+
+                if(isset($msg_rel['msg']) && $msg_rel['msg'] == '发送成功' ){
+                    $send_data = array('user_id'=>1,'report_id'=>$report_id);
+                    \App\model\ZzpUserPhoneMsg::add($send_data);
+                }
+              //print_r($msg_rel);die;
+            }
+
+           // echo '<pre>';
         }
 
-       die;
 
     }
 
@@ -62,8 +71,7 @@ class sendMSG{
     static public function tpl_send($ch,$data){
         curl_setopt ($ch, CURLOPT_URL, 'https://sms.yunpian.com/v2/sms/tpl_single_send.json');
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-      //  $result = curl_exec($ch);
-        $result =1;
+        $result = curl_exec($ch);
         $error = curl_error($ch);
         self::checkErr($result,$error);
         return $result;
