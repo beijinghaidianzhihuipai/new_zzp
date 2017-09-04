@@ -34,7 +34,7 @@ class sendMSG{
             );
 
             $send_cehck_rel = \App\model\ZzpUserPhoneMsg::check_send_report($send_check);
-           // print_r($send_cehck_rel);die;
+            //print_r($send_cehck_rel);die;
             if(!$send_cehck_rel){
                 $data=array(
                     'tpl_id'=>'1933080',
@@ -44,17 +44,17 @@ class sendMSG{
                 //print_r($data);die;
                 $json_data = self::tpl_send($ch,$data);
                 $msg_rel = json_decode($json_data,true);
+
                 if(isset($msg_rel['msg']) && $msg_rel['msg'] == '发送成功' ){
                     $send_data = array('user_id'=>1,'report_id'=>$report_id);
                     \App\model\ZzpUserPhoneMsg::add($send_data);
                 }
-                print_r($msg_rel);
+              //print_r($msg_rel);die;
             }
 
            // echo '<pre>';
         }
 
-       die;
 
     }
 

@@ -3,9 +3,8 @@
 namespace App\Console\Commands;
 
 use App\model\ZzpStockReport;
-use App\model\ZzpUserPhoneMsg;
 use Illuminate\Console\Command;
-use Ramsey\Uuid\Uuid;
+
 
 class SendPhone extends Command
 {
@@ -44,7 +43,8 @@ class SendPhone extends Command
     }
 
     function mypost(){
-
+        $now = (string) date("Y-m-d");
+        $yesterday = (string) date("Y-m-d", strtotime("3 days ago"));
         $url = 'http://disclosure.szse.cn/m/search0425.jsp';
         $data = array(
             'leftid' => 1,
@@ -53,8 +53,8 @@ class SendPhone extends Command
             'stockCode' => '000018',
             'keyword' => '',
             'noticeType' => '',
-            'startTime' => '2017-08-24',
-            'endTime' => '2017-08-26',
+            'startTime' => $yesterday,
+            'endTime' => $now,
             'imageField.x' => 40,
             'imageField.y' => 14,
             'tzy' => ''
@@ -87,7 +87,7 @@ class SendPhone extends Command
         $result = iconv( "GB2312//IGNORE", "UTF-8",$result) ;
         $pre = '/<td align="left">([\s\S]+)<\/tbody><\/table><\/td><\/tr>/';
         preg_match($pre,$result,$res);
-
+        if(empty($res)){ return false;}
         $rel_arr = explode('</tr>',$res[1]);
         array_pop($rel_arr);
         if(empty($rel_arr)){ return false;}
@@ -142,7 +142,7 @@ class SendPhone extends Command
                 //  "18500329188",
                 //  "13621120036"
             );
-            
+
             
             //发送短信
             $title = $rel_title[1] . ',PDF: ' . $short;
