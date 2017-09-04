@@ -97,8 +97,8 @@ class UrlGeneratorTest extends TestCase
 
     public function testNotPassedOptionalParameterInBetween()
     {
-        $routes = $this->getRoutes('test', new Route('/{slug}/{page}', array('slug' => 'front', 'page' => 0)));
-        $this->assertSame('/app.php/front/1', $this->getGenerator($routes)->generate('test', array('page' => 1)));
+        $routes = $this->getRoutes('test', new Route('/{slug}/{page}', array('slug' => 'index', 'page' => 0)));
+        $this->assertSame('/app.php/index/1', $this->getGenerator($routes)->generate('test', array('page' => 1)));
         $this->assertSame('/app.php/', $this->getGenerator($routes)->generate('test'));
     }
 
@@ -394,7 +394,7 @@ class UrlGeneratorTest extends TestCase
         $routes = $this->getRoutes('test', new Route('/{page}.{_format}'));
         $generator = $this->getGenerator($routes);
 
-        $this->assertSame('/app.php/front.mobile.html', $generator->generate('test', array('page' => 'front', '_format' => 'mobile.html')));
+        $this->assertSame('/app.php/index.mobile.html', $generator->generate('test', array('page' => 'index', '_format' => 'mobile.html')));
     }
 
     /**
@@ -403,7 +403,7 @@ class UrlGeneratorTest extends TestCase
     public function testDefaultRequirementOfVariableDisallowsSlash()
     {
         $routes = $this->getRoutes('test', new Route('/{page}.{_format}'));
-        $this->getGenerator($routes)->generate('test', array('page' => 'front', '_format' => 'sl/ash'));
+        $this->getGenerator($routes)->generate('test', array('page' => 'index', '_format' => 'sl/ash'));
     }
 
     /**

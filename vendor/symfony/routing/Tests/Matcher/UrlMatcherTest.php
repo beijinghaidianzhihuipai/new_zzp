@@ -221,7 +221,7 @@ class UrlMatcherTest extends TestCase
     public function testDefaultRequirementForOptionalVariables()
     {
         $coll = new RouteCollection();
-        $coll->add('test', new Route('/{page}.{_format}', array('page' => 'front', '_format' => 'html')));
+        $coll->add('test', new Route('/{page}.{_format}', array('page' => 'index', '_format' => 'html')));
 
         $matcher = new UrlMatcher($coll, new RequestContext());
         $this->assertEquals(array('page' => 'my-page', '_format' => 'xml', '_route' => 'test'), $matcher->match('/my-page.xml'));
@@ -286,7 +286,7 @@ class UrlMatcherTest extends TestCase
         $coll->add('test', new Route('/{page}.{_format}'));
         $matcher = new UrlMatcher($coll, new RequestContext());
 
-        $this->assertEquals(array('page' => 'front', '_format' => 'mobile.html', '_route' => 'test'), $matcher->match('/front.mobile.html'));
+        $this->assertEquals(array('page' => 'index', '_format' => 'mobile.html', '_route' => 'test'), $matcher->match('/index.mobile.html'));
     }
 
     /**
@@ -298,7 +298,7 @@ class UrlMatcherTest extends TestCase
         $coll->add('test', new Route('/{page}.{_format}'));
         $matcher = new UrlMatcher($coll, new RequestContext());
 
-        $matcher->match('/front.sl/ash');
+        $matcher->match('/index.sl/ash');
     }
 
     /**
@@ -335,6 +335,16 @@ class UrlMatcherTest extends TestCase
         $coll->add('foo', $route);
         $matcher = new UrlMatcher($coll, new RequestContext());
         $matcher->match('/foo');
+    }
+
+    public function testRequestCondition()
+    {
+        $coll = new RouteCollection();
+        $route = new Route('/foo/{bar}');
+        $route->setCondition('request.getBaseUrl() == "/sub/front.php" and request.getPathInfo() == "/foo/bar"');
+        $coll->add('foo', $route);
+        $matcher = new UrlMatcher($coll, new RequestContext('/sub/front.php'));
+        $this->assertEquals(array('bar' => 'bar', '_route' => 'foo'), $matcher->match('/foo/bar'));
     }
 
     public function testDecodeOnce()

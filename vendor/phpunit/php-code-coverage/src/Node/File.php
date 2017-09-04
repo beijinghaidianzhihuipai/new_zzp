@@ -672,7 +672,7 @@ class File extends AbstractNode
     }
 
     /**
-     * Calculates the Change Risk Anti-Patterns (CRAP) front for a unit of code
+     * Calculates the Change Risk Anti-Patterns (CRAP) index for a unit of code
      * based on its cyclomatic complexity and percentage of code coverage.
      *
      * @param int   $ccn

@@ -70,7 +70,7 @@ class XmlFileLoaderTest extends TestCase
         $routeCollection = $loader->load('validresource.xml');
         $routes = $routeCollection->all();
 
-        $this->assertCount(3, $routes, 'Two routes are loaded');
+        $this->assertCount(2, $routes, 'Two routes are loaded');
         $this->assertContainsOnly('Symfony\Component\Routing\Route', $routes);
 
         foreach ($routes as $route) {
@@ -140,7 +140,7 @@ class XmlFileLoaderTest extends TestCase
 
         $this->assertSame(
             array(
-                '_controller' => 'AcmeBlogBundle:Blog:front',
+                '_controller' => 'AcmeBlogBundle:Blog:index',
                 'slug' => null,
                 'published' => true,
                 'page' => 1,
@@ -163,7 +163,7 @@ class XmlFileLoaderTest extends TestCase
 
         $this->assertSame(
             array(
-                '_controller' => 'AcmeBlogBundle:Blog:front',
+                '_controller' => 'AcmeBlogBundle:Blog:index',
                 'values' => array(true, 1, 3.5, 'foo'),
             ),
             $route->getDefaults()
@@ -178,7 +178,7 @@ class XmlFileLoaderTest extends TestCase
 
         $this->assertSame(
             array(
-                '_controller' => 'AcmeBlogBundle:Blog:front',
+                '_controller' => 'AcmeBlogBundle:Blog:index',
                 'values' => array(array(true, 1, 3.5, 'foo')),
             ),
             $route->getDefaults()
@@ -193,7 +193,7 @@ class XmlFileLoaderTest extends TestCase
 
         $this->assertSame(
             array(
-                '_controller' => 'AcmeBlogBundle:Blog:front',
+                '_controller' => 'AcmeBlogBundle:Blog:index',
                 'values' => array('list' => array(true, 1, 3.5, 'foo')),
             ),
             $route->getDefaults()
@@ -208,7 +208,7 @@ class XmlFileLoaderTest extends TestCase
 
         $this->assertSame(
             array(
-                '_controller' => 'AcmeBlogBundle:Blog:front',
+                '_controller' => 'AcmeBlogBundle:Blog:index',
                 'values' => array(
                     'public' => true,
                     'page' => 1,
@@ -228,7 +228,7 @@ class XmlFileLoaderTest extends TestCase
 
         $this->assertSame(
             array(
-                '_controller' => 'AcmeBlogBundle:Blog:front',
+                '_controller' => 'AcmeBlogBundle:Blog:index',
                 'values' => array(array(
                     'public' => true,
                     'page' => 1,
@@ -248,7 +248,7 @@ class XmlFileLoaderTest extends TestCase
 
         $this->assertSame(
             array(
-                '_controller' => 'AcmeBlogBundle:Blog:front',
+                '_controller' => 'AcmeBlogBundle:Blog:index',
                 'values' => array('map' => array(
                     'public' => true,
                     'page' => 1,

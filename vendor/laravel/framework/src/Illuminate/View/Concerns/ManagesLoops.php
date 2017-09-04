@@ -28,7 +28,7 @@ trait ManagesLoops
 
         $this->loopsStack[] = [
             'iteration' => 0,
-            'front' => 0,
+            'index' => 0,
             'remaining' => isset($length) ? $length : null,
             'count' => $length,
             'first' => true,
@@ -49,7 +49,7 @@ trait ManagesLoops
 
         $this->loopsStack[$index] = array_merge($this->loopsStack[$index], [
             'iteration' => $loop['iteration'] + 1,
-            'front' => $loop['iteration'],
+            'index' => $loop['iteration'],
             'first' => $loop['iteration'] == 0,
             'remaining' => isset($loop['count']) ? $loop['remaining'] - 1 : null,
             'last' => isset($loop['count']) ? $loop['iteration'] == $loop['count'] - 1 : null,
@@ -69,7 +69,7 @@ trait ManagesLoops
     /**
      * Get an instance of the last loop in the stack.
      *
-     * @return \StdClass|null
+     * @return \stdClass|null
      */
     public function getLastLoop()
     {

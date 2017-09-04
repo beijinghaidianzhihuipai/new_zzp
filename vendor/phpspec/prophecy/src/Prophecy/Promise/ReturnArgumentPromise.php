@@ -38,7 +38,7 @@ class ReturnArgumentPromise implements PromiseInterface
     {
         if (!is_int($index) || $index < 0) {
             throw new InvalidArgumentException(sprintf(
-                'Zero-based front expected as argument to ReturnArgumentPromise, but got %s.',
+                'Zero-based index expected as argument to ReturnArgumentPromise, but got %s.',
                 $index
             ));
         }

@@ -18,7 +18,7 @@ class ResourceRegistrar
      *
      * @var array
      */
-    protected $resourceDefaults = ['front', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
+    protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
 
     /**
      * The parameters set for this resource instance.
@@ -156,7 +156,7 @@ class ResourceRegistrar
     }
 
     /**
-     * Add the front method for a resourceful route.
+     * Add the index method for a resourceful route.
      *
      * @param  string  $name
      * @param  string  $base
@@ -168,7 +168,7 @@ class ResourceRegistrar
     {
         $uri = $this->getResourceUri($name);
 
-        $action = $this->getResourceAction($name, $controller, 'front', $options);
+        $action = $this->getResourceAction($name, $controller, 'index', $options);
 
         return $this->router->get($uri, $action);
     }

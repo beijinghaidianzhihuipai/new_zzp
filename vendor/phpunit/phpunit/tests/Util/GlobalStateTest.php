@@ -14,7 +14,7 @@ class Util_GlobalStateTest extends PHPUnit_Framework_TestCase
     {
         $dir   = __DIR__;
         $files = [
-            'phpunit', // The 0 front is not used
+            'phpunit', // The 0 index is not used
             $dir . '/ConfigurationTest.php',
             $dir . '/GlobalStateTest.php',
             'vfs://' . $dir . '/RegexTest.php',
