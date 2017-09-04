@@ -4,11 +4,7 @@
 
 namespace Composer\Autoload;
 
-<<<<<<< HEAD
-class ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1
-=======
-class ComposerStaticInit80eae13eb8dff8e00c30600118c842a2
->>>>>>> 33acaa94688f6671d584f5732892400e1d2ddfdd
+class ComposerStaticInit6d88e24c2146dd37c18e113464b53c24
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -298,12 +294,9 @@ class ComposerStaticInit80eae13eb8dff8e00c30600118c842a2
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\model\\Tt' => __DIR__ . '/../..' . '/app/model/Tt.php',
-<<<<<<< HEAD
         'App\\model\\ZzpStockReport' => __DIR__ . '/../..' . '/app/model/ZzpStockReport.php',
         'App\\model\\ZzpUser' => __DIR__ . '/../..' . '/app/model/ZzpUser.php',
         'App\\model\\ZzpUserPhoneMsg' => __DIR__ . '/../..' . '/app/model/ZzpUserPhoneMsg.php',
-=======
->>>>>>> 33acaa94688f6671d584f5732892400e1d2ddfdd
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -3328,17 +3321,10 @@ class ComposerStaticInit80eae13eb8dff8e00c30600118c842a2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-<<<<<<< HEAD
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc050f27e4d1f09554d267ba343faa8d1::$classMap;
-=======
-            $loader->prefixLengthsPsr4 = ComposerStaticInit80eae13eb8dff8e00c30600118c842a2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit80eae13eb8dff8e00c30600118c842a2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit80eae13eb8dff8e00c30600118c842a2::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit80eae13eb8dff8e00c30600118c842a2::$classMap;
->>>>>>> 33acaa94688f6671d584f5732892400e1d2ddfdd
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6d88e24c2146dd37c18e113464b53c24::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6d88e24c2146dd37c18e113464b53c24::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6d88e24c2146dd37c18e113464b53c24::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit6d88e24c2146dd37c18e113464b53c24::$classMap;
 
         }, null, ClassLoader::class);
     }
