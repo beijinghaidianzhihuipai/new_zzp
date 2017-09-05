@@ -30,7 +30,7 @@ class sendMSG{
         foreach($mobile_array as $val){
             $send_check = array(
                 'report_id' => $report_id ,
-                'user_id' => 1
+                'user_id' => $val['id']
             );
 
             $send_cehck_rel = \App\model\ZzpUserPhoneMsg::check_send_report($send_check);
@@ -40,16 +40,19 @@ class sendMSG{
                     'tpl_id'=>'1933080',
                     'tpl_value' => '#title#'.'='.urlencode($title),
                     'apikey' => $apikey,
-                    'mobile' => $val);
+                    'mobile' => $val['phone_num']);
                 //print_r($data);die;
                 $json_data = self::tpl_send($ch,$data);
                 $msg_rel = json_decode($json_data,true);
 
                 if(isset($msg_rel['msg']) && $msg_rel['msg'] == '发送成功' ){
-                    $send_data = array('user_id'=>1,'report_id'=>$report_id);
+                    $send_data = array('user_id' => $val['id'],'report_id' => $report_id);
                     \App\model\ZzpUserPhoneMsg::add($send_data);
+                    echo "\n".'用户ID: '. $val['id']. ' 短信 '.$msg_rel['msg'];
+                }else{
+                    Log::info( "\n".'用户ID: '. $val['id']. ' 短信失败 '.$msg_rel['msg']);
+                   echo  "\n".'用户ID: '. $val['id']. ' 短信失败 '.$msg_rel['msg'];
                 }
-              //print_r($msg_rel);die;
             }
 
            // echo '<pre>';

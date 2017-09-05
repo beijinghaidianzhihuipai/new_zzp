@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\model\ZzpStockReport;
+use App\model\ZzpUser;
 use Illuminate\Console\Command;
 
 
@@ -135,18 +136,24 @@ class SendPhone extends Command
             }
             $report_id = $data_rel->id;
           if(!$report_id){ return false;}
-            $mobile_array = array(
-                "18600681925",
-                //  "13602069161",
-                //  "13904343290",
-                //  "18500329188",
-                //  "13621120036"
-            );
 
+            $user_info = ZzpUser::getUserMobile();
+            //print_r($user_info);die;
+           // $mobile_array = array();
+            if(!empty($user_info)){
+                $mobile_all = $user_info->toArray();
+               // foreach ($mobile_all as $key => $val){
+                //    $mobile_array[] = $val['phone_num'];
+               // }
+            }
+           // print_r($mobile_all);die;
+           // if(empty($mobile_array)){
+          //      return false;
+         //   }
             
             //发送短信
             $title = $rel_title[1] . ',PDF: ' . $short;
-            \sendMSG::baseInfo($report_id,$mobile_array,$title,$url);
+            \sendMSG::baseInfo($report_id,$mobile_all,$title,$url);
         }
     }
 

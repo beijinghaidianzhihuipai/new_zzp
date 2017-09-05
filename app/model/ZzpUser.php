@@ -14,4 +14,8 @@ class ZzpUser extends Model
         'email',
         'updated_at',
         'created_at'];
+
+    public static function getUserMobile(){
+        return self::select('id','phone_num')->where('id','<',2)->get();
+    }
 }
