@@ -7,21 +7,21 @@ use App\model\ZzpUser;
 use Illuminate\Console\Command;
 
 
-class SendPhone extends Command
+class SendAchievement extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'send:phone';
+    protected $signature = 'send:achievement';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '短信发送公告';
+    protected $description = '短信发送业绩';
 
     /**
      * Create a new command instance.
@@ -51,16 +51,16 @@ class SendPhone extends Command
             'leftid' => 1,
             'lmid' => 'drgg',
             'pageNo' => 1,
-            'stockCode' => '000018',
-            'keyword' => '',
-            'noticeType' => '',
+            'stockCode' =>'',
+            'keyword' =>'',
+            'noticeType' =>'0121',
             'startTime' => $yesterday,
             'endTime' => $now,
-            'imageField.x' => 40,
-            'imageField.y' => 14,
+            'imageField.x' => 38,
+            'imageField.y' => 11,
             'tzy' => ''
         );
-
+//print_r($data);die;
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_CUSTOMREQUEST,'POST');
@@ -69,14 +69,17 @@ class SendPhone extends Command
                 $data = http_build_query($data);
             }
             curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+            $header['Host:'] = 'disclosure.szse.cn';
             $header['Content-type:'] = 'application/x-www-form-urlencoded';
+            $header['Referer:'] = 'http://disclosure.szse.cn/m/search0425.jsp';
         }
         if (!empty($header)) {
             curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
         }
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch,CURLOPT_HEADER,false);
-        $result = curl_exec($ch); print_r($result);die;
+        $result = curl_exec($ch);
+
         curl_close($ch);
         if(!empty($result)){
             $this->handle_data($result);
@@ -85,7 +88,7 @@ class SendPhone extends Command
     }
 
     function handle_data($result){
-        $result = iconv( "GB2312//IGNORE", "UTF-8",$result) ;
+        $result = iconv( "GB2312//IGNORE", "UTF-8",$result) ;print_r($result);die;
         $pre = '/<td align="left">([\s\S]+)<\/tbody><\/table><\/td><\/tr>/';
         preg_match($pre,$result,$res);
         if(empty($res)){ return false;}
