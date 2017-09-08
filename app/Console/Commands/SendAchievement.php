@@ -88,7 +88,7 @@ class SendAchievement extends Command
     }
 
     function handle_data($result){
-        $result = iconv( "GB2312//IGNORE", "UTF-8",$result) ;print_r($result);die;
+        $result = iconv( "GB2312//IGNORE", "UTF-8",$result) ;
         $pre = '/<td align="left">([\s\S]+)<\/tbody><\/table><\/td><\/tr>/';
         preg_match($pre,$result,$res);
         if(empty($res)){ return false;}
@@ -96,14 +96,29 @@ class SendAchievement extends Command
         array_pop($rel_arr);
         if(empty($rel_arr)){ return false;}
         foreach($rel_arr as $val){
-            $pre_href = "/<a href='([\s\S]+)PDF'/";
-            preg_match($pre_href,$val,$rel_href);
-            if(empty($rel_href)){ return false;}
-            $rel_href = $rel_href[1].'PDF';
             //处理匹配标题
             $pre_title = '/target="new">([\s\S]+)<\/a>/';
             preg_match($pre_title,$val,$rel_title);
             if( empty($rel_title)){ return false;}
+            $f_title = $rel_title[1];
+            $preg_zhongbiao = '/中标/';
+            preg_match($preg_zhongbiao , $f_title , $zhongbiao_title);
+            $preg_yeji = '/业绩/';
+            preg_match($preg_yeji , $f_title , $yeji_title);
+            $preg_yugao = '/预告/';
+            preg_match($preg_yugao , $f_title , $yugao_title);
+            $preg_chongzu = '/重组/';
+            preg_match($preg_chongzu , $f_title , $chongzu_title);
+
+            if(empty($zhongbiao_title) && empty($yeji_title) && empty($yugao_title) && empty($chongzu_title)){
+                continue;
+            }
+            //print_r($f_title);die;
+
+            $pre_href = "/<a href='([\s\S]+)PDF'/";
+            preg_match($pre_href,$val,$rel_href);
+            if(empty($rel_href)){ return false;}
+            $rel_href = $rel_href[1].'PDF';
 
             //处理日期
             $pre_date = "/class=\'link1\'>\[([\s\S]+)\]<\/span>/";
@@ -141,21 +156,17 @@ class SendAchievement extends Command
           if(!$report_id){ return false;}
 
             $user_info = ZzpUser::getUserMobile();
-            //print_r($user_info);die;
-           // $mobile_array = array();
+           // print_r($user_info);die;
             if(!empty($user_info)){
                 $mobile_all = $user_info->toArray();
-               // foreach ($mobile_all as $key => $val){
-                //    $mobile_array[] = $val['phone_num'];
-               // }
             }
            // print_r($mobile_all);die;
-           // if(empty($mobile_array)){
-          //      return false;
-         //   }
+            if(empty($mobile_all)){
+                return false;
+            }
             
             //发送短信
-            $title = $rel_title[1] . ',PDF: ' . $short;
+            $title = $f_title . ',PDF: ' . $short;
             \sendMSG::baseInfo($report_id,$mobile_all,$title,$url);
         }
     }

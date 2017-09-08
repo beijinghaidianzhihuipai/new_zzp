@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
          $schedule->command('send:phone')->everyMinute()->withoutOverlapping();
+         $schedule->command('send:achievement')->everyMinute()->withoutOverlapping();
     }
 
     /**
