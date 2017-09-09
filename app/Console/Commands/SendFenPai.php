@@ -7,21 +7,21 @@ use App\model\ZzpUser;
 use Illuminate\Console\Command;
 
 
-class SendAchievement extends Command
+class SendFenPai extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'send:achievement';
+    protected $signature = 'send:fenpai';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '短信发送业绩';
+    protected $description = '短信发送权益分派';
 
     /**
      * Create a new command instance.
@@ -53,7 +53,7 @@ class SendAchievement extends Command
             'pageNo' => 1,
             'stockCode' =>'',
             'keyword' =>'',
-            'noticeType' =>'0121',
+            'noticeType' =>'0113',
             'startTime' => $yesterday,
             'endTime' => $now,
             'imageField.x' => 38,
@@ -102,19 +102,13 @@ class SendAchievement extends Command
             preg_match($pre_title,$val,$rel_title);
             if( empty($rel_title)){ return false;}
             $f_title = $rel_title[1];
-            $preg_zhongbiao = '/中标/';
-            preg_match($preg_zhongbiao , $f_title , $zhongbiao_title);
-            $preg_yeji = '/业绩/';
-            preg_match($preg_yeji , $f_title , $yeji_title);
-            $preg_yugao = '/预告/';
-            preg_match($preg_yugao , $f_title , $yugao_title);
-            $preg_chongzu = '/重组/';
-            preg_match($preg_chongzu , $f_title , $chongzu_title);
+            $preg_fenpai = '/分派/';
+            preg_match($preg_fenpai , $f_title , $fenpai_title);
 
-            if(empty($zhongbiao_title) && empty($yeji_title) && empty($yugao_title) && empty($chongzu_title)){
+            if(empty($fenpai_title) ){
                 continue;
             }
-            //print_r($f_title);die;
+           // print_r($f_title);die;
 
             $pre_href = "/<a href='([\s\S]+)PDF'/";
             preg_match($pre_href,$val,$rel_href);
