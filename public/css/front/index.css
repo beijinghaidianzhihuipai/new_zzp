@@ -14,7 +14,7 @@ ol {
   list-style: none;
 }
  a:link, a:hover, .white a:visited {
-    color: #fff;
+    //color: #fff;
 
 }
 a{text-decoration:none}

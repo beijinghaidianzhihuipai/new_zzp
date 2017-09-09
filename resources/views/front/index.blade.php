@@ -9,7 +9,7 @@
 <div id="tou">
     <div class="logo">logo</div>
     <div class="denglu">
-        <a href="###">登录</a><a href="###">注册</a>
+        <a href="/login">登录</a><a href="/register">注册</a>
     </div>
 </div>
 <div id="neirong">
