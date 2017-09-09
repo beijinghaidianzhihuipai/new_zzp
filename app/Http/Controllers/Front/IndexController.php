@@ -10,7 +10,7 @@ class IndexController extends Controller
 
     public function index(){
        //echo 899;die;
-        $data =  DB::table('user')->where('id','>',0)->get(); print_r($data);
+        $data =  DB::table('user')->where('id','>',0)->get();
         return view('front.index', $data);
     }
 
