@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e6b5e422-64b8-4a92-8898-f958619d0f94" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/IndexController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <ignored path="zhizhepai.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Front/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.3275862">
-              <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+              <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
               <folding>
                 <element signature="e#45#81#0#PHP" expanded="true" />
               </folding>
@@ -457,7 +456,7 @@
     <option name="totallyTimeSpent" value="9869000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="405" y="157" width="1346" height="688" extended-state="1" />
+    <frame x="405" y="157" width="1346" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -740,7 +739,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Front/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3275862">
-          <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
           <folding>
             <element signature="e#45#81#0#PHP" expanded="true" />
           </folding>
