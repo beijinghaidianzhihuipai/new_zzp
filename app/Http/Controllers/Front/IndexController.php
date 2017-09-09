@@ -24,5 +24,11 @@ class IndexController extends Controller
         return view('admin.admin',$data);
     }
 
+    public function register(){
+        $data=array();
+        return view('front.auth.register',$data);
+    }
+
+
 
 }
