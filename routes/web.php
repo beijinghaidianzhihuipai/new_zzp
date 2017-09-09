@@ -15,7 +15,7 @@ Route::get('/indexc','Front\SonghaoController@aaa' );
 
 Route::get('/','Front\IndexController@index' );
 
-Route::get('/register','Front\IndexController@register' );
+Route::any('/register','Front\IndexController@register' );
 
 Route::get('/login','Front\IndexController@login' );
 
