@@ -17,6 +17,9 @@ Route::get('/','Front\IndexController@index' );
 
 Route::get('/register','Front\IndexController@register' );
 
+Route::get('/login','Front\IndexController@login' );
+
+
 Route::get('/user','Front\IndexController@user' );
 
 Route::get('/admin','Front\IndexController@admin' );

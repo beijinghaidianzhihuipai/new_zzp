@@ -10,7 +10,7 @@ class IndexController extends Controller
 
     public function index(){
        //echo 899;die;
-        $rel =  DB::table('user')->where('id','>',0)->get(); print_r($rel);die;
+        $data =  DB::table('user')->where('id','>',0)->get(); print_r($data);
         return view('front.index', $data);
     }
 
@@ -27,6 +27,11 @@ class IndexController extends Controller
     public function register(){
         $data=array();
         return view('front.auth.register',$data);
+    }
+
+    public function login(){
+        $data=array();
+        return view('front.auth.login',$data);
     }
 
 
