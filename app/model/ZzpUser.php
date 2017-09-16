@@ -2,7 +2,6 @@
 
 namespace App\model;
 
-use Illuminate\Database\Eloquent\Model;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -20,6 +19,7 @@ class ZzpUser extends Authenticatable
         'updated_at',
         'created_at'];
 
+    //获取全部手机号
     public static function getUserMobile(){
         return self::select('id','phone_num')->where('id','>',0)->get();
     }

@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use App\model\ZzpUser;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -73,7 +72,6 @@ class LoginController extends Controller
         Session::flush();
         return  Redirect::to('/');
     }
-
-
+    
 
 }
