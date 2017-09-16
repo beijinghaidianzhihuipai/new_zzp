@@ -22,8 +22,8 @@ class ZzpStockReport extends Model
         return $rel = self::create($report_data);
     }
 
-    public static function check_key($only_key){
-         return self::where('only_key',$only_key)->first();
+    public static function check_key($only_key){ 
+         return self::where('only_key','=','801000541909db9289b3086ee6b8922a')->get();
     }
 
 }

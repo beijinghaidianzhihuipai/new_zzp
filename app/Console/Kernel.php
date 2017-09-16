@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\SendPhone::class,         //专项监听
         Commands\SendAchievement::class,   //业绩 中标
         Commands\SendFenPai::class,  //权益分派
+        Commands\SendNewInfo::class,  //24小时最新
     ];
 
     /**
@@ -27,8 +28,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('send:phone')->everyMinute()->withoutOverlapping();
-        $schedule->command('send:achievement')->everyMinute()->withoutOverlapping();
-        $schedule->command('send:fenpai')->everyMinute()->withoutOverlapping();
+        //$schedule->command('send:achievement')->everyMinute()->withoutOverlapping();
+        //$schedule->command('send:fenpai')->everyMinute()->withoutOverlapping();
+        $schedule->command('send:newinfo')->everyMinute()->withoutOverlapping();
     }
 
     /**
