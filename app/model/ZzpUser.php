@@ -11,10 +11,11 @@ class ZzpUser extends Authenticatable
 {
     use HasApiTokens, Notifiable;
     protected $table = 'user';
+    protected $dateFormat = 'U';
     protected $fillable = [
         'name',
-        'icon',
         'phone_num',
+        'password',
         'email',
         'updated_at',
         'created_at'];

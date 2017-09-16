@@ -11,16 +11,21 @@
 |
 */
 
-Route::get('/indexc','Front\SonghaoController@aaa' );
+Route::get('/front/indexc','Front\SonghaoController@aaa' );
 
 Route::get('/','Front\IndexController@index' );
 
-Route::any('/register','Front\IndexController@register' );
+Route::any('/front/register','Front\IndexController@register' );
+Route::post('/front/add_user','Front\IndexController@addUser' );
 
-Route::get('/login','Front\IndexController@login' );
+Route::get('/front/login','Front\IndexController@login' );
 
 
-Route::get('/user','Front\IndexController@user' );
+Route::get('/front/user','Front\IndexController@user' );
 
-Route::get('/admin','Front\IndexController@admin' );
+Route::get('/front/admin','Front\IndexController@admin' );
 
+
+//Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

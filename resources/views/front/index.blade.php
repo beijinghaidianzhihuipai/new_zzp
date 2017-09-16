@@ -7,9 +7,14 @@
 </head>
 <body>
 <div id="tou">
+
     <div class="logo">logo</div>
     <div class="denglu">
-        <a href="/login">登录</a><a href="/register">注册</a>
+        @if( Session::has('user_name') )
+        <a href="###"> {{ Session::get('user_name') }}</a>
+        @else
+        <a href="/front/login">登录 </a><a href="/front/register">注册</a>
+        @endif
     </div>
 </div>
 <div id="neirong">

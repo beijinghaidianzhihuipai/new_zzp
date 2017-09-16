@@ -1,9 +1,13 @@
-﻿<form method="POST" action="/register">
+﻿<form method="POST" action="/front/add_user">
     {!! csrf_field() !!}
-
     <div>
         用户名
         <input type="text" name="name" value="{{ old('name') }}">
+    </div>
+
+    <div>
+        手机号
+        <input type="text" name="phone_num" value="{{ old('phone_num') }}">
     </div>
 
     <div>
