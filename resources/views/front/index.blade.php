@@ -12,6 +12,7 @@
     <div class="denglu">
         @if( Session::has('user_name') )
         <a href="###"> {{ Session::get('user_name') }}</a>
+            <a href="/front/login_out">退出</a>
         @else
         <a href="/front/login">登录 </a><a href="/front/register">注册</a>
         @endif

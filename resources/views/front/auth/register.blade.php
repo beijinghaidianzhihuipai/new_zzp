@@ -1,4 +1,4 @@
-﻿<form method="POST" action="/front/add_user">
+﻿<form method="POST" action="/front/register">
     {!! csrf_field() !!}
     <div>
         用户名
@@ -26,6 +26,6 @@
     </div>
 
     <div>
-        <button type="submit">注册</button>
+        <button type="submit">提交注册</button>
     </div>
 </form>

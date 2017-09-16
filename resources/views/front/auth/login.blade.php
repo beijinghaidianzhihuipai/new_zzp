@@ -1,9 +1,8 @@
-﻿<form method="POST" action="/auth/login">
-    {!! csrf_field() !!}
+﻿<form method="POST" action="/front/login">
 
     <div>
-        用户名
-        <input type="email" name="name" value="{{ old('name') }}">
+        手机号
+        <input type="text" name="phone_num" value="{{ old('phone_num') }}">
     </div>
 
     <div>
@@ -11,9 +10,6 @@
         <input type="password" name="password" id="password">
     </div>
 
-    <div>
-        <input type="checkbox" name="remember"> 记住我
-    </div>
 
     <div>
         <button type="submit">登录</button>

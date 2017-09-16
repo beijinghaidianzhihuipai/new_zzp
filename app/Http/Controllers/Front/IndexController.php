@@ -24,8 +24,5 @@ class IndexController extends Controller
         return view('admin.admin',$data);
     }
 
-
-
-
-
+    
 }

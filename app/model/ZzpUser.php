@@ -23,4 +23,9 @@ class ZzpUser extends Authenticatable
     public static function getUserMobile(){
         return self::select('id','phone_num')->where('id','>',0)->get();
     }
+
+    //获取账户信息
+    public static function getUserByMobile($phone_num){
+        return self::select('*')->where('phone_num',$phone_num)->first();
+    }
 }

@@ -13,11 +13,12 @@
 
 
 Route::get('/','Front\IndexController@index' );
-
+//注册
 Route::any('/front/register','Front\User\LoginController@register' );
-Route::post('/front/add_user','Front\User\LoginController@addUser' );
-Route::get('/front/login','Front\User\LoginController@login' );
 
+//登录
+Route::any('/front/login','Front\User\LoginController@login' );
+Route::any('/front/login_out','Front\User\LoginController@loginOut' );
 
 Route::get('/front/user','Front\User\LoginController@user' );
 Route::get('/front/admin','Front\LoginController@admin' );
