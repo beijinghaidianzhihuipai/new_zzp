@@ -4,6 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>智者派官方网站</title>
     <link href="{{URL::asset('/css/front/index.css') }}" rel="stylesheet" type="text/css"  />
+    <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- baidu stat -->
+
+
+
 </head>
 <body>
 <div id="tou">
@@ -22,7 +27,7 @@
     <div class="xinxi white">
         <a href="###>">首页</a>|
         <a href="###>">新闻资讯</a>|
-        <a href="###>">公告资讯</a>|
+        <a href="/front/proclamation">最新公告</a>|
         <a href="###>">软件介绍</a>|
         <a href="###>">优股推荐</a>|
         <a href="###>">关于我们</a>
@@ -30,8 +35,7 @@
 
 
     </div>
-    <div class="bankuana">版块1</div>
-    <div class="bankuanb">版块2</div>
+
 </div>
 <div id="footer">底部</div>
 </body>

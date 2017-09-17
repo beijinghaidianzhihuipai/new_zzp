@@ -23,3 +23,6 @@ Route::any('/front/login_out','Front\User\LoginController@loginOut' );
 Route::get('/front/user','Front\User\LoginController@user' );
 Route::get('/front/admin','Front\LoginController@admin' );
 
+Route::get('/front/proclamation','Front\ProclamationController@index' );
+
+
