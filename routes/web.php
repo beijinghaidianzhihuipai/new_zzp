@@ -25,4 +25,5 @@ Route::get('/front/admin','Front\LoginController@admin' );
 
 Route::get('/front/proclamation','Front\ProclamationController@index' );
 
+Route::get('/admin/user_management','Admin\UserManagementController@index' );
 

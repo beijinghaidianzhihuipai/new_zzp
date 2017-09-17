@@ -31,4 +31,10 @@ class ZzpStockReport extends Model
         return $a;
     }
 
+    public static function shuju_info(){
+        $b = self::where('id','>','0')->get();
+        return $b;
+    }
+
+
 }
