@@ -1,5 +1,6 @@
 /nbproject/private/
 .env
+composer.lock
 .env.example
 /storage/logs/
 /vendor/
