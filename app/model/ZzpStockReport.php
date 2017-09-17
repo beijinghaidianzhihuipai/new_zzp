@@ -23,7 +23,7 @@ class ZzpStockReport extends Model
     }
 
     public static function check_key($only_key){ 
-         return self::where('only_key','=','801000541909db9289b3086ee6b8922a')->get();
+        return self::where('only_key',$only_key)->first();
     }
 
 }

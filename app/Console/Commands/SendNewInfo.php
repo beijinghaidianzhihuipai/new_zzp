@@ -44,13 +44,8 @@ class SendNewInfo extends Command
     }
 
     function mypost(){
-        $data_rel = ZzpStockReport::check_key('801000541909db9289b3086ee6b8922a');print_r($data_rel);die;
         header("Content-Type:text/html;charset=utf-8");
-        $now = (string) date("Y-m-d");
-        $yesterday = (string) date("Y-m-d", strtotime("1 days ago"));
         $url = 'http://disclosure.szse.cn/disclosure/fulltext/plate/szlatest_24h.js';
-
-//print_r($data);die;
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,$url);
         $header = array();
@@ -60,9 +55,8 @@ class SendNewInfo extends Command
         $header[] = 'Cookie:JSESSIONID=BAA32CCE66BBE4B688E934EFB9CD7EA1';
         $header[] = 'Host:disclosure.szse.cn';
         $header[] = 'Upgrade-Insecure-Requests:1';
-      //  $header[] = 'Content-type:text/javascript';
-        curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
 
+        curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
         curl_setopt($ch,CURLOPT_AUTOREFERER,1);
         curl_setopt($ch,CURLOPT_HTTPPROXYTUNNEL,1);
@@ -71,7 +65,6 @@ class SendNewInfo extends Command
 
         $result = curl_exec($ch);
         $encode = mb_detect_encoding($result, array("ASCII",'UTF-8','GB2312',"GBK",'BIG5'));
-
         $result = iconv( $encode, "UTF-8",$result) ;
 
         if(!empty($result)){
@@ -126,7 +119,7 @@ class SendNewInfo extends Command
 
             //公告入库
             $only_key = MD5($f_title.$report_date);
-            $data_rel = ZzpStockReport::check_key($only_key);print_r($data_rel);die;
+            $data_rel = ZzpStockReport::check_key($only_key);
             if(!$data_rel){
                 $report_data = array(
                     'title'=>$f_title,
@@ -141,11 +134,10 @@ class SendNewInfo extends Command
           if(!$report_id){ return false;}
 
             $user_info = ZzpUser::getUserMobile();
-           // print_r($user_info);die;
+
             if(!empty($user_info)){
                 $mobile_all = $user_info->toArray();
             }
-           // print_r($mobile_all);die;
             if(empty($mobile_all)){
                 return false;
             }
