@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 
 class IndexController extends Controller
 {
 
-    public function index(){
-       //echo 899;die;
+    public function appLogin(){
+       echo 899;die;
         $rel =  DB::table('user')->where('id','>',0)->get();
         print_r($rel);die;
         return view('front.index', $data);
