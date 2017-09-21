@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Front\User;
 use App\Http\Controllers\Controller;
 use App\model\ZzpUser;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
