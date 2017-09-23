@@ -21,7 +21,7 @@ class ZzpUser extends Authenticatable
 
     //获取全部手机号
     public static function getUserMobile(){
-        return self::select('id','phone_num')->where('id','>',0)->get();
+        return self::select('id','phone_num')->where('status',1)->get();
     }
 
     //获取账户信息
