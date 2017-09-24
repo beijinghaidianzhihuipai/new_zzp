@@ -29,7 +29,7 @@ class ZzpUser extends Authenticatable
         return self::select('*')->where('phone_num',$phone_num)->first();
     }
 
-    public static function getUserInfo(){
+    public static function GetUserInfo(){
         return self::select('*')->where('id','>',0)->get();
     }
 

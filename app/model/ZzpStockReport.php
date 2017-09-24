@@ -26,8 +26,8 @@ class ZzpStockReport extends Model
         return self::where('only_key',$only_key)->first();
     }
 
-    public static function get_stock_info(){
-        $a = self::where('id','>','0')->paginate(5);
+    public static function getStockInfo(){
+        $a = self::where('id','>','0')->orderBy('id','DESC')->paginate(5);
         return $a;
     }
 
