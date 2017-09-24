@@ -31,9 +31,8 @@ class ZzpStockReport extends Model
         return $a;
     }
 
-    public static function shuju_info(){
-        $b = self::where('id','>','0')->get();
-        return $b;
+    public static function appGetStockInfo($start_num,$limit){
+        return self::where('id','>','0')->orderBy('id','DESC')->offset($start_num)->limit($limit)->get();
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Input;
 
 class AppAuthenticate
 {
@@ -15,8 +16,12 @@ class AppAuthenticate
      */
     public function handle($request, Closure $next)
     {
-       // $token = $_REQUEST['token'];
-        //echo $token;die;
+        $request_all = Input::all();
+        if(!isset($request_all['token'])){
+            return new Response("无权访问！");
+        }
+        //$token = $_REQUEST['token'];
+
         return $next($request);
     }
 }

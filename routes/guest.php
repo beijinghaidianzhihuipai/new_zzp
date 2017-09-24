@@ -18,3 +18,4 @@ Route::middleware('auth:api')->post('/user', function (Request $request) { //ech
 });
 
 Route::post('app_login','Guest\IndexController@appLogin' );
+Route::post('get_stock_report','Guest\IndexController@getStockReport' ); // 获取股票公告

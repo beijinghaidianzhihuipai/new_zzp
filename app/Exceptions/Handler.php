@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $result = $this->processExceptionsToJson($request, $exception);
+        if ($result !== false) {
+            return $result;
+        }
         return parent::render($request, $exception);
     }
 
@@ -61,5 +67,31 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest(route('login'));
+    }
+    protected function processExceptionsToJson ( Request $request, Exception $exception)
+    {
+        $exception_rel = null;
+        if (!empty($exception->validator)) {
+            $exception_rel= $exception->validator->errors()->getMessages();
+            if ($exception_rel) {
+                if ($exception instanceof ValidationException) {
+                    $msg_field = key($exception_rel);
+                    $msg = current($exception_rel);
+                    if (is_array($msg)) {
+                        $msg = $msg[0];
+                    }
+                    return response()->json([
+                        'errcode' => $exception->getCode() ? $exception->getCode() : 422,
+                        'msg' => $msg,
+                        'field' => $msg_field,
+                        'errors' => $exception_rel,
+                    ]);
+                }
+            }
+        }
+        if ($exception instanceof ActionException) {
+            return $exception->toJsonResponse();
+        }
+        return false;
     }
 }

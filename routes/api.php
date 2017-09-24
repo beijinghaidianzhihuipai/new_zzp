@@ -13,8 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->post('/user', function (Request $request) { //echo 8989;die;
-    return $request->user();
-});
 
-Route::post('app_login','Api\IndexController@appLogin' );
+Route::post('get_user_info','Api\IndexController@getUserInfo' ); // 获取股票公告

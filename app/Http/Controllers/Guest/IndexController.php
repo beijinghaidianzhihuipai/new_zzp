@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\model\ZzpOauthRefreshTokens;
+use App\model\ZzpStockReport;
 use App\model\ZzpUser;
-use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-
 
 class IndexController extends Controller
 {
     use HasApiTokens, Notifiable;
     public function appLogin( Request $request){
+        //$this->validate()
         $phone_num = $request->phone_num;
         $password = $request->password;
         $user_info = ZzpUser::getUserByMobile($phone_num);
@@ -55,14 +55,23 @@ class IndexController extends Controller
         }
     }
 
-    public function user(){
-      $data=array();
-        return view('user.user',$data);
-    }
-
-    public function admin(){
-        $data=array();
-        return view('admin.admin',$data);
+    public function getStockReport(Request $request){
+        $this->validate($request,[
+            'page' => 'required|integer',
+            'limit' => 'required|integer',
+        ],[
+            'page.required' => '请输入页码',
+            'limit.required' => '请输入获取数量',
+        ]);
+        $page = $request->page;
+        $limit = $request->limit;
+        $start_num = ($page-1)*$limit;
+        $stock = ZzpStockReport::appGetStockInfo($start_num,$limit);
+        if(empty($stock)){print_r($stock);die;
+            return array('error_code'=>0,'msg'=>'无数据','data'=>'');
+        }
+        $stock = $stock->toArray();
+        return array('error_code'=>0,'msg'=>'查询成功','data'=>$stock);
     }
 
 
