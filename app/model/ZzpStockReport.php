@@ -27,7 +27,7 @@ class ZzpStockReport extends Model
     }
 
     public static function get_stock_info(){
-        $a = self::where('id','>','0')->get();
+        $a = self::where('id','>','0')->paginate(5);
         return $a;
     }
 
