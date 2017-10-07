@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\SendAchievement::class,   //业绩 中标
         Commands\SendFenPai::class,  //权益分派
         Commands\SendNewInfo::class,  //24小时最新
+        Commands\GetSHStockInfo::class,  //获取股票信息
     ];
 
     /**
