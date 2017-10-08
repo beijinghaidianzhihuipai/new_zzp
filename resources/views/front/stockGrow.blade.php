@@ -49,13 +49,45 @@
         <a href="###">关于我们</a>
     </div>
 
+<div> <a class="thress_days" onclick="check_days(2)">连续三天下跌</a>
+    <a>连续四天下跌</a>
+    <a>连续五天下跌</a>
+</div>
 
 <ul class="wei">
-@foreach($stock_infos as $value)
-    <li class="aa"><a href="{{$value->url}}">{{$value->title}} </a> &nbsp &nbsp &nbsp  {{$value->report_date}}</li>
-@endforeach
+
 </ul>
-{!! $stock_infos->links() !!}
+
 </body>
 </html>
+<script>
+
+    //页面加载完后执行
+    $(function(){
+        check_days(2);
+    }) ;
+
+    //调用下跌数据
+    function check_days(down_days){
+        $.ajax({
+            type:'post',
+            url:'/front/down/stock_grow',
+            data:{
+                down_days : down_days,
+            },
+            cache:false,
+            dataType:'json',
+            success:function(data){
+                var con = '';
+                for(var i=0; i < data.length; i++){
+                    con += "<li>" + data[i].stock_name +
+                            "(" + data[i].stock_code + ")" +
+                            "下跌金额：" + data[i].grow_price + "</li>";
+                }
+                $(".wei").html('');
+                $(".wei").append(con);
+            }
+        });
+    }
+</script>
 

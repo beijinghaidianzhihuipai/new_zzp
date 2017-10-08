@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class StockGrowController extends Controller
 {
+    public function index(){
+        return view('front.stockGrow');
+    }
+
     //获取连续下跌的股票
     public function getDownStock(Request $request){
         $messages = [
@@ -16,8 +20,8 @@ class StockGrowController extends Controller
         $this->validate($request,[
             'down_days' => 'required',
         ],$messages);
-        
-        $down_stock = ZzpStockGrow::getDownData();
+        $down_days = $request->down_days;
+        $down_stock = ZzpStockGrow::getDownData($down_days);
         return $down_stock;
     }
 
