@@ -20,4 +20,5 @@ class ProclamationController extends Controller
     }
 
     
+    
 }

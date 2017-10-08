@@ -27,3 +27,8 @@ Route::get('/front/proclamation','Front\ProclamationController@index' );
 
 Route::get('/admin/user_management','Admin\UserManagementController@index' );
 
+//获取连续下跌股票
+Route::post('/front/down/stock_grow','Front\StockGrowController@getDownStock' );
+
+
+
