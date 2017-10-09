@@ -67,6 +67,12 @@ class GetSZStockInfo extends Command
             if(empty($rel)){ continue;}
             $stock_info = explode(',',$rel[1]);
             //print_r($stock_info);die;
+            if($stock_info[3] == 0){continue;}
+            $stock_time = strtotime($stock_info[30] . ' ' .$stock_info[31]); //年月日时分秒
+            $stock_date = strtotime($stock_info[30]); //年月日
+            $sel_where =array('stock_date' => $stock_date,'stock_code' => $stock_code,);
+            $check_rel = ZzpStockGrow::checkHaveInfo($sel_where);
+            if(!empty($check_rel)){continue;}
 
            /*
             0：”大秦铁路”，股票名字； 1：”27.55″，今日开盘价； 2：”27.25″，昨日收盘价；
@@ -82,8 +88,7 @@ class GetSZStockInfo extends Command
                 $grow_type = 0;
             }
 
-            $stock_time = strtotime($stock_info[30] . ' ' .$stock_info[31]); //年月日时分秒
-            $stock_date = strtotime($stock_info[30]); //年月日
+
             $addInfo = array(
                 'stock_name' => $stock_info[0],
                 'stock_code' => $stock_code,
