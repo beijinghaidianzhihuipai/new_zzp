@@ -56,12 +56,26 @@
     <a onclick="check_days(7)">连续七天下跌</a>
 </div>
 
+    <div class="draw" > </div>
+    <style>
+        .draw{
+            background: #c2c2c2;
+            z-index: 2;
+            position:absolute;
+            right:5%;
+            margin-top:5%;
+            width: 550px;
+            float: right;
+        }
+    </style>
 <ul class="wei">
 
 </ul>
 
 </body>
 </html>
+
+
 <script>
 
     //页面加载完后执行
@@ -82,7 +96,12 @@
             success:function(data){
                 var con = '';
                 for(var i=0; i < data.length; i++){
-                    con += "<li>" + data[i].stock_name +
+                    if(data[i].stock_type == 1){
+                        var code = "'sh" + data[i].stock_code + "'";
+                    }else{
+                        var code = "'sz" + data[i].stock_code + "'";
+                    }
+                    con += '<li onclick="drawImg(' +code+ ')">' + data[i].stock_name +
                             "(" + data[i].stock_code + ")" +
                             "下跌金额：" + data[i].grow_price + "</li>";
                 }
@@ -90,6 +109,12 @@
                 $(".wei").append(con);
             }
         });
+    }
+
+    function drawImg(codes){
+
+        var img = '<img src="http://image.sinajs.cn/newchart/daily/n/' + codes + '.gif"  />';
+        $(".draw").html('').append(img);
     }
 </script>
 

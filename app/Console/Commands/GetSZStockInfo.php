@@ -100,7 +100,7 @@ class GetSZStockInfo extends Command
                 'grow_price' => $grow_price,
                 'stock_time' => $stock_time,
                 'stock_date' => $stock_date,
-                'stock_type' => 1,
+                'stock_type' => 2,
             );
             $rel = ZzpStockGrow::addGrow($addInfo);
         }
