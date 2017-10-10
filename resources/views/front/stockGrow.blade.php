@@ -64,7 +64,7 @@
 
     //页面加载完后执行
     $(function(){
-        check_days(2);
+        check_days(3);
     }) ;
 
     //调用下跌数据
