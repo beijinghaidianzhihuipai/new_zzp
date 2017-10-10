@@ -67,6 +67,9 @@
             width: 550px;
             float: right;
         }
+        .grow {
+            cursor: pointer;
+        }
     </style>
 <ul class="wei">
 
@@ -101,9 +104,10 @@
                     }else{
                         var code = "'sz" + data[i].stock_code + "'";
                     }
-                    con += '<li onclick="drawImg(' +code+ ')">' + data[i].stock_name +
+                    con += '<li class="grow" onclick="drawImg(' +code+ ')">' + data[i].stock_name +
                             "(" + data[i].stock_code + ")" +
-                            "下跌金额：" + data[i].grow_price + "</li>";
+                            "下跌金额：" + data[i].grow_price + "+" +
+                            "当前价格：" + data[i].end_price + "</li>";
                 }
                 $(".wei").html('');
                 $(".wei").append(con);
