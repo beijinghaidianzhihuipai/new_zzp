@@ -49,9 +49,11 @@
         <a href="###">关于我们</a>
     </div>
 
-<div> <a class="thress_days" onclick="check_days(2)">连续三天下跌</a>
-    <a>连续四天下跌</a>
-    <a>连续五天下跌</a>
+<div> <a class="thress_days" onclick="check_days(3)">连续三天下跌</a>
+    <a onclick="check_days(4)">连续四天下跌</a>
+    <a onclick="check_days(5)">连续五天下跌</a>
+    <a onclick="check_days(6)">连续六天下跌</a>
+    <a onclick="check_days(7)">连续七天下跌</a>
 </div>
 
 <ul class="wei">
