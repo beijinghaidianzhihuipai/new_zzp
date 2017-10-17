@@ -10,6 +10,5 @@
     </div>
 
 </div>
-
 @include('front/public/footer')
 
