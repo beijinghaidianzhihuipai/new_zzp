@@ -34,7 +34,6 @@ class ZzpStockGrow extends Model
         $where = array(
             array('grow_type' , 2),
             array('stock_time','>',0),
-            array('stock_type' , 1),
         );
         $rel = self::select('stock_name','stock_code','stock_type','end_price',
             DB::raw('sum(grow_price) as grow_price'),DB::raw('count(id) as num'))

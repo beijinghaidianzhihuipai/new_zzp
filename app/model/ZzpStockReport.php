@@ -27,7 +27,8 @@ class ZzpStockReport extends Model
     }
 
     public static function getStockInfo(){
-        $a = self::where('id','>','0')->orderBy('id','DESC')->paginate(5);
+        $time = time()- 3*24*3600;
+        $a = self::where('created_at','>',$time)->orderBy('id','DESC')->paginate(15);
         return $a;
     }
 
