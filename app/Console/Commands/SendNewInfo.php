@@ -133,19 +133,19 @@ class SendNewInfo extends Command
             $report_id = $data_rel->id;
           if(!$report_id){ return false;}
 
-            $user_info = ZzpUser::getUserMobile();
+           // $user_info = ZzpUser::getUserMobile();
 
-            if(!empty($user_info)){
-                $mobile_all = $user_info->toArray();
+           // if(!empty($user_info)){
+           //     $mobile_all = $user_info->toArray();
             }
-            if(empty($mobile_all)){
-                return false;
-            }
+          //  if(empty($mobile_all)){
+         //       return false;
+          //  }
             
             //发送短信
-            $title = $f_title . ',PDF: ' . $short;
-            \sendMSG::baseInfo($report_id,$mobile_all,$title,$url);
-        }
+           // $title = $f_title . ',PDF: ' . $short;
+           // \sendMSG::baseInfo($report_id,$mobile_all,$title,$url);
+       // }
     }
 
     
