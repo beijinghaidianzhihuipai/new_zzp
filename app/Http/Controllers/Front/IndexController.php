@@ -22,6 +22,10 @@ class IndexController extends Controller
         return view('front.public.header');
     }
 
+    public function footer(){
+        $header=array();
+        return view('front.public.footer');
+    }
 
 
     

@@ -4,7 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>智者派官方网站</title>
     <link href="{{URL::asset('/css/front/index.css') }}" rel="stylesheet" type="text/css"  />
-    <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{URL::asset('/css/front/proclamtion.css')}}" rel="stylesheet" type="text/css" />
+
     <!-- baidu stat -->
     <!--内容代码 -->
     <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
@@ -29,5 +31,6 @@
         <a href="/front/login">登录 </a><a href="/front/register">注册</a>
         @endif
     </div>
+
 </div>
 

@@ -1,0 +1,8 @@
+/* CSS Document */
+
+ul.wei{height: 170px; width: 650px;/*border: 1px solid black; */   margin: 0 auto; margin-top: 10px;}
+ul.wei li{  list-style-type:none; height:35px; width: 550px; }
+ul.wei  li a{text-decoration:none; line-height:25px; }
+ul.pagination {height:30px;width:210px;border: 1px solid black;  margin: 0 auto; margin-top: 10px;}
+ul.pagination li{float: left;margin-right: 10px; margin-left: 10px;  }
+ul.pagination li a{}

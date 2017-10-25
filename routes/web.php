@@ -35,5 +35,6 @@ Route::post('/front/down/stock_grow','Front\StockGrowController@getDownStock' );
 //全新头部
 Route::get('/front/header','Front\IndexController@header' );
 
-
+//全新尾部
+Route::get('/front/footer','Front\IndexController@footer' );
 
