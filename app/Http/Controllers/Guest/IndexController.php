@@ -67,7 +67,7 @@ class IndexController extends Controller
         $limit = $request->limit;
         $start_num = ($page-1)*$limit;
         $stock = ZzpStockReport::appGetStockInfo($start_num,$limit);
-        if(empty($stock)){print_r($stock);die;
+        if(empty($stock)){
             return array('error_code'=>0,'msg'=>'无数据','data'=>'');
         }
         $stock = $stock->toArray();

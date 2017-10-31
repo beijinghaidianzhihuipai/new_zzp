@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 */
 
 
-Route::post('get_user_info','Api\IndexController@getUserInfo' ); // 获取股票公告
+Route::post('get_user_info','Api\IndexController@getUserInfo' ); // 获取
