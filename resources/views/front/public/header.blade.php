@@ -20,9 +20,20 @@
 
 </head>
 <body>
+<div id="big_head">
 <div id="tou">
 
-    <div class="logo">logo</div>
+    <div class="logo">智者派</div>
+
+    <div class="xinxi white">
+        <ul>
+            <li> <a href="###>">首页</a> </li>
+            <li> <a href="/front/proclamation">最新公告</a> </li>
+            <li> <a href="/front/stock_grow">优股推荐</a> </li>
+        </ul>
+
+    </div>
+
     <div class="denglu">
         @if( Session::has('user_name') )
         <a href="###"> {{ Session::get('user_name') }}</a>
@@ -31,6 +42,5 @@
         <a href="/front/login">登录 </a><a href="/front/register">注册</a>
         @endif
     </div>
-
 </div>
-
+</div>
