@@ -25,7 +25,6 @@ a{text-decoration:none}
     width:1200px;
     height:100px;
     margin: 0 auto;
-    border:1px solid #FF4040;
 }
 
 
@@ -54,7 +53,6 @@ margin-top:20px;
 
 .xinxi li{
     width: 120px;
-   // border:1px solid #FF4040;
 }
 .xinxi a{
     color: #fff;
