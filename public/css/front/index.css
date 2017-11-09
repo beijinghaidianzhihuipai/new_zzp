@@ -76,7 +76,7 @@ margin-top:20px;
 }
 
 #neirong{
-    height:400px;
+    height:800px;
 }
 .change_img{
     height:300px;
@@ -91,6 +91,36 @@ margin-top:20px;
     max-height:100%;
 }
 
+.pro_data{
+    height: 313px;
+    margin-top: 50px;
+
+}
+
+.pro_mid{
+    height: 313px;
+    width: 1020px;
+    margin: auto;
+}
+.pro_img{
+    height: 313px;
+    width: 500px;
+    float: left;
+}
+
+.pro_info{
+    height: 313px;
+    width: 500px;
+    float: left;
+}
+.pro_info {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #4d4d4d;
+    min-height: 1px;
+    height: auto !important;
+    margin-left: 20px;
+}
 
 
 #footer{
@@ -98,15 +128,16 @@ margin-top:20px;
     background: #212121;
 }
 
-.comp_info{
+#comp_info{
     height: 45px;
     line-height: 45px;
-    width: auto;
-    border:1px solid blue;
-    background: red;
+    float: left;
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
 }
 
-.comp_info a{
+#comp_info a{
     font-size: 16px;
     color: #fff;
 }
