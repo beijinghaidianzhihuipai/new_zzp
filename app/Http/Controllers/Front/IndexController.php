@@ -16,16 +16,7 @@ class IndexController extends Controller
         return view('admin.admin',$data);
     }
 
-    public function header(){
-      //  echo 123;die;
-        $header=array();
-        return view('front.public.header');
-    }
 
-    public function footer(){
-        $header=array();
-        return view('front.public.footer');
-    }
 
 
     
