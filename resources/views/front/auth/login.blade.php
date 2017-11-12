@@ -1,4 +1,6 @@
-﻿<form method="POST" action="/front/login">
+﻿@extends('front/public/app')
+@section('content')
+<form method="POST" action="/front/login">
 
     <div>
         手机号
@@ -15,3 +17,4 @@
         <button type="submit">登录</button>
     </div>
 </form>
+@endsection

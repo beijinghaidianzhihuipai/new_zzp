@@ -1,4 +1,6 @@
-﻿<form method="POST" action="/front/register">
+﻿@extends('front/public/app')
+@section('content')
+<form method="POST" action="/front/register">
     {!! csrf_field() !!}
     <div>
         用户名
@@ -29,3 +31,4 @@
         <button type="submit">提交注册</button>
     </div>
 </form>
+@endsection
