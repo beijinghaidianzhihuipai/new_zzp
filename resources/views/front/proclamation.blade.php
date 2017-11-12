@@ -2,11 +2,7 @@
 
 @section('content')
 
-
-
-
-
-    <div id="neirong">
+    <div id="pdf_neirong">
         <div id="text_main" >
             <div id="divLeft" >
                 <h2>最新公告</h2>
