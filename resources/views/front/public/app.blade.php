@@ -7,6 +7,7 @@
         <link href="{{URL::asset('/css/front/index.css') }}" rel="stylesheet" type="text/css"  />
         <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('/css/front/proclamtion.css')}}" rel="stylesheet" type="text/css" />
+        <script language="JavaScript" src="{{URL::asset('/js/front/jquery-core.min.js')}}"></script>
 
         <!-- baidu stat -->
         <!--内容代码 -->
@@ -29,7 +30,7 @@
 
     <div class="xinxi white">
         <ul>
-            <li> <a href="###>">首页</a> </li>
+            <li> <a href="/">首页</a> </li>
             <li> <a href="/front/proclamation">最新公告</a> </li>
             <li> <a href="/front/stock_grow">优股推荐</a> </li>
         </ul>

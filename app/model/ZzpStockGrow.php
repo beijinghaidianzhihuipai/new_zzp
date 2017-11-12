@@ -32,12 +32,11 @@ class ZzpStockGrow extends Model
 
     public static function getDownData($down_days){
         $where = array(
-            array('grow_type' , 2),
             array('stock_time','>',0),
         );
         $rel = self::select('stock_name','stock_code','stock_type','end_price',
             DB::raw('sum(grow_price) as grow_price'),DB::raw('count(id) as num'))
-            ->where($where)->groupBy('stock_code')
+            ->where($where)->limit(25)->groupBy('stock_code')
             ->having('num', '>=', $down_days)->orderBy('grow_price', 'asc')->get();
 
         return empty($rel) ? '' : $rel->toArray();

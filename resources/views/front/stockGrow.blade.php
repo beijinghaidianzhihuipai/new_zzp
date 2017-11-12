@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="neirong">
+<div id="grow_neirong">
 <div> <a class="thress_days" onclick="check_days(3)">连续三天下跌</a>
     <a onclick="check_days(4)">连续四天下跌</a>
     <a onclick="check_days(5)">连续五天下跌</a>
@@ -68,5 +68,4 @@
         $(".draw").html('').append(img);
     }
 </script>
-
 @endsection
