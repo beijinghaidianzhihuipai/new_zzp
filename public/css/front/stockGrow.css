@@ -1,0 +1,70 @@
+/* CSS Document */
+
+#grow_neirong{
+    height:1000px;
+}
+.draw{
+    background: #c2c2c2;
+    z-index: 2;
+    position:absolute;
+    right:5%;
+    margin-top:5%;
+    width: 550px;
+    float: right;
+}
+.grow {
+    cursor: pointer;
+}
+
+#text_main{
+    margin: auto;
+    width:1200px;
+    height: 100%;
+    border: none 0px
+}
+
+#text_main h2{
+    margin-top: 15px;
+}
+.down_check{
+    height: 35px;
+    margin-top: 5px;
+}
+.down_stock{
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    margin-left: 15px;
+}
+.down_stock a{
+    font-size: 14px;
+    color: #4d4d4d;
+    font-weight: bold;
+}
+.down_stock a:hover{
+    cursor:pointer;
+    color: #4d80c2;
+}
+
+.stock_data li{
+    width: 405px;
+    list-style-type:none;
+    margin-top: 15px;
+}
+.stock_data li a{
+    text-decoration:none;
+    line-height: 22px;
+    font-size: 14px;
+    color: #4d4d4d;
+}
+.stock_data li a:hover{
+    cursor:pointer;
+    color: #4d80c2;
+}
+
+
+
+
+
+
+
