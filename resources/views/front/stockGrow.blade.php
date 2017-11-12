@@ -1,12 +1,8 @@
-@include('front/public/header')
+@extends('front/public/app')
+
+@section('content')
+
 <div id="neirong">
-    <div class="xinxi white">
-        <a href="###>">首页</a>|
-        <a href="/front/proclamation">最新公告</a>|
-        <a href="/front/stock_grow">优股推荐</a>|
-
-    </div>
-
 <div> <a class="thress_days" onclick="check_days(3)">连续三天下跌</a>
     <a onclick="check_days(4)">连续四天下跌</a>
     <a onclick="check_days(5)">连续五天下跌</a>
@@ -29,14 +25,9 @@
             cursor: pointer;
         }
     </style>
-<ul class="wei">
-
-</ul>
-
-    @include('front/public/footer')
-
+<ul class="wei"></ul>
+</div>
 <script>
-
     //页面加载完后执行
     $(function(){
         check_days(3);
@@ -78,3 +69,4 @@
     }
 </script>
 
+@endsection
