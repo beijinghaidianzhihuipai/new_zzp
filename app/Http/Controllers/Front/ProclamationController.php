@@ -14,6 +14,12 @@ class ProclamationController extends Controller
         return view('front.proclamation')->with('stock_infos',$stock_info);
     }
 
+    public function indexTitle(){
+        $stock_info =ZzpStockReport::getStockInfo();
+
+        return view('front.proclamationTitle')->with('stock_infos',$stock_info);
+    }
+
     public function admin(){
         $data=array();
         return view('admin.admin',$data);

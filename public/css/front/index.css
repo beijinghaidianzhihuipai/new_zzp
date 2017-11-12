@@ -29,12 +29,12 @@ a{text-decoration:none}
 
 
 .logo{
-width:150px;
-height:60px;
-border:1px solid #FF4040;
-float:left;
-text-align:center;
-margin-top:20px;
+    width:150px;
+    height:60px;
+    border:1px solid #FF4040;
+    float:left;
+    text-align:center;
+    margin-top:20px;
 }
 
 .xinxi{
@@ -76,7 +76,7 @@ margin-top:20px;
 }
 
 #neirong{
-    height:800px;
+    height:1300px;
 }
 #grow_neirong{
     height:1000px;
@@ -129,6 +129,7 @@ margin-top:20px;
 #footer{
     height:100px;
     background: #212121;
+    margin-top: 20px;
 }
 
 #comp_info{

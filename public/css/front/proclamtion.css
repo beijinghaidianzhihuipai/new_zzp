@@ -1,8 +1,66 @@
 /* CSS Document */
 
-ul.wei{height: 170px; width: 650px;/*border: 1px solid black; */   margin: 0 auto; margin-top: 10px;}
-ul.wei li{  list-style-type:none; height:35px; width: 550px; }
-ul.wei  li a{text-decoration:none; line-height:25px; }
-ul.pagination {height:30px;width:210px;border: 1px solid black;  margin: 0 auto; margin-top: 10px;}
-ul.pagination li{float: left;margin-right: 10px; margin-left: 10px;  }
-ul.pagination li a{}
+#text_main{
+    margin: auto;
+    width:1200px;
+    height: 100%;
+    border: none 0px
+}
+
+#text_main h2{
+    margin-top: 15px;
+}
+#divmain{
+    float: right;
+    width: 790px;
+    height: 100%;
+    border: none 0px;
+    margin-top: 15px;
+}
+#divLeft{
+    width: 405px;
+    height:100%;
+    overflow: hidden;
+    float: left;
+}
+ul.wei li{
+    width: 405px;
+    list-style-type:none;
+    margin-top: 15px;
+}
+ul.wei li a{
+    text-decoration:none;
+    line-height: 22px;
+    font-size: 16px;
+    color: #4d4d4d;
+}
+ul.wei li a:hover{
+    cursor:pointer;
+    color: #4d80c2;
+}
+
+.f_date{
+    color: #985f0d;
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+ul.pagination {
+    height:30px;
+    width:210px;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+ul.pagination li{
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+
+
+
+
