@@ -26,7 +26,7 @@
 <div id="big_head">
 <div id="tou">
 
-    <div class="logo">智者派</div>
+    <div class="logo"><img src="{{URL::asset('/images/front/logo.png')}}"></div>
 
     <div class="xinxi white">
         <ul>

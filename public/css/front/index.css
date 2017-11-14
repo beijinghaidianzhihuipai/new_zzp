@@ -29,12 +29,11 @@ a{text-decoration:none}
 
 
 .logo{
-    width:150px;
-    height:60px;
-    border:1px solid #FF4040;
-    float:left;
-    text-align:center;
-    margin-top:20px;
+    width: 150px;
+    height: 80px;
+    float: left;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .xinxi{
