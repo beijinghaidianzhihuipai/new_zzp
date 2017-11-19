@@ -38,13 +38,7 @@
         <div class="uc-hd p-rel">注册</div>
         <div class="uc-bd uc-bd-pt24">
 
-            <div class="uc-rg-tabs" id="tab">
-                <ul class="uc-rg-tabs-ul bdr8">
-                    <li class="uc-rg-tabs-first cur" view="mobileRegister" model="mobile"><a href="#">手机</a></li>
-                    <!-- <li class="uc-rg-tabs-second" view="emailRegister" model="email"><a href="#">邮箱</a></li> -->
-                    <li class="uc-rg-tabs-last" view="unameRegister" model="uname"><a href="#">用户名</a></li>
-                </ul>
-            </div>
+
 
             <div class="login-status" style="display: none;">
                 <img alt="" src="/UserCenter/web/images/icon-warning.gif" class="login-status-img"><span id="errorMessage" class="login-status-text"></span>
