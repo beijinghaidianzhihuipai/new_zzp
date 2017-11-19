@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6b5e422-64b8-4a92-8898-f958619d0f94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front/auth/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/front/auth/register.blade.php" />
     </list>
     <ignored path="zhizhepai.iws" />
@@ -38,20 +37,20 @@
       <file leaf-file-name="register.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/front/auth/register.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31046513">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.26627907">
+              <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
               <folding>
-                <element signature="e#875#897#0#HTML" expanded="true" />
-                <element signature="e#1127#1149#0#HTML" expanded="true" />
-                <element signature="e#1193#1214#0#HTML" expanded="true" />
-                <element signature="e#1921#1943#0#HTML" expanded="true" />
-                <element signature="e#1987#2008#0#HTML" expanded="true" />
-                <element signature="e#2837#2861#0#HTML" expanded="true" />
-                <element signature="e#3152#3173#0#HTML" expanded="true" />
-                <element signature="e#3665#3702#0#HTML" expanded="true" />
-                <element signature="e#4523#4542#0#HTML" expanded="true" />
-                <element signature="e#4612#4632#0#HTML" expanded="true" />
-                <element signature="e#5924#5961#0#HTML" expanded="true" />
+                <element signature="e#872#894#0#HTML" expanded="true" />
+                <element signature="e#1124#1146#0#HTML" expanded="true" />
+                <element signature="e#1190#1211#0#HTML" expanded="true" />
+                <element signature="e#1918#1940#0#HTML" expanded="true" />
+                <element signature="e#1984#2005#0#HTML" expanded="true" />
+                <element signature="e#2834#2858#0#HTML" expanded="true" />
+                <element signature="e#3149#3170#0#HTML" expanded="true" />
+                <element signature="e#3662#3699#0#HTML" expanded="true" />
+                <element signature="e#4520#4539#0#HTML" expanded="true" />
+                <element signature="e#4609#4629#0#HTML" expanded="true" />
+                <element signature="e#5921#5958#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1168,20 +1167,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31046513">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.26627907">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
           <folding>
-            <element signature="e#875#897#0#HTML" expanded="true" />
-            <element signature="e#1127#1149#0#HTML" expanded="true" />
-            <element signature="e#1193#1214#0#HTML" expanded="true" />
-            <element signature="e#1921#1943#0#HTML" expanded="true" />
-            <element signature="e#1987#2008#0#HTML" expanded="true" />
-            <element signature="e#2837#2861#0#HTML" expanded="true" />
-            <element signature="e#3152#3173#0#HTML" expanded="true" />
-            <element signature="e#3665#3702#0#HTML" expanded="true" />
-            <element signature="e#4523#4542#0#HTML" expanded="true" />
-            <element signature="e#4612#4632#0#HTML" expanded="true" />
-            <element signature="e#5924#5961#0#HTML" expanded="true" />
+            <element signature="e#872#894#0#HTML" expanded="true" />
+            <element signature="e#1124#1146#0#HTML" expanded="true" />
+            <element signature="e#1190#1211#0#HTML" expanded="true" />
+            <element signature="e#1918#1940#0#HTML" expanded="true" />
+            <element signature="e#1984#2005#0#HTML" expanded="true" />
+            <element signature="e#2834#2858#0#HTML" expanded="true" />
+            <element signature="e#3149#3170#0#HTML" expanded="true" />
+            <element signature="e#3662#3699#0#HTML" expanded="true" />
+            <element signature="e#4520#4539#0#HTML" expanded="true" />
+            <element signature="e#4609#4629#0#HTML" expanded="true" />
+            <element signature="e#5921#5958#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

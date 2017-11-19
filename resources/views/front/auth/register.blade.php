@@ -37,9 +37,6 @@
     <div class="user-center bdr8">
         <div class="uc-hd p-rel">注册</div>
         <div class="uc-bd uc-bd-pt24">
-
-
-
             <div class="login-status" style="display: none;">
                 <img alt="" src="/UserCenter/web/images/icon-warning.gif" class="login-status-img"><span id="errorMessage" class="login-status-text"></span>
             </div>
