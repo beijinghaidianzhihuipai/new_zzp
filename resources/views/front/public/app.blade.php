@@ -7,6 +7,8 @@
         <link href="{{URL::asset('/css/front/index.css') }}" rel="stylesheet" type="text/css"  />
         <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('/css/front/proclamtion.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{URL::asset('/css/front/login.css')}}" rel="stylesheet" type="text/css" />
+
         <script language="JavaScript" src="{{URL::asset('/js/front/jquery-core.min.js')}}"></script>
 
         <!-- baidu stat -->
