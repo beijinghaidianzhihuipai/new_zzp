@@ -37,8 +37,8 @@
       <file leaf-file-name="register.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/front/auth/register.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04418605">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33255813">
+              <caret line="62" column="86" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="86" />
               <folding>
                 <element signature="e#220#242#0#HTML" expanded="true" />
                 <element signature="e#472#494#0#HTML" expanded="true" />
@@ -49,8 +49,6 @@
                 <element signature="e#2497#2518#0#HTML" expanded="true" />
                 <element signature="e#3010#3047#0#HTML" expanded="true" />
                 <element signature="e#3868#3887#0#HTML" expanded="true" />
-                <element signature="e#3957#3977#0#HTML" expanded="true" />
-                <element signature="e#5269#5306#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1167,8 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04418605">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33255813">
+          <caret line="62" column="86" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="86" />
           <folding>
             <element signature="e#220#242#0#HTML" expanded="true" />
             <element signature="e#472#494#0#HTML" expanded="true" />
@@ -1179,8 +1177,6 @@
             <element signature="e#2497#2518#0#HTML" expanded="true" />
             <element signature="e#3010#3047#0#HTML" expanded="true" />
             <element signature="e#3868#3887#0#HTML" expanded="true" />
-            <element signature="e#3957#3977#0#HTML" expanded="true" />
-            <element signature="e#5269#5306#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

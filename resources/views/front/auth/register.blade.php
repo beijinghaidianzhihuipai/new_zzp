@@ -59,7 +59,7 @@
                     </form>
                     <p class="uc-form-tips uc-form-tips-pd0 uc-form-tips-alert" id="notiMessage" style="height:14px"></p>
                 </div>
-
+   <!--
                 <div id="unameRegister" style="display:none" class="uc-form uc-form-pw">
                     <form>
                         <div class="uc-pw-block">
@@ -99,6 +99,8 @@
                         </div>
                     </form>
                 </div>
+
+                -->
             </div>
 
             <div class="uc-btn"><a id="submitBtn" class="bdr8">提交</a></div>
