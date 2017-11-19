@@ -8,9 +8,10 @@
         <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('/css/front/proclamtion.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('/css/front/login.css')}}" rel="stylesheet" type="text/css" />
-
+        <link href="{{URL::asset('/css/front/base.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{URL::asset('/css/front/zhuce_usercenter.css')}}" rel="stylesheet" type="text/css" />
         <script language="JavaScript" src="{{URL::asset('/js/front/jquery-core.min.js')}}"></script>
-
+        <script language="JavaScript" src="{{URL::asset('/js/front/pt.js')}}"></script>
         <!-- baidu stat -->
         <!--内容代码 -->
         <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
