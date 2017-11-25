@@ -1,51 +1,10 @@
 ﻿@extends('front/public/app')
 @section('content')
-        <!--
-<form method="POST" action="/front/register">
-    {!! csrf_field() !!}
-    <div>
-        用户名
-        <input type="text" name="name" value="{{ old('name') }}">
-    </div>
 
-    <div>
-        手机号
-        <input type="text" name="phone_num" value="{{ old('phone_num') }}">
-    </div>
-
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
-
-    <div>
-        密码
-        <input type="password" name="password">
-    </div>
-
-    <div>
-        确认密码
-        <input type="password" name="password_confirmation">
-    </div>
-
-    <div>
-        <button type="submit">提交注册</button>
-    </div>
-</form>
--->
 <div id="main">
     <div class="user-center bdr8">
         <div class="uc-hd p-rel">注册</div>
         <div class="uc-bd uc-bd-pt24">
-
-            <div class="uc-rg-tabs" id="tab">
-                <ul class="uc-rg-tabs-ul bdr8">
-                    <li class="uc-rg-tabs-first cur" view="mobileRegister" model="mobile"><a href="#">手机</a></li>
-                    <!-- <li class="uc-rg-tabs-second" view="emailRegister" model="email"><a href="#">邮箱</a></li> -->
-                    <li class="uc-rg-tabs-last" view="unameRegister" model="uname"><a href="#">用户名</a></li>
-                </ul>
-            </div>
-
             <div class="login-status" style="display: none;">
                 <img alt="" src="/UserCenter/web/images/icon-warning.gif" class="login-status-img"><span id="errorMessage" class="login-status-text"></span>
             </div>
@@ -100,7 +59,7 @@
                     </form>
                     <p class="uc-form-tips uc-form-tips-pd0 uc-form-tips-alert" id="notiMessage" style="height:14px"></p>
                 </div>
-
+   <!--
                 <div id="unameRegister" style="display:none" class="uc-form uc-form-pw">
                     <form>
                         <div class="uc-pw-block">
@@ -140,6 +99,8 @@
                         </div>
                     </form>
                 </div>
+
+                -->
             </div>
 
             <div class="uc-btn"><a id="submitBtn" class="bdr8">提交</a></div>

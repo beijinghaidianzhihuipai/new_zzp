@@ -15,7 +15,7 @@
                         <li>
                             <label for="">密<s class="s2"></s>码：</label><input name="loginpassword" type="password" class="input">&nbsp;
                             <!-- a href="retrieve.jsp">忘记密码</a> -->
-                            <a href="https://i.gw.com.cn/UserCenter/page/account/forgetPass?source=1&amp;redirect_uri=">忘记密码</a>
+                            <a href="###">忘记密码</a>
                         </li>
                     </ul>
                     <div class="btn-wrap">
