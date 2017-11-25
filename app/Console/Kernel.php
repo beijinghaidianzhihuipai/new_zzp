@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         Commands\SendNewInfo::class,  //24小时最新
         Commands\GetSHStockInfo::class,  //获取上海股票信息
         Commands\GetSZStockInfo::class,  //获取深圳股票信息
+        Commands\GetStockBasic::class,  //获取股票基本面信息
     ];
 
     /**
