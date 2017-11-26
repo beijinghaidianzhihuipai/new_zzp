@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\model\ZzpStockBasic;
 use App\model\ZzpStockCode;
 use App\model\ZzpStockGrow;
 use Illuminate\Console\Command;
@@ -71,8 +72,8 @@ class GetStockBasic extends Command
             $jlr = '/净利润：<\/dt>[\s]+<dd>([\s\S]+?)亿元<\/dd>/';
             preg_match($jlr,$rel[1],$jlr_rel);
 
-            $lrzz = '/净利润增长率：<\/dt>[\s]+<dd>([\s\S]+?)%<\/dd>/';
-            preg_match($lrzz,$rel[1],$lrzz_rel);
+            $jlrzz = '/净利润增长率：<\/dt>[\s]+<dd>([\s\S]+?)%<\/dd>/';
+            preg_match($jlrzz,$rel[1],$jlrzz_rel);
 
             $yingshou = '/营业收入：<\/dt>[\s]+<dd>([\s\S]+?)亿元<\/dd>/';
             preg_match($yingshou,$rel[1],$yingshou_rel);
@@ -92,43 +93,25 @@ class GetStockBasic extends Command
             $ltg = '/流通股：<\/dt>[\s]+<dd>([\s\S]+?)亿<\/dd>/';
             preg_match($ltg,$rel[1],$ltg_rel);
 
-            print_r($ltg_rel);die;
-            if($stock_info[3] == 0){continue;}
-            $stock_time = strtotime($stock_info[30] . ' ' .$stock_info[31]); //年月日时分秒
-            $stock_date = strtotime($stock_info[30]); //年月日
-            $sel_where =array('stock_date' => $stock_date,'stock_code' => $stock_code,);
-            $check_rel = ZzpStockGrow::checkHaveInfo($sel_where);
+            $basic_data = array();
+            $basic_data['stock_code'] = $stock_code;
+            $basic_data['earnings_per_share'] = $shouyi_rel[1];
+            $basic_data['net_profit'] = $jlr_rel[1];
+            $basic_data['net_profit_grow_rate'] = $jlrzz_rel[1];
+            $basic_data['business_income'] = $yingshou_rel[1];
+            $basic_data['cash_flow_per_share'] = $mgxjl_rel[1];
+            $basic_data['provident_fund_per_share'] = $mgjj_rel[1];
+            $basic_data['undistributed_profit_per_share'] = $wfplr_rel[1];
+            $basic_data['total_capital_stock'] = $zgb_rel[1];
+            $basic_data['tradable_shares'] = $ltg_rel[1];
+            //print_r($basic_data);die;
+            $sel_where = array('stock_code' => $stock_code);
+            $check_rel = ZzpStockBasic::getBasicInfo($sel_where);
+            //print_r($check_rel);die;
             if(!empty($check_rel)){continue;}
 
-           /*
-            0：”大秦铁路”，股票名字； 1：”27.55″，今日开盘价； 2：”27.25″，昨日收盘价；
-            3：”26.91″，当前价格；   4：”27.55″，今日最高价； 5：”26.20″，今日最低价；
-           */
-
-            $grow_price = sprintf("%.3f",$stock_info[3] - $stock_info[1]);
-            if($grow_price > 0){
-                $grow_type = 1;
-            }elseif ($grow_price < 0){
-                $grow_type = 2;
-            }else{
-                $grow_type = 0;
-            }
-
-
-            $addInfo = array(
-                'stock_name' => $stock_info[0],
-                'stock_code' => $stock_code,
-                'max_price' => $stock_info[4],
-                'min_price' => $stock_info[5],
-                'start_price' => $stock_info[1],
-                'end_price' => $stock_info[3],
-                'grow_type' => $grow_type,
-                'grow_price' => $grow_price,
-                'stock_time' => $stock_time,
-                'stock_date' => $stock_date,
-                'stock_type' => 2,
-            );
-           // $rel = ZzpStockGrow::addGrow($addInfo);
+            $rel = ZzpStockBasic::add($basic_data);
+            print_r($rel);die;
         }
 
     }
