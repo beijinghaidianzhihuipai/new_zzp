@@ -10,6 +10,7 @@ class ZzpStockBasic extends Model
     protected $dateFormat = 'U';
     protected $fillable = [
         'stock_code',
+        'stock_type',
         'earnings_per_share',
         'net_profit',
         'net_profit_grow_rate',

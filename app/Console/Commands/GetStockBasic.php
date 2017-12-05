@@ -62,10 +62,12 @@ class GetStockBasic extends Command
             $result = curl_exec($ch);
             $encode = mb_detect_encoding($result, array("ASCII",'UTF-8','GB2312',"GBK",'BIG5'));
             $result = iconv( $encode, "UTF-8",$result) ;
-            //print_r($result);die;
+
             $prg = '/<dl class="company_details">([\s\S]+)?<\/dl>/';
             preg_match($prg,$result,$rel);
-
+            if(!isset($rel[1])){
+                continue;
+            }
             $shouyi = '/每股收益：<\/dt>[\s]+<dd>([\s\S]+?)元<\/dd>/';
             preg_match($shouyi,$rel[1],$shouyi_rel);
 
@@ -95,6 +97,7 @@ class GetStockBasic extends Command
 
             $basic_data = array();
             $basic_data['stock_code'] = $stock_code;
+            $basic_data['stock_type'] = $val->stock_type;
             $basic_data['earnings_per_share'] = $shouyi_rel[1];
             $basic_data['net_profit'] = $jlr_rel[1];
             $basic_data['net_profit_grow_rate'] = $jlrzz_rel[1];
@@ -108,10 +111,24 @@ class GetStockBasic extends Command
             $sel_where = array('stock_code' => $stock_code);
             $check_rel = ZzpStockBasic::getBasicInfo($sel_where);
             //print_r($check_rel);die;
-            if(!empty($check_rel)){continue;}
+            if(!empty($check_rel)){
+                if(($basic_data['business_income'] == $check_rel->business_income)  &&
+                    ($basic_data['earnings_per_share'] == $check_rel->earnings_per_share) ){
+                    continue;
+                }
+                if(ZzpStockBasic::where('id',$check_rel->id)->update($basic_data)){
+                    echo '股票编码'.$stock_code.'ID: '.$check_rel->id.' 更新成功'; echo "\n";
+                }else{
+                    echo '股票编码'.$stock_code.'ID: '.$check_rel->id.' 更新失败';die;
+                }
+            }else{
+                if(ZzpStockBasic::add($basic_data)){
+                    echo '股票编码'.$stock_code."新增信息成功"; echo "\n";
+                }else{
+                    echo '股票编码'.$stock_code."新增信息失败";die;
+                }
+            }
 
-            $rel = ZzpStockBasic::add($basic_data);
-            print_r($rel);die;
         }
 
     }

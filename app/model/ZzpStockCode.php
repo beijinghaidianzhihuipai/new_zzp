@@ -22,7 +22,7 @@ class ZzpStockCode extends Model
     }
 
     public static function getStockInfo($where){
-        return self::select('stock_code')->where($where)->get();
+        return self::select('stock_code','stock_type')->where($where)->get();
     }
 
     public static function updateData($upWhere){
