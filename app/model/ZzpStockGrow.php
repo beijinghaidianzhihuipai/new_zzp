@@ -42,12 +42,15 @@ class ZzpStockGrow extends Model
         $ch_num = $down_days-1;
         $ch_time = $more_rel[$ch_num]->stock_date;
         $where = array(
-            array('stock_time','>=',$ch_time),
+            array('stock_date','>=',$ch_time),
             array('grow_type','=',2),
         );
-        $rel = self::select('stock_name','stock_code','stock_type','end_price',
-            DB::raw('sum(grow_price) as grow_price'),DB::raw('count(id) as num'))
-            ->where($where)->groupBy('stock_code')
+        $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
+            'stock_grow.stock_type', 'end_price', 'earnings_per_share',
+            'net_profit_grow_rate', 'undistributed_profit_per_share',
+            DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'))
+            ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
+            ->where($where)->groupBy('stock_grow.stock_code')
             ->having('num', '>=', $down_days)
             ->orderBy('grow_price', 'asc')
             ->limit(25)->get();

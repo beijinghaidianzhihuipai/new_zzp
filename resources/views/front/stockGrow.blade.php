@@ -44,8 +44,12 @@
                     }
                     con += '<li class="grow" onclick="drawImg(' +code+ ')"><a>' + data[i].stock_name +
                             "(" + data[i].stock_code + ")" +
-                            "&nbsp;&nbsp;&nbsp;下跌金额：" + data[i].grow_price +
-                            "&nbsp; &nbsp;&nbsp; 当前价格：" + data[i].end_price + "</a></li>";
+                            "&nbsp;&nbsp;&nbsp;下跌：" + data[i].grow_price +"元"+
+                            "&nbsp; &nbsp;&nbsp; 价格：" + data[i].end_price +"元"+
+                            "&nbsp; &nbsp;&nbsp; 每股收益：" + data[i].earnings_per_share +"元"+
+                            "&nbsp; &nbsp;&nbsp; 增长率：" + data[i].net_profit_grow_rate +"%"+
+                            "&nbsp; &nbsp;&nbsp; 每股未分配利润：" + data[i].undistributed_profit_per_share +"元"+
+                            "</a></li>";
                 }
                 $(".stock_data").html('');
                 $(".stock_data").append(con);
