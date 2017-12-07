@@ -1,4 +1,9 @@
 ﻿@extends('front/public/app')
+<link href="{{URL::asset('/css/front/zhuce_usercenter.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{URL::asset('/css/front/login.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{URL::asset('/css/front/base.css')}}" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="{{URL::asset('/js/front/pt.js')}}"></script>
 @section('content')
 <form name="loginform"   method="POST" action="/front/login">
         <input type="hidden" name="next" value="/">

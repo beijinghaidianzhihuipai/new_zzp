@@ -19,7 +19,7 @@
 </div>
 
 
-    <div id="f_main" class="show">
+    <div id="f_main" class="none">
         <div id="f_title">
             <div id="f_ten"></div>
             <div id="f_img" title="close"></div>

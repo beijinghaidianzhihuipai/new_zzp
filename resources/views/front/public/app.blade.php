@@ -5,13 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>智者派官方网站</title>
         <link href="{{URL::asset('/css/front/index.css') }}" rel="stylesheet" type="text/css"  />
-        <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
+
         <link href="{{URL::asset('/css/front/proclamtion.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{URL::asset('/css/front/login.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{URL::asset('/css/front/base.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{URL::asset('/css/front/zhuce_usercenter.css')}}" rel="stylesheet" type="text/css" />
+
+
         <script language="JavaScript" src="{{URL::asset('/js/front/jquery-core.min.js')}}"></script>
-        <script language="JavaScript" src="{{URL::asset('/js/front/pt.js')}}"></script>
+
         <!-- baidu stat -->
         <!--内容代码 -->
         <link href="{{URL::asset('/css/front/mainCss.min.css')}}" rel="stylesheet" type="text/css" />
