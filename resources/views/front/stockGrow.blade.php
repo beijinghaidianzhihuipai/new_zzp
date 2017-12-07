@@ -19,7 +19,7 @@
 </div>
 
 
-    <div id="f_main" class="none">
+    <div id="f_main" class="show">
         <div id="f_title">
             <div id="f_ten"></div>
             <div id="f_img" title="close"></div>
@@ -34,9 +34,8 @@
         #f_title{width: 500px;height: 20px;border-top: #85ABE4 1px solid;
             border-right: #222 1px solid;border-left: #85ABE4 1px solid;border-bottom: none;background: #5B8BD9;}
         #f_content{border: #85ABE4 1px solid;border-top: none;
-            background:#fff; width: 500px;height: 310px;}
-        #f_content img{width: 500px;height: 310px;}
-        #off{float: right;cursor: pointer;}
+            background:#fff; width: 500px;height: 300px;}
+        #f_content img{width: 500px;height: 300px;}
         .none{display: none;}
         .show{display: block;}
         #f_ten{float: left;width: 440px;height:20px;}
@@ -69,7 +68,7 @@
                 bool=true;
                 offsetX = event.offsetX;
                 offsetY = event.offsetY;
-                $("#f_ten").css('cursor','move');
+                $("#f_main").css('cursor','move');
             })
 
             $("#f_main").mouseup(function(){
