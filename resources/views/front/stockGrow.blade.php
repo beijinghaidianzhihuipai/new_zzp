@@ -30,9 +30,10 @@
 
 
     <style>
-        #f_main{position: absolute;top: 30%;right: 10%;}
+        #f_main{position: absolute; top: 30%;right: 10%;}
         #f_title{width: 500px;height: 20px;border-top: #85ABE4 1px solid;
-            border-right: #222 1px solid;border-left: #85ABE4 1px solid;border-bottom: none;background: #5B8BD9;}
+            border-right: #222 1px solid;border-left: #85ABE4 1px solid;
+            border-bottom: none;background: #5B8BD9;}
         #f_content{border: #85ABE4 1px solid;border-top: none;
             background:#fff; width: 500px;height: 300px;}
         #f_content img{width: 500px;height: 300px;}
@@ -112,8 +113,9 @@
                     }
                     con += '<li id="grow" onclick="drawImg(' +code+ ')"><a>' + data[i].stock_name +
                             "(" + data[i].stock_code + ")" +
-                            "&nbsp;&nbsp;&nbsp;下跌：" + data[i].grow_price +"元"+
+                            '&nbsp;&nbsp;&nbsp;<img src="'+'{{URL::asset("/images/front/xia.png")}}' +'" />：' + data[i].grow_price +"元"+
                             "&nbsp; &nbsp;&nbsp; 价格：" + data[i].end_price +"元"+
+                            "&nbsp;&nbsp;&nbsp;市盈率：" + data[i].shiying +"%"+
                             "&nbsp; &nbsp;&nbsp; 每股收益：" + data[i].earnings_per_share +"元"+
                             "&nbsp; &nbsp;&nbsp; 增长率：" + data[i].net_profit_grow_rate +"%"+
                             "&nbsp; &nbsp;&nbsp; 每股未分配利润：" + data[i].undistributed_profit_per_share +"元"+

@@ -47,13 +47,13 @@
 }
 
 .stock_data li{
-    width: 860px;
+    width: 880px;
     list-style-type:none;
     margin-top: 15px;
 }
 .stock_data li a{
     text-decoration:none;
-    line-height: 22px;
+    line-height: 16px;
     font-size: 14px;
     color: #4d4d4d;
 }

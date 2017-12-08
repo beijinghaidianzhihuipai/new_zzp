@@ -48,11 +48,13 @@ class ZzpStockGrow extends Model
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
             'stock_grow.stock_type', 'end_price', 'earnings_per_share',
             'net_profit_grow_rate', 'undistributed_profit_per_share',
-            DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'))
+            DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'),
+            DB::raw('round(end_price / earnings_per_share) as shiying'))
             ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
             ->where($where)->groupBy('stock_grow.stock_code')
             ->having('num', '>=', $down_days)
-            ->orderBy('grow_price', 'asc')
+            ->having('shiying', '>', 1)
+            ->orderBy('shiying', 'asc')
             ->limit(25)->get();
 
         return empty($rel) ? '' : $rel->toArray();
