@@ -5,8 +5,12 @@
 
     <div class="pro_data">
         <div class="pro_mid">
-
-            <div class="pro_img"><img src="http://image.sinajs.cn/newchart/daily/n/000018.gif"/></div>
+            @if($data_rel['new_info']->stock_type == 1)
+                {{ $code = "sh".$data_rel['new_info']->stock_code}}
+            @else
+                {{ $code = "sz".$data_rel['new_info']->stock_code}}
+            @endif
+            <div class="pro_img"><img src="http://image.sinajs.cn/newchart/daily/n/{{$code}}.gif"/></div>
             <div class="pro_info">
                     <p> <span style="color:#f01b2f;"><span style="font-size:20px;"><strong>公司介绍</strong></span></span></p>
                 智者派网始终坚持网站内容的权威性和专业性，打造中国财经航母。<br>
