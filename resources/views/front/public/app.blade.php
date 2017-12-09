@@ -38,7 +38,24 @@
         </ul>
 
     </div>
+    <div id="search_block" >
+        <input id="search_stock" type="text" value="股票代码、名称"
+                onfocus="javascript:if(this.value=='股票代码、名称')this.value='';"
+                onblur="javascript:if(this.value=='')this.value='股票代码、名称';"
+        >
+    </div>
+    <script>
+        $('#search_stock').bind('keypress',function(event){
 
+            if(event.keyCode == "13")
+
+            {
+                window.open( 'https://www.xxx.xx/search/' + $('#search_stock').val());
+                //alert('你输入的内容为：' + $('#search_stock').val());
+            }
+
+        });
+    </script>
     <div class="denglu">
         @if( Session::has('user_name') )
         <a href="###"> {{ Session::get('user_name') }}</a>

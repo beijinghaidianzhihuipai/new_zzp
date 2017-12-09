@@ -1,6 +1,7 @@
 ﻿@extends('front/public/app')
-@section('content')
+<link href="{{URL::asset('/css/front/zhuce_usercenter.css')}}" rel="stylesheet" type="text/css" />
 
+@section('content')
 <div id="main">
     <div class="user-center bdr8">
         <div class="uc-hd p-rel">注册</div>
