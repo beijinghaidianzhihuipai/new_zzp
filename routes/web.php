@@ -38,3 +38,5 @@ Route::get('/front/header','Front\IndexController@header' );
 //全新尾部
 Route::get('/front/footer','Front\IndexController@footer' );
 
+Route::get('front/search_stock/{data}','Front\SearchStockController@searchStock' );
+

@@ -60,7 +60,7 @@ class ZzpStockGrow extends Model
         return empty($rel) ? '' : $rel->toArray();
     }
 
-    public static function checkHaveInfo($where){
+    public static function getInfo($where){
         return self::where($where)->first();
     }
 
