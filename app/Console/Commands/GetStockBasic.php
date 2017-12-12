@@ -68,6 +68,10 @@ class GetStockBasic extends Command
             if(!isset($rel[1])){
                 continue;
             }
+
+            $jianjie = '/经营分析<\/a><\/dd>[\s]+<dd title="([\s\S]+?)">/';
+            preg_match($jianjie,$rel[1],$jianjie_rel);
+
             $shouyi = '/每股收益：<\/dt>[\s]+<dd>([\s\S]+?)元<\/dd>/';
             preg_match($shouyi,$rel[1],$shouyi_rel);
 
@@ -107,13 +111,15 @@ class GetStockBasic extends Command
             $basic_data['undistributed_profit_per_share'] = $wfplr_rel[1];
             $basic_data['total_capital_stock'] = $zgb_rel[1];
             $basic_data['tradable_shares'] = $ltg_rel[1];
+            $basic_data['company_info'] = $jianjie_rel[1];
             //print_r($basic_data);die;
             $sel_where = array('stock_code' => $stock_code);
             $check_rel = ZzpStockBasic::getBasicInfo($sel_where);
             //print_r($check_rel);die;
             if(!empty($check_rel)){
                 if(($basic_data['business_income'] == $check_rel->business_income)  &&
-                    ($basic_data['earnings_per_share'] == $check_rel->earnings_per_share) ){
+                    ($basic_data['earnings_per_share'] == $check_rel->earnings_per_share)
+                    && !empty($check_rel->company_info) ){
                     continue;
                 }
                 if(ZzpStockBasic::where('id',$check_rel->id)->update($basic_data)){

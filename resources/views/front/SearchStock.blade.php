@@ -3,22 +3,32 @@
 @section('content')
 <div id="neirong">
 
-    <div class="pro_data">
-        <div class="pro_mid">
+    <div class="stock_info">
+        <div class="stock_mid">
             @if($data_rel['new_info']->stock_type == 1)
                 {{ $code = "sh".$data_rel['new_info']->stock_code}}
             @else
                 {{ $code = "sz".$data_rel['new_info']->stock_code}}
             @endif
-            <div class="pro_img"><img src="http://image.sinajs.cn/newchart/daily/n/{{$code}}.gif"/></div>
-            <div class="pro_info">
-                    <p> <span style="color:#f01b2f;"><span style="font-size:20px;"><strong>公司介绍</strong></span></span></p>
-                智者派网始终坚持网站内容的权威性和专业性，打造中国财经航母。<br>
-                网站内容涉及财经、股票、基金、期货、债券、外汇、银行、保险等诸多金融资讯与财经信息，全面覆盖财经领域，每日更新上万条最新数据及资讯，为用户提供便利的查询。<br>
-                网站全体员工以“没有休息日、新闻不过夜”作为工作口号，保证让广大用户在第一时间内尽览天下财经及理财资讯。<br>
-                智者派网从用户需求出发，打造中国最大、最火爆的互动平台，深受用户喜爱。<br>
+            <div class="stock_img"><img src="http://image.sinajs.cn/newchart/daily/n/{{$code}}.gif"/></div>
+                <div><p>公司业绩</p>
+                    每股收益： {{$data_rel['base_info']->earnings_per_share}}元
+                    净利润： {{$data_rel['base_info']->net_profit}}亿元
+                    净利润增长率： {{$data_rel['base_info']->net_profit_grow_rate}}%
+                    营业收入： {{$data_rel['base_info']->business_income}} 亿元
+                    每股现金流： {{$data_rel['base_info']->cash_flow_per_share}}元
+                    每股公积金： {{$data_rel['base_info']->provident_fund_per_share}}元
+                    每股未分配利润： {{$data_rel['base_info']->undistributed_profit_per_share}}元
+                    总股本： {{$data_rel['base_info']->total_capital_stock}}亿
+                    流通股： {{$data_rel['base_info']->tradable_shares}}亿
 
                 </div>
+            <div class="comp_info">
+                    <p> <span style="color:#f01b2f;font-size:20px;">
+                                <strong>公司介绍</strong></span></p>
+                {{$data_rel['base_info']->company_info}}
+
+            </div>
         </div>
     </div>
 </div>
