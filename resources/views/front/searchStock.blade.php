@@ -12,7 +12,7 @@
             @endif
             <div class="stock_img"><img src="http://image.sinajs.cn/newchart/daily/n/{{$code}}.gif"/></div>
                 <div><p>公司业绩</p>
-                    每股收益111： {{$data_rel['base_info']->earnings_per_share}}元
+                    每股收益： {{$data_rel['base_info']->earnings_per_share}}元
                     净利润： {{$data_rel['base_info']->net_profit}}亿元
                     净利润增长率： {{$data_rel['base_info']->net_profit_grow_rate}}%
                     营业收入： {{$data_rel['base_info']->business_income}} 亿元
