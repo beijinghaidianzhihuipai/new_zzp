@@ -50,7 +50,7 @@
             if(event.keyCode == "13")
 
             {
-                window.open( 'https://www.xxx.xx/search/' + $('#search_stock').val());
+                window.open( '/front/search_stock/' + $('#search_stock').val());
                 //alert('你输入的内容为：' + $('#search_stock').val());
             }
 
