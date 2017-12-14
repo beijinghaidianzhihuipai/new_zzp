@@ -29,18 +29,17 @@ a{text-decoration:none}
 
 
 .logo{
-    width: 150px;
-    height: 80px;
+    width: 220px;
+    height: 95px;
     float: left;
     text-align: center;
     margin-top: 5px;
 }
 
 .xinxi{
-    width:700px;
-    height:60px;
-    line-height: 60px;
-    margin-top: 20px;
+    width: 500px;
+    height: 95px;
+    line-height: 95px;
     font-size: 16px;
     font-family: "\5FAE\8F6F\96C5\9ED1";
     text-align: center;
@@ -141,4 +140,16 @@ a{text-decoration:none}
 #comp_info a{
     font-size: 16px;
     color: #fff;
+}
+
+#search_block{
+    width: 240px;
+    height: 20px;
+    float: left;
+    margin-top: 35px;
+}
+
+#search_stock{
+    width: 240px;
+    height: 20px;
 }

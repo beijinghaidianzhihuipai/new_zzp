@@ -39,9 +39,9 @@
 
     </div>
     <div id="search_block" >
-        <input id="search_stock" type="text" value="股票代码、名称"
-                onfocus="javascript:if(this.value=='股票代码、名称')this.value='';"
-                onblur="javascript:if(this.value=='')this.value='股票代码、名称';"
+        <input id="search_stock" type="text" value="输入股票代码、名称"
+                onfocus="javascript:if(this.value=='输入股票代码、名称')this.value='';"
+                onblur="javascript:if(this.value=='')this.value='输入股票代码、名称';"
         >
     </div>
     <script>
@@ -51,7 +51,6 @@
 
             {
                 window.open( '/front/search_stock/' + $('#search_stock').val());
-                //alert('你输入的内容为：' + $('#search_stock').val());
             }
 
         });
