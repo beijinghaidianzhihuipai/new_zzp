@@ -39,9 +39,9 @@
 
     </div>
     <div id="search_block" >
-        <input id="search_stock" type="text" value="输入股票代码、名称"
-                onfocus="javascript:if(this.value=='输入股票代码、名称')this.value='';"
-                onblur="javascript:if(this.value=='')this.value='输入股票代码、名称';"
+        <input id="search_stock" type="text" value="输入股票代码或股票名称"
+                onfocus="javascript:if(this.value=='输入股票代码或股票名称')this.value='';"
+                onblur="javascript:if(this.value=='')this.value='输入股票代码或股票名称';"
         >
     </div>
     <script>

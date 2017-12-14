@@ -1,0 +1,15 @@
+.no_stock{
+    height: 60px;
+    width: 300px;
+    margin: auto;
+    margin-top: 20%;
+    background: #ccc;
+    text-align: center;
+}
+
+.no_stock a{
+    font-size: 30px;
+    color: #985f0d;
+    height: 60px;
+    line-height: 60px;
+}

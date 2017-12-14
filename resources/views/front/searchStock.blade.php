@@ -1,15 +1,16 @@
 @extends('front/public/app')
-
+<link rel="stylesheet" type="text/css" href="{{URL::asset('/css/front/searchStock.css')}}" />
 @section('content')
 <div id="neirong">
 
     <div class="stock_info">
         <div class="stock_mid">
-            @if($data_rel['new_info']->stock_type == 1)
-                {{ $code = "sh".$data_rel['new_info']->stock_code}}
-            @else
-                {{ $code = "sz".$data_rel['new_info']->stock_code}}
-            @endif
+            @if(!empty($data_rel['new_info']))
+                @if($data_rel['new_info']->stock_type == 1)
+                    {{ $code = "sh".$data_rel['new_info']->stock_code}}
+                @else
+                    {{ $code = "sz".$data_rel['new_info']->stock_code}}
+                @endif
             <div class="stock_img"><img src="http://image.sinajs.cn/newchart/daily/n/{{$code}}.gif"/></div>
                 <div><p>公司业绩</p>
                     每股收益： {{$data_rel['base_info']->earnings_per_share}}元
@@ -29,6 +30,9 @@
                 {{$data_rel['base_info']->company_info}}
 
             </div>
+            @else
+                <div class="no_stock"><a>没有该股票无数据</a></div>
+            @endif
         </div>
     </div>
 </div>
