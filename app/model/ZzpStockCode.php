@@ -16,6 +16,7 @@ class ZzpStockCode extends Model
         'updated_at',
         'created_at',
       ];
+    
 
     public static function add($report_data){
         return $rel = self::create($report_data);
