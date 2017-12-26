@@ -72,7 +72,7 @@ class GetSHStockInfo extends Command
             $stock_time = strtotime($stock_info[30] . ' ' .$stock_info[31]); //年月日时分秒
             $stock_date = strtotime($stock_info[30]); //年月日
             $sel_where =array('stock_date' => $stock_date,'stock_code' => $stock_code,);
-            $check_rel = ZzpStockGrow::checkHaveInfo($sel_where);
+            $check_rel = ZzpStockGrow::getInfo($sel_where);
             if(!empty($check_rel)){continue;}
 
             $grow_price = sprintf("%.3f",$stock_info[3] - $stock_info[1]);
