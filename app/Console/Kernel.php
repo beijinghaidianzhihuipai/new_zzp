@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
         Commands\SendPhone::class,         //专项监听
         Commands\SendAchievement::class,   //业绩 中标
         Commands\SendFenPai::class,  //权益分派
-        Commands\SendNewInfo::class,  //24小时最新
+        Commands\SendNewInfo::class,  //深证24小时最新
+        Commands\SendShPDF::class,  //上海24小时最新
         Commands\GetSHStockInfo::class,  //获取上海股票信息
         Commands\GetSZStockInfo::class,  //获取深圳股票信息
         Commands\GetStockBasic::class,  //获取股票基本面信息
