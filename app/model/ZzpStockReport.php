@@ -9,10 +9,12 @@ class ZzpStockReport extends Model
     protected $table = 'stock_report';
     protected $dateFormat = 'U';
     protected $fillable = [
+        'stock_code',
         'title',
         'only_key',
         'short_url',
         'report_date',
+        'growth_ratio',
         'url',
         'updated_at',
         'created_at',

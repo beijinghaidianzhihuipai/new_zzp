@@ -106,7 +106,7 @@ class SendNewInfo extends Command
             $report_date = $rel_date[1];
 
 
-            $get_url = "http://api.t.sina.com.cn/short_url/shorten.json?source=5786724301&url_long=".$url;
+            $get_url = "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=".$url;
             $gch = curl_init();
             curl_setopt($gch,CURLOPT_URL,$get_url);
             curl_setopt($gch,CURLOPT_HEADER,0);
