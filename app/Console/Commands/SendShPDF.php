@@ -118,10 +118,10 @@ class SendShPDF extends Command
                 $ratio_val = 0;
                 include 'vendor/autoload.php';
                 $parser = new \Smalot\PdfParser\Parser();
-                $pdf    = $parser->parseFile($short_info);
+                $pdf    = $parser->parseFile($short);
                 $text = $pdf->getText();
                 $text = preg_replace('/[\n\r\t]/', '',$text);
-                
+
                 $preg_tongbi = '/同比增加(.{1,6}?)%/';
                 preg_match($preg_tongbi , $text , $tongbi_value);
                 if(!empty($tongbi_value)){
