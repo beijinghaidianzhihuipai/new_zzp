@@ -11,7 +11,9 @@
                         @foreach($stock_infos as $value)
                             @if(!empty($stock_infos))
                             <li class="aa" >
+                                <a href="/front/search_stock/{{$value->stock_code}}" target="_blank"> {{$value->stock_code}} </a>
                                 <a  onclick="show_pdf('{{$value->url}}')" target="_blank">{{$value->title}} </a>
+                                (同比增长：{{$value->growth_ratio}}%)
                                 <br/>  <div class="f_date"> 发布时间: &nbsp  {{$value->report_date}} </div>
                             </li>
                         @endif
