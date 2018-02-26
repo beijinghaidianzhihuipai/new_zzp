@@ -25,7 +25,7 @@ class ZzpStockReport extends Model
     }
 
     public static function check_key($only_key){ 
-        return self::where('only_key',$only_key)->first();
+        return self::where('only_key', "$only_key")->first();
     }
 
     public static function getStockInfo(){
