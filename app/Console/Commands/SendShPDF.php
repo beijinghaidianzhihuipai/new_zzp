@@ -115,7 +115,6 @@ class SendShPDF extends Command
             $data_rel = ZzpStockReport::check_key($only_key);
             if(!$data_rel){
                 $ratio_val = 0;
-                include 'vendor/autoload.php';
                 $parser = new \Smalot\PdfParser\Parser();
                 $pdf    = $parser->parseFile($url);
                 $text = $pdf->getText();
