@@ -62,18 +62,28 @@ class SendShPDF extends Command
         if(empty($rel_arr[0])){ return false;}
         $rel_arr = $rel_arr[0];
         foreach($rel_arr as $val){
+
             $preg_zhongbiao = '/中标/';
             preg_match($preg_zhongbiao , $val , $zhongbiao_title);
+
             $preg_yeji = '/业绩/';
             preg_match($preg_yeji , $val , $yeji_title);
+
             $preg_yugao = '/预告/';
             preg_match($preg_yugao , $val , $yugao_title);
+
             $preg_nianbao = '/年报/';
             preg_match($preg_nianbao , $val , $nian_title);
+
+            $preg_niandubao = '/年度报告/';
+            preg_match($preg_niandubao , $val , $niandu_title);
+
             $preg_jibao = '/季度报告/';
             preg_match($preg_jibao , $val , $ji_title);
+
             if(empty($zhongbiao_title) && empty($yeji_title)
-                && empty($yugao_title) && empty($nian_title) && empty($ji_title) ){
+                && empty($yugao_title) && empty($nian_title)
+                && empty($niandu_title) && empty($ji_title) ){
                 continue;
             }
 
@@ -99,17 +109,6 @@ class SendShPDF extends Command
             if( empty($rel_date[1])){ return false;}
             $report_date = $rel_date[1];
 
-            $get_url = "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=".$url;
-            $gch = curl_init();
-            curl_setopt($gch,CURLOPT_URL,$get_url);
-            curl_setopt($gch,CURLOPT_HEADER,0);
-            curl_setopt($gch,CURLOPT_RETURNTRANSFER,1);
-            $short_info = curl_exec($gch);
-            curl_close($gch);
-
-            if(empty($short_info)){ return false;}
-            $short = json_decode($short_info)[0]->url_short;
-            if(empty($short)){ return false;}
 
             //公告入库
             $only_key = MD5($f_title.$report_date);
@@ -118,7 +117,7 @@ class SendShPDF extends Command
                 $ratio_val = 0;
                 include 'vendor/autoload.php';
                 $parser = new \Smalot\PdfParser\Parser();
-                $pdf    = $parser->parseFile($short);
+                $pdf    = $parser->parseFile($url);
                 $text = $pdf->getText();
                 $text = preg_replace('/[\n\r\t]/', '',$text);
 
@@ -180,7 +179,6 @@ class SendShPDF extends Command
                     'stock_code'=>$f_code,
                     'title'=>$f_title,
                     'only_key'=>$only_key,
-                    'short_url'=>$short,
                     'report_date'=>$report_date,
                     'growth_ratio'=>$ratio_val,
                     'url'=>$url,

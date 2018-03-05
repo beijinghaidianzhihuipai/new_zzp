@@ -35,6 +35,7 @@ class Kernel extends ConsoleKernel
         //$schedule->command('send:achievement')->everyMinute()->withoutOverlapping();
         //$schedule->command('send:fenpai')->everyMinute()->withoutOverlapping();
         $schedule->command('send:newinfo')->everyMinute()->withoutOverlapping();
+        $schedule->command('send:shpdf')->everyMinute()->withoutOverlapping();
     }
 
     /**
