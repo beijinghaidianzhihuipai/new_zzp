@@ -21,6 +21,7 @@ class Kernel extends ConsoleKernel
         Commands\GetSHStockInfo::class,  //获取上海股票信息
         Commands\GetSZStockInfo::class,  //获取深圳股票信息
         Commands\GetStockBasic::class,  //获取股票基本面信息
+        Commands\GetStockBonus::class,  //获取股票基本面信息
     ];
 
     /**
@@ -36,6 +37,7 @@ class Kernel extends ConsoleKernel
         //$schedule->command('send:fenpai')->everyMinute()->withoutOverlapping();
         $schedule->command('send:newinfo')->everyMinute()->withoutOverlapping();
         $schedule->command('send:shpdf')->everyMinute()->withoutOverlapping();
+        $schedule->command('get:stock_bonus')->weekly();
     }
 
     /**

@@ -22,9 +22,10 @@ Route::any('/front/login_out','Front\User\LoginController@loginOut' );
 
 Route::get('/front/user','Front\User\LoginController@user' );
 Route::get('/front/admin','Front\LoginController@admin' );
-
+//公告接口
 Route::get('/front/proclamation','Front\ProclamationController@index' );
-
+//分红预告接口
+Route::get('/front/bonus_herald','Front\BonusHeraldController@index' );
 Route::get('/admin/user_management','Admin\UserManagementController@index' );
 
 //股票趋势
