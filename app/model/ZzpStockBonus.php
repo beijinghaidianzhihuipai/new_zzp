@@ -27,8 +27,8 @@ class ZzpStockBonus extends Model
         return $rel = self::create($report_data);
     }
 
-    public static function getBasicInfo($where){
-        return self::where($where)->first();
+    public static function getBonusInfo($where){
+        return self::where($where)->orderBy('id','ASC')->paginate(25);
     }
 
     public static function check_key($only_key){
@@ -42,7 +42,7 @@ class ZzpStockBonus extends Model
 
         return self::where([['bonus_total_money', '>', 0]])
             ->where('release_date', 'like', "%$year_moon%")
-            ->paginate(20);
+            ->paginate(25);
     }
 
 }
