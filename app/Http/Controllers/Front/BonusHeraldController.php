@@ -10,8 +10,10 @@ class BonusHeraldController extends Controller
 {
 
     public function index(){
-        $stock_bonus_info =ZzpStockBonus::getBonusHerald();
-        return view('front.stockBonus')->with('stock_bonus_info', $stock_bonus_info);//把目前变量传到
+
+        $stock_bonus_info = ZzpStockBonus::getBonusHerald();
+        return view('front.stockBonus')->with('stock_bonus_info', $stock_bonus_info);
+
     }
 
     public function getBonusInfo($stock_code){
