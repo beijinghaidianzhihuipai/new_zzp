@@ -48,12 +48,14 @@
     </div>
 </div>
 </div>
-<div id="search_block" >
-   搜索股票：  <input id="search_stock" type="text" value="输入股票代码或股票名称"
-           onfocus="javascript:if(this.value=='输入股票代码或股票名称')this.value='';"
-           onblur="javascript:if(this.value=='')this.value='输入股票代码或股票名称';"
-    >
-</div>
+<div id="search" >
+    <div id="search_block" >
+       搜索股票：  <input id="search_stock" type="text" value="请输入股票代码 或 股票名称"
+               onfocus="javascript:if(this.value=='请输入股票代码 或 股票名称')this.value='';"
+               onblur="javascript:if(this.value=='')this.value='请输入股票代码 或 股票名称';"
+        >
+    </div>
+    </div>
 <script>
     $('#search_stock').bind('keypress',function(event){
 
