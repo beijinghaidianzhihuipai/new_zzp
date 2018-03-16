@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6b5e422-64b8-4a92-8898-f958619d0f94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/BonusHeraldController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/BonusHeraldController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front/stockBonus.blade.php" afterPath="$PROJECT_DIR$/resources/views/front/stockBonus.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front/yearlyBonus.blade.php" afterPath="$PROJECT_DIR$/resources/views/front/yearlyBonus.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-    </list>
+    <list default="true" id="e6b5e422-64b8-4a92-8898-f958619d0f94" name="Default" comment="" />
     <ignored path="zhizhepai.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -550,7 +544,7 @@
     <option name="totallyTimeSpent" value="9869000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="218" y="91" width="1936" height="1056" extended-state="0" />
+    <frame x="218" y="91" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
