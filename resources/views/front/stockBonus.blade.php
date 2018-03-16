@@ -1,14 +1,14 @@
 @extends('front/public/app')
 
 @section('content')
-    <link href="{{URL::asset('/css/front/stockGrow.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{URL::asset('/css/front/stockbannes.css')}}" rel="stylesheet" type="text/css" />
 <div id="grow_neirong">
 
     <div id="text_main" >
         <h2>公司分红预告</h2>
             <table class="dataintable" style="width: 1100px;">
                 <tbody>
-                <tr>
+                <tr class="diyi">
                     <th style="width:10%;">股票号码</th>
                     <th style="width:10%;">股票名称</th>
                     <th style="width:10%;">公告日期</th>
@@ -23,7 +23,7 @@
 
                 @foreach($stock_bonus_info as $value)
                     @if(!empty($stock_bonus_info))
-                        <tr>
+                        <tr class="dier">
                             <td>
                                 <a href="/front/search_stock/{{$value->stock_code}}" target="_blank"> {{$value->stock_code}} </a>
                             </td>
