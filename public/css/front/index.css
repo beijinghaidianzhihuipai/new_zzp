@@ -142,14 +142,15 @@ a{text-decoration:none}
     color: #fff;
 }
 
+
 #search_block{
-    width: 240px;
-    height: 20px;
-    float: left;
-    margin-top: 35px;
+    width:1200px;
+    height:33px;
+    margin: 0 auto;
+    margin-top: 3px;
 }
 
 #search_stock{
-    width: 240px;
-    height: 20px;
+    width: 400px;
+    height: 30px;
 }
