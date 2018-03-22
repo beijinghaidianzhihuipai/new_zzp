@@ -2,6 +2,7 @@
 
 @section('content')
     <link href="{{URL::asset('/css/front/stockGrow.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{URL::asset('/css/front/stockGrowww.css')}}" rel="stylesheet" type="text/css" />
 <div id="grow_neirong">
 
     <div id="text_main" >
@@ -14,7 +15,7 @@
         <div class="down_stock"><a  onclick="check_days(7)" > 连续七天下跌 </a></div>
     </div>
     <div class="draw" > </div>
-    <ul class="stock_data"></ul>
+    <table class="stock_data"></table>
     </div>
 </div>
 
@@ -104,22 +105,29 @@
             cache:false,
             dataType:'json',
             success:function(data){
-                var con = '';
+                var con = "<tr class='diyi'><th>股票号码</th>" +
+                "<th>股票数字</th>" +
+                "<th>下跌价格</th>" +
+                "<th>实际价格</th>" +
+                "<th>市盈率</th>" +
+                "<th>每股收益</th>" +
+                "<th>增长率</th>" +
+                "<th>每股未分配利润</th>" +
+                "</tr>"
                 for(var i=0; i < data.length; i++){
                     if(data[i].stock_type == 1){
                         var code = "'sh" + data[i].stock_code + "'";
                     }else{
                         var code = "'sz" + data[i].stock_code + "'";
                     }
-                    con += '<li id="grow" onclick="drawImg(' +code+ ')"><a>' + data[i].stock_name +
-                            "(" + data[i].stock_code + ")" +
-                            '&nbsp;&nbsp;&nbsp;<img src="'+'{{URL::asset("/images/front/xia.png")}}' +'" />：' + data[i].grow_price +"元"+
-                            "&nbsp; &nbsp;&nbsp; 价格：" + data[i].end_price +"元"+
-                            "&nbsp;&nbsp;&nbsp;市盈率：" + data[i].shiying +"%"+
-                            "&nbsp; &nbsp;&nbsp; 每股收益：" + data[i].earnings_per_share +"元"+
-                            "&nbsp; &nbsp;&nbsp; 增长率：" + data[i].net_profit_grow_rate +"%"+
-                            "&nbsp; &nbsp;&nbsp; 每股未分配利润：" + data[i].undistributed_profit_per_share +"元"+
-                            "</a></li>";
+                    con +='<tr class="dier"> <td id="grow" onclick="drawImg(' +code+ ')">' + data[i].stock_name + "</td>" +
+                            "<td>" + data[i].stock_code + " </td>" +
+                            '<td><img src="'+'{{URL::asset("/images/front/xia.png")}}' +'" />' + data[i].grow_price +"元</td>"+
+                            " <td> " + data[i].end_price +"元 </td>"+
+                            " <td>" + data[i].shiying +"%</td>"+
+                            " <td> " + data[i].earnings_per_share +"元</td>"+
+                            " <td>" + data[i].net_profit_grow_rate +"%</td>"+
+                            " <td>" + data[i].undistributed_profit_per_share +"元</td></tr>"
                 }
                 $(".stock_data").html('');
                 $(".stock_data").append(con);

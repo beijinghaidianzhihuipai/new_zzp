@@ -1,0 +1,30 @@
+/* CSS Document */
+
+body{
+    margin:0;
+    padding: 0;
+}
+
+#text_main{
+    width:1200px;
+    height: 670px;
+    border: 0px solid #aaa;
+    margin-top: 33px;
+}
+table{
+    border-collapse: collapse;
+}
+.diyi th{
+    height: 28px;
+    width: 120px;
+    background-color: #3F3F3F;
+    border: 1px solid #3F3F3F;
+    color: #fff;
+}
+
+.dier td{border-collapse: collapse;  width: 32px; height: 18px;  border: 1px solid #aaa;     text-align: center;}
+
+
+
+
+

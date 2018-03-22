@@ -39,7 +39,8 @@
                         </tr>
                     @endif
                 @endforeach
-                </tbody></table>
+                </tbody>
+            </table>
 
         {!! $stock_bonus_info->links() !!}
     </div>
