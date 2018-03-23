@@ -33,7 +33,7 @@
             <li> <a href="/">首页</a> </li>
             <li> <a href="/front/proclamation">最新公告</a> </li>
             <li> <a href="/front/stock_grow">优股推荐</a> </li>
-            <li> <a href="/front/bonus_herald">分红预测</a> </li>
+            <li> <a href="/front/bonus_herald/1">分红预测</a> </li>
         </ul>
 
     </div>
