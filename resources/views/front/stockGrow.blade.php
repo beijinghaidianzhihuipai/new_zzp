@@ -106,7 +106,7 @@
             dataType:'json',
             success:function(data){
                 var con = "<tr class='diyi'><th>股票号码</th>" +
-                "<th>股票数字</th>" +
+                "<th>股票名称</th>" +
                 "<th>下跌价格</th>" +
                 "<th>实际价格</th>" +
                 "<th>市盈率</th>" +
@@ -120,8 +120,8 @@
                     }else{
                         var code = "'sz" + data[i].stock_code + "'";
                     }
-                    con +='<tr class="dier"> <td id="grow" onclick="drawImg(' +code+ ')">' + data[i].stock_name + "</td>" +
-                            "<td>" + data[i].stock_code + " </td>" +
+                    con +='<tr class="dier"> <td id="grow" onclick="drawImg(' +code+ ')">' + data[i].stock_code  + "</td>" +
+                            "<td>" + data[i].stock_name + " </td>" +
                             '<td><img src="'+'{{URL::asset("/images/front/xia.png")}}' +'" />' + data[i].grow_price +"元</td>"+
                             " <td> " + data[i].end_price +"元 </td>"+
                             " <td>" + data[i].shiying +"%</td>"+
