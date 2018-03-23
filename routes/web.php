@@ -25,7 +25,7 @@ Route::get('/front/admin','Front\LoginController@admin' );
 //公告接口
 Route::get('/front/proclamation','Front\ProclamationController@index' );
 //分红预告接口
-Route::get('/front/bonus_herald','Front\BonusHeraldController@index' );
+Route::get('/front/bonus_herald/{type}','Front\BonusHeraldController@index' );
 
 
 //分红详情接口

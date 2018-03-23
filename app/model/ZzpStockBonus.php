@@ -3,6 +3,7 @@
 namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ZzpStockBonus extends Model
 {
@@ -35,14 +36,39 @@ class ZzpStockBonus extends Model
         return self::where('only_key', "$only_key")->first();
     }
 
-    public static function getBonusHerald(){
+    public static function getBonusHerald($type = 1){
         $ch_year = date('Y', time()) - 1;
+        $q_year = date('Y', time()) - 2;
         $ch_moon = date('m', strtotime('+1 month'));
         $year_moon = $ch_year.'-'.$ch_moon;
+        $q_year_moon = $q_year.'-'.$ch_moon;
 
-        return self::where([['bonus_total_money', '>', 0]])
+        $year_code = self::where([['bonus_total_money', '>', 0]])
             ->where('release_date', 'like', "%$year_moon%")
-            ->paginate(25);
+            ->pluck('stock_code' )->toArray();
+
+        $q_year_code = self::where([['bonus_total_money', '>', 0]])
+             ->Where('release_date', 'like', "%$q_year_moon%")
+            ->pluck('stock_code' )->toArray();
+        //交集
+        $intersection = array_intersect($year_code, $q_year_code);
+        if($type == 1 ){
+            //连续分红
+            return self::where([['bonus_total_money', '>', 0]])
+                ->where('release_date', 'like', "%$year_moon%")
+                ->whereIn('stock_code', $intersection)
+                ->orderBy('bonus_money', 'DESC')
+                ->paginate(25);
+        }else{
+            //隔年分红
+            $diff = array_diff($q_year_code, $intersection );
+            return self::where([['bonus_total_money', '>', 0]])
+                ->where('release_date', 'like', "%$q_year_moon%")
+                ->whereIn('stock_code', $diff)
+                ->orderBy('bonus_money', 'DESC')
+                ->paginate(25);
+        }
+
     }
 
 }

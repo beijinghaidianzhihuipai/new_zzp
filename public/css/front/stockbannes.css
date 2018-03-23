@@ -17,7 +17,10 @@ body{
     border: 0px solid #aaa;
     margin-top: 33px;
 }
-table{
+
+.dataintable{
+    width: 1024px;
+    margin-top: 20px;
     border-collapse: collapse;
 }
 .diyi th{
