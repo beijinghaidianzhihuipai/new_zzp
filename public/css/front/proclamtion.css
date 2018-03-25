@@ -13,6 +13,13 @@
 #text_main h2{
     margin-top: 15px;
 }
+
+#divLeft{
+    width: 234px;
+    height:100%;
+    overflow: hidden;
+    float: left;
+}
 #divmain{
     float: right;
     width: 790px;
@@ -20,21 +27,15 @@
     border: none 0px;
     margin-top: 15px;
 }
-#divLeft{
-    width: 405px;
-    height:100%;
-    overflow: hidden;
-    float: left;
-}
 ul.wei li{
-    width: 405px;
+    width: 234px;
     list-style-type:none;
     margin-top: 15px;
 }
 ul.wei li a{
     text-decoration:none;
     line-height: 22px;
-    font-size: 16px;
+    font-size: 14px;
     color: #4d4d4d;
 }
 ul.wei li a:hover{
