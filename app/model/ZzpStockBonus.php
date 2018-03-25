@@ -37,8 +37,9 @@ class ZzpStockBonus extends Model
     }
 
     public static function getBonusHerald($type = 1){
-        $ch_year = date('Y', time()) - 1;
-        $q_year = date('Y', time()) - 2;
+        $now_year = date('Y', time());
+        $ch_year = $now_year - 1;
+        $q_year = $now_year - 2;
         $ch_moon = date('m', strtotime('+1 month'));
         $year_moon = $ch_year.'-'.$ch_moon;
         $q_year_moon = $q_year.'-'.$ch_moon;
@@ -50,18 +51,24 @@ class ZzpStockBonus extends Model
         $q_year_code = self::where([['bonus_total_money', '>', 0]])
              ->Where('release_date', 'like', "%$q_year_moon%")
             ->pluck('stock_code' )->toArray();
+
+        $now_year_code = self::where([['bonus_total_money', '>', 0]])
+            ->Where('release_date', 'like', "%$now_year%")
+            ->pluck('stock_code' )->toArray();
+
         //交集
         $intersection = array_intersect($year_code, $q_year_code);
         if($type == 1 ){
             //连续分红
+            $diff = array_diff($intersection, $now_year_code );
             return self::where([['bonus_total_money', '>', 0]])
                 ->where('release_date', 'like', "%$year_moon%")
-                ->whereIn('stock_code', $intersection)
+                ->whereIn('stock_code', $diff)
                 ->orderBy('bonus_money', 'DESC')
                 ->paginate(25);
         }else{
             //隔年分红
-            $diff = array_diff($q_year_code, $intersection );
+            $diff = array_diff($q_year_code, $intersection, $now_year_code );
             return self::where([['bonus_total_money', '>', 0]])
                 ->where('release_date', 'like', "%$q_year_moon%")
                 ->whereIn('stock_code', $diff)

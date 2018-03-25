@@ -1,3 +1,31 @@
+#neirong{
+    width: 1024px;
+    margin: auto;
+    margin-top: 50px;
+}
+.stock_img{
+    height: 330px;
+    width: 550px;
+    float: left;
+    margin-left: 4px;
+}
+.stock_mid{
+    width: 470px;
+    float: left;
+    height: 330px;
+}
+.achievement{
+    width: 470px;
+    float: left;
+    height: 180px;
+}
+.achievement table{
+    width: 100%;
+    margin-top: 10px;
+}
+.achievement table tr{
+    height: 25px;
+}
 .no_stock{
     height: 60px;
     width: 300px;
@@ -12,4 +40,8 @@
     color: #985f0d;
     height: 60px;
     line-height: 60px;
+}
+.comp_info{
+    font-size: 15px;
+    letter-spacing:1px;
 }

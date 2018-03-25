@@ -39,7 +39,7 @@
                             <td>{{$value->register_date}}</td>
                             <td>{{$value->bonus_total_money}}</td>
                             <td>{{$value->elimination_date}}</td>
-                            <td><a href="/front/get_bonus_info/{{$value->stock_code}}" target="_blank">查阅</a></td>
+                            <td><a href="/front/search_stock/{{$value->stock_code}}" target="_blank">查阅</a></td>
                         </tr>
                     @endif
                 @endforeach
