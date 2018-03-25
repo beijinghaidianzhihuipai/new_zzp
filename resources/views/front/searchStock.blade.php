@@ -34,7 +34,8 @@
 
         </div>
         <div class="comp_info">
-            公司介绍：{{trim($data_rel['base_info']->company_info, '　　')}}
+            {{!$comp = trim($data_rel['base_info']->company_info, '　　')}}
+            公司介绍：{{ str_limit($comp, $limit = 333, $end = '...')}}
         </div>
     </div>
     @if(!empty($data_rel['new_info']))
