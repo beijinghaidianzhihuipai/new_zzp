@@ -36,13 +36,12 @@ class ZzpStockBonus extends Model
         return self::where('only_key', "$only_key")->first();
     }
 
-    public static function getBonusHerald($type = 1){
+    public static function getBonusHerald($type = 1, $search_month){
         $now_year = date('Y', time());
         $ch_year = $now_year - 1;
         $q_year = $now_year - 2;
-        $ch_moon = date('m', strtotime('+1 month'));
-        $year_moon = $ch_year.'-'.$ch_moon;
-        $q_year_moon = $q_year.'-'.$ch_moon;
+        $year_moon = $ch_year.'-'.$search_month;
+        $q_year_moon = $q_year.'-'.$search_month;
 
         $year_code = self::where([['bonus_total_money', '>', 0]])
             ->where('release_date', 'like', "%$year_moon%")
