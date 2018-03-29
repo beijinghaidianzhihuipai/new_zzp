@@ -19,7 +19,7 @@ class BonusHeraldController extends Controller
         $sixth_month = date('m', strtotime('+5 month'));
 
         $search_month = empty(Input::get('month')) ? $now_month : Input::get('month');
-        //print_r($search_month);die;
+
         $stock_bonus_info = ZzpStockBonus::getBonusHerald($type, $search_month);
 
 
@@ -45,6 +45,7 @@ class BonusHeraldController extends Controller
         $rel_data = array(
             'stock_bonus_info' => $stock_bonus_info,
             'month' => $month,
+            'type' => $type
         );
         return view('front.stockBonus')->with('rel_data', $rel_data);
     }

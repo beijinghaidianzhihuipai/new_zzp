@@ -52,15 +52,22 @@ ul.wei li a:hover{
 
 ul.pagination {
     height:30px;
-    width:210px;
-    margin: 0 auto;
+    width:650px;
+    margin: auto;
     margin-top: 10px;
 }
 ul.pagination li{
     float: left;
+    width:22px;
+    height:18px;
     margin-right: 10px;
-    margin-left: 10px;
-
+    margin-left: 5px;
+    background: #ccc;
+    text-align: center;
+}
+ul.pagination li a{
+    font-size: 14px;
+    font-weight: 600;
 }
 
 

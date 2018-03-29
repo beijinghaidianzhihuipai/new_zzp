@@ -11,7 +11,7 @@
         </h2>
         <div>
             @foreach($rel_data['month'] as $key => $value)
-                <a href="/front/bonus_herald/2?month={{$key}}">{{$value}}</a>
+                <a href="/front/bonus_herald/{{$rel_data['type']}}?month={{$key}}">{{$value}}</a>
             @endforeach
         </div>
             <table class="dataintable" >
