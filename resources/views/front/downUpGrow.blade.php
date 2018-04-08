@@ -6,13 +6,13 @@
 <div id="grow_neirong">
 
     <div id="text_main" >
-        <h2>连续下跌股票</h2>
+        <h2>下跌反弹股票</h2>
     <div class="down_check">
-        <div class="down_stock"><a  onclick="check_days(3)" > 连续三天下跌 </a></div>
-        <div class="down_stock"><a  onclick="check_days(4)" > 连续四天下跌 </a></div>
-        <div class="down_stock"><a  onclick="check_days(5)" > 连续五天下跌 </a></div>
-        <div class="down_stock"><a  onclick="check_days(6)" > 连续六天下跌 </a></div>
-        <div class="down_stock"><a  onclick="check_days(7)" > 连续七天下跌 </a></div>
+        <div class="down_stock"><a  onclick="check_days(3)" > 三天下跌反弹 </a></div>
+        <div class="down_stock"><a  onclick="check_days(4)" > 四天下跌反弹 </a></div>
+        <div class="down_stock"><a  onclick="check_days(5)" > 五天下跌反弹 </a></div>
+        <div class="down_stock"><a  onclick="check_days(6)" > 六天下跌反弹 </a></div>
+        <div class="down_stock"><a  onclick="check_days(7)" > 七天下跌反弹 </a></div>
     </div>
     <div class="draw" > </div>
     <table class="stock_data"></table>

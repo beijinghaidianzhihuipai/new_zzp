@@ -24,8 +24,7 @@ class StockGrowController extends Controller
         $down_stock = ZzpStockGrow::getDownData($down_days);
         return $down_stock;
     }
-
-
+    
     public function downUpIndex(){
         return view('front.downUpGrow');
     }

@@ -50,7 +50,7 @@ a{text-decoration:none}
 }
 
 .xinxi li{
-    width: 120px;
+    width: 100px;
 }
 .xinxi a{
     color: #fff;
@@ -63,8 +63,8 @@ a{text-decoration:none}
     float:right;
     margin-right:20px;
     margin-top:30px;
-
 }
+
 .denglu a{
     font-size: 15px;
     text-decoration:none;
