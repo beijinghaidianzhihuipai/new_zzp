@@ -67,7 +67,7 @@ class ZzpStockBonus extends Model
                 ->where('release_date', 'like', "%$qunian_moon%")
                 ->whereIn('stock_code', $diff)
                 ->orderBy('bonus_money', 'DESC')
-                ->paginate(30);
+                ->paginate(28);
             return $rel;
         }else{
             //隔年分红

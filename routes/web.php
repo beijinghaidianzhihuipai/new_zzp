@@ -33,10 +33,15 @@ Route::get('/front/get_bonus_info/{stock_code}','Front\BonusHeraldController@get
 
 Route::get('/admin/user_management','Admin\UserManagementController@index' );
 
-//股票趋势
+//股票下跌趋势
 Route::get('/front/stock_grow','Front\StockGrowController@index' );
 //获取连续下跌股票
 Route::post('/front/down/stock_grow','Front\StockGrowController@getDownStock' );
+
+//股票下跌反弹
+Route::get('/front/get_down_up','Front\StockGrowController@downUpIndex' );
+//获取反弹股票
+Route::post('/front/down/stock_down_up','Front\StockGrowController@getDownUpStock' );
 
 //全新头部
 Route::get('/front/header','Front\IndexController@header' );

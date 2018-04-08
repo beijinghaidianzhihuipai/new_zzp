@@ -25,6 +25,24 @@ class StockGrowController extends Controller
         return $down_stock;
     }
 
+
+    public function downUpIndex(){
+        return view('front.downUpGrow');
+    }
+    
+    //获取连续下跌并反弹的股票
+    public function getDownUpStock(Request $request){
+        $messages = [
+            'down_days.required' => '下跌天数不能为空',
+        ];
+        $this->validate($request,[
+            'down_days' => 'required',
+        ],$messages);
+        $down_days = $request->down_days;
+        $down_stock = ZzpStockGrow::getDownupData($down_days);
+        return $down_stock;
+    }
+
     
     
 }
