@@ -43,6 +43,11 @@ Route::get('/front/get_down_up','Front\StockGrowController@downUpIndex' );
 //获取反弹股票
 Route::post('/front/down/stock_down_up','Front\StockGrowController@getDownUpStock' );
 
+//连续上涨股票
+Route::get('/front/up_stock','Front\StockGrowController@upStock' );
+//连续下跌股票
+Route::post('/front/get_up_stock','Front\StockGrowController@getUpStock' );
+
 //全新头部
 Route::get('/front/header','Front\IndexController@header' );
 

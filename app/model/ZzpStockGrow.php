@@ -42,6 +42,7 @@ class ZzpStockGrow extends Model
         $where = array(
             array('stock_date','>=',$ch_time),
             array('grow_type','=',2),
+            array('start_price','>',0),
         );
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
             'stock_grow.stock_type', 'end_price', 'earnings_per_share',
@@ -53,7 +54,7 @@ class ZzpStockGrow extends Model
             ->having('num', '>=', $down_days)
             ->having('shiying', '>', 1)
             ->orderBy('shiying', 'asc')
-            ->limit(30)->get();
+            ->limit(35)->get();
 
         return empty($rel) ? '' : $rel->toArray();
     }
@@ -79,6 +80,7 @@ class ZzpStockGrow extends Model
         $end_ch_time = $more_rel[1]->stock_date;
         $where = array(
             array('grow_type','=',2),
+            array('start_price','>',0),
         );
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
             'stock_grow.stock_type', 'end_price', 'earnings_per_share',
@@ -93,7 +95,39 @@ class ZzpStockGrow extends Model
             ->having('num', '>=', $down_days)
             ->having('shiying', '>', 1)
             ->orderBy('shiying', 'asc')
-            ->limit(30)->get();
+            ->limit(35)->get();
+
+        return empty($rel) ? '' : $rel->toArray();
+    }
+
+
+    //连续上涨
+    public static function getUpData($up_days){
+        $last_rel = self::select()->orderby('id','DESC')->first();
+        $more_rel = self::select()
+            ->where('stock_code',$last_rel->stock_code)
+            ->orderby('id','DESC')
+            ->limit($up_days)
+            ->get();
+
+        $ch_num = $up_days-1;
+        $ch_time = $more_rel[$ch_num]->stock_date;
+        $where = array(
+            array('stock_date','>=',$ch_time),
+            array('grow_type','=',1),
+            array('start_price','>',0),
+        );
+        $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
+            'stock_grow.stock_type', 'end_price', 'earnings_per_share',
+            'net_profit_grow_rate', 'undistributed_profit_per_share',
+            DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'),
+            DB::raw('round(end_price / earnings_per_share) as shiying'))
+            ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
+            ->where($where)->groupBy('stock_grow.stock_code')
+            ->having('num', '>=', $up_days)
+            ->having('shiying', '>', 1)
+            ->orderBy('shiying', 'asc')
+            ->limit(35)->get();
 
         return empty($rel) ? '' : $rel->toArray();
     }

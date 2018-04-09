@@ -37,7 +37,7 @@ a{text-decoration:none}
 }
 
 .xinxi{
-    width: 550px;
+    width: 650px;
     height: 95px;
     line-height: 95px;
     font-size: 16px;
@@ -46,7 +46,7 @@ a{text-decoration:none}
     float: left;
 }
 .xinxi ul{
-    margin-left: 50px;
+    margin-left: 10px;
 }
 
 .xinxi li{
