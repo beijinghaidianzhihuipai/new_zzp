@@ -115,13 +115,15 @@ class ZzpStockGrow extends Model
         $ch_time = $more_rel[$ch_num]->stock_date;
         $other_ch_time = $more_rel[$up_days]->stock_date;
         $where = array(
-            array('stock_date','>=',$ch_time),
-            array('grow_type','=',1),
-            array('start_price','>',0),
+            array('stock_date', '>=', $ch_time),
+            array('grow_type', '=', 1),
+            array('start_price', '>', 0),
+            array('cash_flow_per_share', '>', 0),
         );
 
         $zhang_code_rel = self::select('stock_grow.stock_code',
           DB::raw('count(zzp_stock_grow.id) as num'))
+            ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
             ->where($where)->groupBy('stock_grow.stock_code')
             ->having('num', '>=', $up_days)
             ->pluck('stock_code')->toArray();
@@ -135,7 +137,7 @@ class ZzpStockGrow extends Model
         $other_code_rel = self::where($other_where)->groupBy('stock_grow.stock_code')
             ->pluck('stock_code')->toArray();
 
-        //交集两年内斗分红的股票
+        //交集
         $intersection = array_intersect($zhang_code_rel, $other_code_rel);
 
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
