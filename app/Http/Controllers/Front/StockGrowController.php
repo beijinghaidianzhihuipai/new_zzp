@@ -46,10 +46,10 @@ class StockGrowController extends Controller
         return view('front.upGrow');
     }
 
-    //获取连续下跌的股票
+    //获取连续上涨的股票
     public function getUpStock(Request $request){
         $messages = [
-            'up_days.required' => '下跌天数不能为空',
+            'up_days.required' => '上涨天数不能为空',
         ];
         $this->validate($request,[
             'up_days' => 'required',

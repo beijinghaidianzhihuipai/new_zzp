@@ -103,28 +103,48 @@ class ZzpStockGrow extends Model
 
     //连续上涨
     public static function getUpData($up_days){
+        $other_up_days = $up_days + 1;
         $last_rel = self::select()->orderby('id','DESC')->first();
         $more_rel = self::select()
             ->where('stock_code',$last_rel->stock_code)
             ->orderby('id','DESC')
-            ->limit($up_days)
+            ->limit($other_up_days)
             ->get();
 
         $ch_num = $up_days-1;
         $ch_time = $more_rel[$ch_num]->stock_date;
+        $other_ch_time = $more_rel[$up_days]->stock_date;
         $where = array(
             array('stock_date','>=',$ch_time),
             array('grow_type','=',1),
             array('start_price','>',0),
         );
+
+        $zhang_code_rel = self::select('stock_grow.stock_code',
+          DB::raw('count(zzp_stock_grow.id) as num'))
+            ->where($where)->groupBy('stock_grow.stock_code')
+            ->having('num', '>=', $up_days)
+            ->pluck('stock_code')->toArray();
+
+        $other_where = array(
+            array('stock_date','=',$other_ch_time),
+            array('grow_type','=',2),
+            array('start_price','>',0),
+        );
+
+        $other_code_rel = self::where($other_where)->groupBy('stock_grow.stock_code')
+            ->pluck('stock_code')->toArray();
+
+        //交集两年内斗分红的股票
+        $intersection = array_intersect($zhang_code_rel, $other_code_rel);
+
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
             'stock_grow.stock_type', 'end_price', 'earnings_per_share',
             'net_profit_grow_rate', 'undistributed_profit_per_share',
-            DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'),
-            DB::raw('round(end_price / earnings_per_share) as shiying'))
+            DB::raw('sum(grow_price) as grow_price'), DB::raw('round(end_price / earnings_per_share) as shiying'))
             ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
-            ->where($where)->groupBy('stock_grow.stock_code')
-            ->having('num', '>=', $up_days)
+            ->where($where)->whereIn('stock_grow.stock_code', $intersection)
+            ->groupBy('stock_grow.stock_code')
             ->having('shiying', '>', 1)
             ->orderBy('shiying', 'asc')
             ->limit(35)->get();

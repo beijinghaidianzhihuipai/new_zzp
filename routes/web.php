@@ -45,7 +45,7 @@ Route::post('/front/down/stock_down_up','Front\StockGrowController@getDownUpStoc
 
 //连续上涨股票
 Route::get('/front/up_stock','Front\StockGrowController@upStock' );
-//连续下跌股票
+//连续上涨股票
 Route::post('/front/get_up_stock','Front\StockGrowController@getUpStock' );
 
 //全新头部
