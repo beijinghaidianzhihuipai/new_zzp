@@ -121,7 +121,7 @@
                         var code = "'sz" + data[i].stock_code + "'";
                     }
                     con +='<tr class="dier"> <td id="grow" onclick="drawImg(' +code+ ')">' + data[i].stock_code  + "</td>" +
-                            "<td>" + data[i].stock_name + " </td>" +
+                            "<td><a href='/front/search_stock/" + data[i].stock_code+ "' target='_blank'>" + data[i].stock_name + "</a> </td>" +
                             '<td><img src="'+'{{URL::asset("/images/front/xia.png")}}' +'" />' + data[i].grow_price +"元</td>"+
                             " <td> " + data[i].end_price +"元 </td>"+
                             " <td>" + data[i].shiying +"%</td>"+
