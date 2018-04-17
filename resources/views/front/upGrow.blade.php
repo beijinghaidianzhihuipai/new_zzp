@@ -8,6 +8,7 @@
     <div id="text_main" >
         <h2>下跌反弹股票</h2>
     <div class="down_check">
+        <div class="down_stock"><a  onclick="check_days(2)" > 两天连涨 </a></div>
         <div class="down_stock"><a  onclick="check_days(3)" > 三天连涨 </a></div>
         <div class="down_stock"><a  onclick="check_days(4)" > 四天连涨 </a></div>
         <div class="down_stock"><a  onclick="check_days(5)" > 五天连涨 </a></div>
