@@ -22,6 +22,7 @@ class ZzpStockGrow extends Model
         'stock_date',
         'stock_type',
         'brunt_control',
+        'change_ratio',
         'updated_at',
         'created_at',
       ];

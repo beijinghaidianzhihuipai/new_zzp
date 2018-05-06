@@ -125,7 +125,7 @@
                             "<td><a href='/front/search_stock/" + data[i].stock_code+ "' target='_blank'>" + data[i].stock_name + "</a> </td>" +
                             '<td><img src="'+'{{URL::asset("/images/front/xia.png")}}' +'" />' + data[i].grow_price +"元</td>"+
                             " <td> " + data[i].end_price +"元 </td>"+
-                            " <td>" + data[i].change_ratio +"%</td>"+
+                            " <td>" + data[i].change_ratio +"</td>"+
                             " <td> " + data[i].earnings_per_share +"元</td>"+
                             " <td>" + data[i].brunt_control +"%</td>"+
                             " <td>" + data[i].net_profit_grow_rate +"%</td>"+

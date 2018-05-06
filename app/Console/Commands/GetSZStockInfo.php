@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\model\ZzpStockBasic;
 use App\model\ZzpStockCode;
 use App\model\ZzpStockGrow;
 use Illuminate\Console\Command;
@@ -88,6 +89,34 @@ class GetSZStockInfo extends Command
                 $grow_type = 0;
             }
 
+            $control_stock_url = "http://data.eastmoney.com/stockcomment/$stock_code.html";
+            $t_ch = curl_init();
+            curl_setopt($t_ch,CURLOPT_URL,$control_stock_url);
+            curl_setopt($t_ch,CURLOPT_RETURNTRANSFER,1);
+            curl_setopt($t_ch,CURLOPT_AUTOREFERER,1);
+            curl_setopt($t_ch,CURLOPT_HTTPPROXYTUNNEL,1);
+            curl_setopt($t_ch,CURLOPT_HEADER,0);
+            $t_result = curl_exec($t_ch);
+            $encode = mb_detect_encoding($t_result, array("ASCII",'UTF-8','GB2312',"GBK",'BIG5',"EUC-CN"));
+            $t_result = iconv( $encode, "UTF-8", $t_result) ;
+            $control_preg = '/机构参与度为(.+?)%/';
+            preg_match($control_preg, $t_result, $control_value);
+            if(isset($control_value[1])){
+                $brunt_control= $control_value[1];
+            }else{
+                $brunt_control = '';
+            }
+
+            $basic_where = array('stock_code' => $stock_code);
+            $stock_basic = ZzpStockBasic::getBasicInfo($basic_where);
+            $earnings_per_share = $stock_basic->earnings_per_share;
+            if($earnings_per_share == 0){
+                $change_ratio = 0;
+            }else{
+                $change_ratio = round($stock_info[3] / $earnings_per_share);
+            }
+
+
 
             $addInfo = array(
                 'stock_name' => $stock_info[0],
@@ -101,6 +130,8 @@ class GetSZStockInfo extends Command
                 'stock_time' => $stock_time,
                 'stock_date' => $stock_date,
                 'stock_type' => 2,
+                'brunt_control' => $brunt_control,
+                'change_ratio' =>$change_ratio
             );
             $rel = ZzpStockGrow::addGrow($addInfo);
         }

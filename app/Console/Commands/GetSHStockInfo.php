@@ -98,7 +98,11 @@ class GetSHStockInfo extends Command
             $basic_where = array('stock_code' => $stock_code);
             $stock_basic = ZzpStockBasic::getBasicInfo($basic_where);
             $earnings_per_share = $stock_basic->earnings_per_share;
-            $change_ratio = round($stock_info[3] / $earnings_per_share);
+            if($earnings_per_share == 0){
+                $change_ratio = 0;
+            }else{
+                $change_ratio = round($stock_info[3] / $earnings_per_share);
+            }
 
             $grow_price = sprintf("%.3f",$stock_info[3] - $stock_info[1]);
             if($grow_price > 0){
