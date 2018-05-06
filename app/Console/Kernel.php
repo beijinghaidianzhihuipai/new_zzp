@@ -38,6 +38,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('send:newinfo')->everyMinute()->withoutOverlapping();
         $schedule->command('send:shpdf')->everyMinute()->withoutOverlapping();
         $schedule->command('get:stock_bonus')->weekly();
+        $schedule->command('get:stock_basic')->weekly();
         $schedule->command('get:sh_stock_info')->dailyAt('15:35')->withoutOverlapping();
         $schedule->command('get:sz_stock_info')->dailyAt('16:00')->withoutOverlapping();
     }
