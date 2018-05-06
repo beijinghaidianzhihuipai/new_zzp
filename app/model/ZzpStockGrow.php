@@ -95,24 +95,33 @@ class ZzpStockGrow extends Model
             ->limit($new_down_days)
             ->get();
 
-        $ch_time = $more_rel[$down_days]->stock_date;
+        $start_time = $more_rel[$down_days]->stock_date;
         $end_ch_time = $more_rel[1]->stock_date;
         $where = array(
             array('grow_type','=',2),
             array('start_price','>',0),
         );
-        $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
-            'stock_grow.stock_type', 'end_price', 'earnings_per_share', 'brunt_control',
-            'net_profit_grow_rate', 'undistributed_profit_per_share',
-            DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'),
-            'change_ratio')
-            ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
+
+        $code_rel = self::select('stock_code', DB::raw('count(id) as num'))
             ->where($where)
-            ->whereBetween('stock_date', [$ch_time, $end_ch_time])
-            ->whereIn('stock_grow.stock_code',$up_stock)
+            ->whereBetween('stock_date', [$start_time, $end_ch_time])
             ->groupBy('stock_grow.stock_code')
-            ->having('num', '>=', $down_days)
-            ->having('change_ratio', '>=', 0)
+            ->having('num', '=', $down_days)
+            ->pluck('stock_code')->toArray();
+
+        //交集
+        $intersection = array_intersect( $up_stock, $code_rel);
+
+        $rel_where = array(
+            array('stock_grow.stock_date', '=', $stock_today),
+            array('stock_grow.change_ratio', '>=', 0),
+        );
+        $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code','grow_price',
+            'stock_grow.stock_type', 'end_price', 'earnings_per_share', 'brunt_control',
+            'net_profit_grow_rate', 'undistributed_profit_per_share', 'change_ratio')
+            ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
+            ->where($rel_where)
+            ->whereIn('stock_grow.stock_code',$intersection)
             ->orderBy('change_ratio', 'asc')
             ->limit(35)->get();
 
@@ -146,7 +155,6 @@ class ZzpStockGrow extends Model
             ->where($where)->groupBy('stock_grow.stock_code')
             ->having('num', '>=', $up_days)
             ->pluck('stock_code')->toArray();
-
         $other_where = array(
             array('stock_date','=',$other_ch_time),
             array('grow_type','=',2),
@@ -159,14 +167,20 @@ class ZzpStockGrow extends Model
         //交集
         $intersection = array_intersect($zhang_code_rel, $other_code_rel);
 
+        $last_stock_date = $last_rel->stock_date;
+        $where = array(
+            array('stock_date', '=', $last_stock_date),
+            array('grow_type', '=', 1),
+            array('start_price', '>', 0),
+            array('cash_flow_per_share', '>', 0),
+            array('change_ratio', '>=', 0),
+        );
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
             'stock_grow.stock_type', 'end_price', 'earnings_per_share', 'brunt_control',
             'net_profit_grow_rate', 'undistributed_profit_per_share',
-            DB::raw('sum(grow_price) as grow_price'), 'change_ratio')
+             'grow_price', 'change_ratio')
             ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
             ->where($where)->whereIn('stock_grow.stock_code', $intersection)
-            ->groupBy('stock_grow.stock_code')
-            ->having('change_ratio', '>=', 0)
             ->orderBy('change_ratio', 'asc')
             ->limit(35)->get();
 
