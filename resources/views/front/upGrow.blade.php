@@ -112,6 +112,7 @@
                 "<th>实际价格</th>" +
                 "<th>市盈率</th>" +
                 "<th>每股收益</th>" +
+                "<th>主力控盘</th>" +
                 "<th>增长率</th>" +
                 "<th>每股未分配利润</th>" +
                 "</tr>"
@@ -125,8 +126,9 @@
                             "<td><a href='/front/search_stock/" + data[i].stock_code+ "' target='_blank'>" + data[i].stock_name + "</a></td>" +
                             '<td><img src="'+'{{URL::asset("/images/front/zhang.png")}}' +'" />' + data[i].grow_price +"元</td>"+
                             " <td> " + data[i].end_price +"元 </td>"+
-                            " <td>" + data[i].shiying +"%</td>"+
+                            " <td>" + data[i].change_ratio +"%</td>"+
                             " <td> " + data[i].earnings_per_share +"元</td>"+
+                            " <td>" + data[i].brunt_control +"%</td>"+
                             " <td>" + data[i].net_profit_grow_rate +"%</td>"+
                             " <td>" + data[i].undistributed_profit_per_share +"元</td></tr>"
                 }

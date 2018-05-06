@@ -21,6 +21,7 @@ class ZzpStockGrow extends Model
         'stock_time',
         'stock_date',
         'stock_type',
+        'brunt_control',
         'updated_at',
         'created_at',
       ];
@@ -31,6 +32,7 @@ class ZzpStockGrow extends Model
 
     public static function getDownData($down_days){
         $last_rel = self::select()->orderby('id','DESC')->first();
+        $last_stock_date = $last_rel->stock_date;
         $more_rel = self::select()
             ->where('stock_code',$last_rel->stock_code)
             ->orderby('id','DESC')
@@ -44,17 +46,33 @@ class ZzpStockGrow extends Model
             array('grow_type','=',2),
             array('start_price','>',0),
         );
-        $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
-            'stock_grow.stock_type', 'end_price', 'earnings_per_share',
-            'net_profit_grow_rate', 'undistributed_profit_per_share',
-            DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'),
-            DB::raw('round(end_price / earnings_per_share) as shiying'))
-            ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
-            ->where($where)->groupBy('stock_grow.stock_code')
+        $code_rel = self::select( 'stock_code', DB::raw('count(id) as num'))
+            ->where($where)->groupBy('stock_code')
             ->having('num', '>=', $down_days)
-            ->having('shiying', '>', 1)
-            ->orderBy('shiying', 'asc')
+            ->pluck('stock_code')->toArray();
+
+        $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
+            'stock_grow.stock_type', 'end_price', 'earnings_per_share', 'brunt_control',
+            'net_profit_grow_rate', 'undistributed_profit_per_share', 'change_ratio')
+            ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
+            ->where('stock_date', $last_stock_date)
+            ->having('change_ratio', '>=', 0)
+            ->whereIn('stock_grow.stock_code', $code_rel)
+            ->orderBy('change_ratio', 'asc')
             ->limit(35)->get();
+        foreach ($rel as $key => $value){
+            $where = array(
+                array('stock_date', '>=', $ch_time),
+                array('grow_type', '=', 2),
+                array('start_price', '>', 0),
+                array('stock_code', '=', $value->stock_code),
+            );
+            $grow_price = self::select(DB::raw('sum(grow_price) as grow_price'))
+                ->where($where)
+                ->first()
+                ->toArray();
+            $rel[$key]->grow_price = $grow_price['grow_price'];
+        }
 
         return empty($rel) ? '' : $rel->toArray();
     }
@@ -83,18 +101,18 @@ class ZzpStockGrow extends Model
             array('start_price','>',0),
         );
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
-            'stock_grow.stock_type', 'end_price', 'earnings_per_share',
+            'stock_grow.stock_type', 'end_price', 'earnings_per_share', 'brunt_control',
             'net_profit_grow_rate', 'undistributed_profit_per_share',
             DB::raw('sum(grow_price) as grow_price'), DB::raw('count(zzp_stock_grow.id) as num'),
-            DB::raw('round(end_price / earnings_per_share) as shiying'))
+            'change_ratio')
             ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
             ->where($where)
             ->whereBetween('stock_date', [$ch_time, $end_ch_time])
             ->whereIn('stock_grow.stock_code',$up_stock)
             ->groupBy('stock_grow.stock_code')
             ->having('num', '>=', $down_days)
-            ->having('shiying', '>', 1)
-            ->orderBy('shiying', 'asc')
+            ->having('change_ratio', '>=', 0)
+            ->orderBy('change_ratio', 'asc')
             ->limit(35)->get();
 
         return empty($rel) ? '' : $rel->toArray();
@@ -141,14 +159,14 @@ class ZzpStockGrow extends Model
         $intersection = array_intersect($zhang_code_rel, $other_code_rel);
 
         $rel = self::select('stock_grow.stock_name', 'stock_grow.stock_code',
-            'stock_grow.stock_type', 'end_price', 'earnings_per_share',
+            'stock_grow.stock_type', 'end_price', 'earnings_per_share', 'brunt_control',
             'net_profit_grow_rate', 'undistributed_profit_per_share',
-            DB::raw('sum(grow_price) as grow_price'), DB::raw('round(end_price / earnings_per_share) as shiying'))
+            DB::raw('sum(grow_price) as grow_price'), 'change_ratio')
             ->leftJoin('stock_basic',array(array('stock_grow.stock_code','=','stock_basic.stock_code')))
             ->where($where)->whereIn('stock_grow.stock_code', $intersection)
             ->groupBy('stock_grow.stock_code')
-            ->having('shiying', '>', 1)
-            ->orderBy('shiying', 'asc')
+            ->having('change_ratio', '>=', 0)
+            ->orderBy('change_ratio', 'asc')
             ->limit(35)->get();
 
         return empty($rel) ? '' : $rel->toArray();
